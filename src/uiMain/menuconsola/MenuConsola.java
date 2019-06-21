@@ -1,5 +1,5 @@
-package uiMain;
+package uiMain.menuconsola;
 
 abstract class MenuConsola {
-
+	
 }
