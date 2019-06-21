@@ -5,6 +5,6 @@ public class OpcionDeMenu {
 		
 	}
 	public String toString(){
-		return ("")
+		return ("");
 	}
 }
