@@ -1,13 +1,10 @@
 package gestorAplicacion;
+import java.util.HashMap;
 
 public class Tienda extends Infraestructura {
-	public String Nombre;
-	public Tienda(String c) {
-		super();
-		Nombre=c;
+	HashMap	<Integer,Integer> inventario = new HashMap <>();
+	public Tienda(int id, String nom, int gan) {
+		super(id, nom, gan);
+		// TODO Auto-generated constructor stub
+		}
 	}
-
-}
- //	public Tienda() {		
-//}
-//super(5, "s", 8);
