@@ -6,10 +6,10 @@ public abstract class Persona {
 	protected String telefono;
 	protected Persona(){		
 	}
-	public Persona(int id, String nom, String ced, String tel){
+	public Persona(int id, String nombre, String cedula, String telefono){
 		ID = id;
-		nombre = nom;
-		cedula = ced;
-		telefono = tel;
+		this.nombre = nombre;
+		this.cedula = cedula;
+		this.telefono = telefono;
 		}
 	}
