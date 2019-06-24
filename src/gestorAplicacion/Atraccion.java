@@ -4,7 +4,7 @@ public class Atraccion extends Infraestructura{
 	private boolean estado;	
 	public Atraccion(int id,String nom,int gan, int cap,boolean est) {
 		super(id,nom,gan);
-		capacidad=capa;
+		capacidad=cap;
 		estado=est;	
 	}
 }
