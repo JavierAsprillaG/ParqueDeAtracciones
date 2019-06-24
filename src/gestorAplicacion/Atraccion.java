@@ -7,4 +7,13 @@ public class Atraccion extends Infraestructura{
 		capacidad=cap;
 		estado=est;	
 	}
+	public void cerrarAtraccion() {
+		estado = false;
+	}
+	public void abrirAtraccion() {
+		estado = true;
+	}
+	public boolean consultarEstado() {
+		return estado;
+	}
 }
