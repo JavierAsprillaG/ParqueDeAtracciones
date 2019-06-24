@@ -4,11 +4,7 @@ public class Boleta {
     private int ID;
     private int valor;
     private Persona usuario;
-    private Boleta(String categoria,int ID,int valor,Persona usuario) {
-    	categoria=categoria;
-    	ID=ID;
-    	valor=valor;
-    	usuario=usuario;    	
+    private Boleta() {    	
     }
     private void crearboleta() {    	
     }
