@@ -4,10 +4,7 @@ public class Empleado extends Persona{
     private int sueldo;
     private String lugar;
     public Empleado(int id, String nom, String ced, String tel,String tip, int sueld,String lug ) { 
-        ID = id;
-		nombre = nom;
-		cedula = ced;
-		telefono = tel;
+        super(id,nom,ced,tel);
 		tipo = tip;
 		sueldo = sueld; 
 		lugar = lug;
