@@ -4,4 +4,6 @@ public class Registro {
 	private int gastos;
 	public void registro(){   
 	} 
+	public Registro() {		
+	}
 }
