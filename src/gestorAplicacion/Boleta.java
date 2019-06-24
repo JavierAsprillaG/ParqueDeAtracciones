@@ -4,9 +4,13 @@ public class Boleta {
     private int ID;
     private int valor;
     private Persona usuario;
-    private Boleta() {    	
+    public Boleta(String categoria,int id,int valor,Persona usuario) { 
+    	this.categoria = categoria;
+    	ID = id;
+    	this.valor = valor;
+    	this.usuario = usuario;
     }
-    private void crearboleta() {    	
-    }
+    public void crearboleta() {    	
+}
     
 }
