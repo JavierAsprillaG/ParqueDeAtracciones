@@ -1,5 +1,5 @@
 package gestorAplicacion;
-public class Administrador {
+public class Administrador extends Empleado{
 	public Administrador() {		
 	}
 	public void crearadministrador() {		

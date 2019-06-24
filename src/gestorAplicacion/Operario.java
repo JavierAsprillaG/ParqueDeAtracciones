@@ -1,8 +1,8 @@
 package gestorAplicacion;
-public class Operario {
+public class Operario extends Empleado{
 	public Operario() {		
 	}
-	public void Crearoperario() {		
+	public void crearoperario() {		
 	}
 	public void abrir(){    
 	}

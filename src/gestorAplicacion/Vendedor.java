@@ -1,6 +1,7 @@
 package gestorAplicacion;
-public class Vendedor extends Infraestructura{
-	public Vendedor() {		
+public class Vendedor extends Empleado{	
+	public Vendedor(){
+		super(0,"","","","",0,"");		
 	}
 	public void crearvendedor(){		
 	}

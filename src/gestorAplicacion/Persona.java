@@ -1,14 +1,15 @@
 package gestorAplicacion;
-
 public abstract class Persona {
-	private int ID;
-	private String nombre;
-	private String cedula;
-	private String telefono;
-	Persona(int id, String nom, String c, String tel){
+	protected int ID;
+	protected String nombre;
+	protected String cedula;
+	protected String telefono;
+	protected Persona(){		
+	}
+	public Persona(int id, String nom, String ced, String tel){
 		ID = id;
 		nombre = nom;
-		cedula = c;
+		cedula = ced;
 		telefono = tel;
 		}
 	}

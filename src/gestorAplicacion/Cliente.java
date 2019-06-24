@@ -1,8 +1,7 @@
 package gestorAplicacion;
-public class Cliente {
+public class Cliente extends Persona {
 	public Cliente() {		
 	}
-	public void comprar() {
-		
+	public void comprar() {		
 	}
 }
