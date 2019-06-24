@@ -12,4 +12,3 @@ public class Operario extends Empleado{
 	public void solicitar_mantenimiento(){    
 	}
 }
-//super(0,"","","","",0,"");	

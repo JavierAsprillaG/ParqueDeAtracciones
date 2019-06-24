@@ -12,4 +12,3 @@ public class Vendedor extends Empleado{
 	public void Vender() {		
 	}
 }
-//super(0,"","","","",0,"");	
