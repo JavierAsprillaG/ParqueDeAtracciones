@@ -9,7 +9,6 @@ public class Empleado extends Persona{
 		this.sueldo = sueldo; 
 		this.lugar = lugar;
     }
-    public void solicitarcontraseña() {
-  	
+    public void solicitarcontraseña() {  	
     }
 }
