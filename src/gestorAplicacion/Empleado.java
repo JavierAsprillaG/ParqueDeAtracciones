@@ -10,5 +10,5 @@ public class Empleado extends Persona{
 		this.lugar = lugar;
     }
     public void solicitarcontraseña() {  	
-    }
+    }   
 }

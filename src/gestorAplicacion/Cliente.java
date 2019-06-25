@@ -12,6 +12,29 @@ public class Cliente extends Persona {
 		Cliente Cliente1 = new Cliente (id, nombre, cedula, telefono);
 		listaClientes.add(Cliente1);
 	}
+	public boolean verificar_registro() {
+		return(true);
+	}
 	public void comprar() {		
-	}	
+	}
+	public int getSaldo() {
+		return saldo;
+	}
+	public void setsaldo(int saldo) {
+		this.saldo = saldo;
+	}
+	public String getnombre() {
+		return nombre;
+	}
+	public String cedula() {
+		return cedula;
+	}
+	public String telefono() {
+		return telefono;
+	}
+	public String toString (){
+        String mensaje="El empleado se llama "+ "carlos" +" "+" con "+"121475545"+" años " +
+                "y un salario de "+saldo;
+        return mensaje;
+    }
 }
