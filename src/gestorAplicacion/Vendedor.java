@@ -1,7 +1,7 @@
 package gestorAplicacion;
 public class Vendedor extends Empleado{	
-	public Vendedor(int id, String nombre, String cedula, String telefono,String tipo, int sueldo,String lugar){
-		super(id,nombre,cedula,telefono,tipo,sueldo,lugar);		
+	public Vendedor(String nombre, String cedula, String telefono,String tipo, int sueldo,String lugar){
+		super(nombre,cedula,telefono,tipo,sueldo,lugar);		
 	}
 	public void crearvendedor(){		
 	}
