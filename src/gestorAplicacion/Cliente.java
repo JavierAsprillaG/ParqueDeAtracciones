@@ -2,7 +2,7 @@ package gestorAplicacion;
 import java.util.ArrayList;
 import java.util.Iterator;
 public class Cliente extends Persona {
-	static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+	public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	private int saldo= 50000;
 	public Cliente() {		
 	}
@@ -18,13 +18,19 @@ public class Cliente extends Persona {
 		Iterator<Cliente> nombreIterator = listaClientes.iterator();
 		while(nombreIterator.hasNext()){
 			Cliente Cliente_A_Buscar = nombreIterator.next();
-			if (Cliente_A_Buscar.getnombre() == nombre  && Cliente_A_Buscar.getcedula()== cedula ) {
+			if (Cliente_A_Buscar.getnombre().equals(nombre)  && Cliente_A_Buscar.getcedula().equals(cedula) ) {
 				return(true);
 			}			
 		}
 		return (false);
 	}
-	public void comprar() {		
+	public String comprarboleta(String nombre, String cedula) {
+		if(verificar_registro(nombre,cedula) == true) {
+			return("");
+		}
+		else {
+			return("Debe Registrarse");
+		}
 	}
 	public int getSaldo() {
 		return saldo;

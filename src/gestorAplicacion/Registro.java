@@ -8,4 +8,10 @@ public class Registro {
 	} 
 	public Registro() {		
 	}
+	public int getGanancias() {
+		return ganancias;
+	}
+	public int getGastos() {
+		return gastos;
+	}	
 }
