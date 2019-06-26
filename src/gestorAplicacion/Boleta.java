@@ -12,5 +12,8 @@ public class Boleta {
     }
     public void crearboleta() {    	
 }
+    public void pagodeboleta() {
+    	
+    }
     
 }
