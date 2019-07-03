@@ -6,7 +6,8 @@ public class OpcInvitado extends OpcionDeMenu{
 	public void ejecutar() {
 		mnu.añadirOpcionDeMenu(new OpcVerBoletas());
 		mnu.añadirOpcionDeMenu(new OpcVerCatalogo());
-		System.out.println("Presione (1)"+mnu.getOpcion(0)+"\nPresione (2)"+mnu.getOpcion(1));
+		mnu.añadirOpcionDeMenu(new MenuPpal());
+		System.out.println(mnu);
 	}
 	public String toString() {
 		return " para entrar como invitado";
