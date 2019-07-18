@@ -12,15 +12,23 @@ public class Tienda extends Infraestructura {
 		//agrega el producto de codigo k y su respectiva cantidad e
 	}
 	public int consultarInventario(int k) {
-		int c = inventario.get(k);
-		return c;
+		return inventario.get(k);
 		//se busca el producto de codigo k y devuelve la cantidad que hay de tal objeto
 	}
 	public void eliminarProducto(int k) {
 		inventario.remove(k);
 		//elimina el producto de codigo k del inventario
 	}
+	public void modificarProducto(int k, int v) {
+		int w = inventario.remove(k);
+		w -= v;
+		if (w>0) {
+			agregarProducto(k, w);
+		}
+		//se busca y elimina el elemento de codigo k y se venden v unidades del mismo luego se
+		//agrega con la cantidad que queda
 	}
+}
 // elemento e con clave k = put (k, e)
 // clave es el codigo del producto 
 // elemento es la cantidad de dicho producto

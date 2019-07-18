@@ -1,6 +1,6 @@
 package gestorAplicacion;
 public abstract class Infraestructura {
-	private static int ID;
+	private int ID;
     private String nombre;
     private int ganancias;
     

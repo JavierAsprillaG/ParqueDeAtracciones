@@ -4,10 +4,12 @@ public class Administrador extends Empleado{
 		super(nombre,cedula,telefono,tipo,sueldo,lugar);	
 	}
 	
-	public void crearadministrador() {		
+	public Administrador crearadministrador() {
+		return new Administrador(nombre, cedula, telefono, tipo, sueldo, lugar);
 	}
 	public void consultar(){   
 	}  
-	public void asginarcontraseña(){   
+	public void asginarcontraseña(){
+		crearEmpleado();
 	} 	
 }

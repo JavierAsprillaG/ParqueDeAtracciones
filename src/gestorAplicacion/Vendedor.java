@@ -6,11 +6,13 @@ public class Vendedor extends Empleado{
 	}
 	public void crearvendedor(){		
 	}
-	public void solicitarproducto(){   
+	public void solicitarproducto(int a){ 
+		Tienda.consultarInventario(a);
 	}
 	public void reportarbalance(){   
 	}
-	public void Vender() {		
+	public void Vender(int k, int v) {
+		Tienda.modificarProducto(k, v);
 	}
 	public Cliente buscarcliente(){
 		Iterator<Cliente> nombreIterator = listaClientes.iterator();
