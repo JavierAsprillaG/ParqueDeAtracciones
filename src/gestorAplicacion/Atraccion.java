@@ -7,6 +7,11 @@ public class Atraccion extends Infraestructura{
 		capacidad=cap;
 		estado=est;	
 	}
+	
+	/*public Atraccion crearAtraccion() {
+		return new Atraccion(ID, nombre, ganancias, capacidad, estado);
+	}*/
+	
 	public void cerrarAtraccion() {
 		estado = false;
 	}

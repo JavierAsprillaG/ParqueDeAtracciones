@@ -3,15 +3,14 @@ public class Empleado extends Persona{
     protected String tipo;
     protected int sueldo;
     protected String lugar;
-    public Empleado(String nombre, String cedula, String telefono,String tipo, int sueldo,String lugar ) { 
-        super(nombre,cedula,telefono);
-		this.tipo = tipo;
-		this.sueldo = sueldo; 
-		this.lugar = lugar;
+    
+    public Empleado(String nom, String ced, String tel,String tip, int sue,String lug ) { 
+        super(nom,ced,tel);
+		this.tipo = tip;
+		this.sueldo = sue; 
+		this.lugar = lug;
     }
-    public void solicitarcontraseña() {
-    	Administrador.asginarcontraseña();
-    }   
+    
     public Empleado crearEmpleado() {
     	return new Empleado(nombre, cedula, telefono, tipo, sueldo, lugar);
     }

@@ -1,19 +1,26 @@
 package gestorAplicacion;
 import java.util.Iterator;
+
 public class Vendedor extends Empleado{	
-	public Vendedor(String nombre, String cedula, String telefono,String tipo, int sueldo,String lugar){
-		super(nombre,cedula,telefono,tipo,sueldo,lugar);		
+	public Vendedor(String nom, String ced, String tel,String tip, int suel, String lug){
+		super(nom, ced, tel, tip, suel, lug);		
 	}
-	public void crearvendedor(){		
+	
+	public Empleado crearvendedor(){
+		return super.crearEmpleado();
 	}
-	public void solicitarproducto(int a){ 
-		Tienda.consultarInventario(a);
+	
+	public int solicitarproducto(Tienda a, int b){
+		return a.consultarInventario(b);
 	}
+	
 	public void reportarbalance(){   
 	}
-	public void Vender(int k, int v) {
-		Tienda.modificarProducto(k, v);
+	
+	public void Vender(Tienda a, int k, int v) {
+		a.modificarProducto(k, v);
 	}
+	
 	public Cliente buscarcliente(){
 		Iterator<Cliente> nombreIterator = listaClientes.iterator();
 		while(nombreIterator.hasNext()){

@@ -7,9 +7,18 @@ public class Administrador extends Empleado{
 	public Administrador crearadministrador() {
 		return new Administrador(nombre, cedula, telefono, tipo, sueldo, lugar);
 	}
+	
 	public void consultar(){   
-	}  
+	}
+	public Tienda crearTienda(int id, String nom, int gan) {
+		return new Tienda(id, nom, gan);
+	}
+	
+	public Atraccion crearAtraccion(int id, String nom, int gan, int cap, boolean est) {
+		return new Atraccion(id, nom, gan, cap, est);
+	}
+	
 	public void asginarcontraseña(){
-		crearEmpleado();
+		this.crearEmpleado();
 	} 	
 }
