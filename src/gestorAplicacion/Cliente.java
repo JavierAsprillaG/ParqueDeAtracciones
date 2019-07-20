@@ -1,15 +1,17 @@
 package gestorAplicacion;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
+//import java.util.Iterator;
 public class Cliente extends Persona {
-	public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+	//public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+	public static HashMap	<String,Cliente> listaClientes = new HashMap <>();
 	private int saldo= 50000;
 	public Cliente() {		
 	}
 	public Cliente(String nombre, String cedula, String telefono) {	
 		super(nombre,cedula,telefono);
 	}
-	public void registrar(String nombre, String cedula, String telefono) {
+	/*public void registrar(String nombre, String cedula, String telefono) {
 		Cliente Cliente1 = new Cliente (nombre, cedula, telefono);
 		listaClientes.add(Cliente1);
 		
@@ -31,7 +33,33 @@ public class Cliente extends Persona {
 		else {
 			return("Debe Registrarse");
 		}
+	}*/
+	
+	public void registrar(String nom, String ced, String tel) {
+		Cliente a = new Cliente (nom, ced, tel);
+		if(listaClientes.containsKey(ced) == false) {
+			listaClientes.put(ced, a);
+			//se crea un nuevo cliente si la cedula de este no se encuentra en
+			//la lista de clientes entonces lo agrega a esta en caso contrario no hace nada
+		}
 	}
+	
+	public boolean verificarRegistro(String ced) {
+		return listaClientes.containsKey(ced);
+		//busca el cliente con la cedula ingresada, en caso de encontrarlo devuelve true, 
+		//si no lo encuentra devuelve false
+	}
+	
+	public String comprarBoleta(String ced){
+		if(verificarRegistro(ced) == true) {
+			return ("");
+		}
+		else {
+			return("Debe registrarse");
+		}
+	}
+
+	
 	public int getSaldo() {
 		return saldo;
 	}

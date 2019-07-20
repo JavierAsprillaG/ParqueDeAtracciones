@@ -1,5 +1,6 @@
 package gestorAplicacion;
-import java.util.Iterator;
+//import java.util.Iterator;
+
 
 public class Vendedor extends Empleado{
 	int ingresos=0;
@@ -24,7 +25,13 @@ public class Vendedor extends Empleado{
 		return ingresos += a.modificarProducto(k, v, pre);
 	}
 	
-	public Cliente buscarcliente(){
+	public Cliente buscarCliente(Cliente a) {
+		return a.listaClientes.get(cedula);
+		//se recibe un objeto tipo cliente, busca si la cedula del cliente ingresado
+		//se encuentra en la lista de clientes, en caso afirmativo devuelve el cliente
+		//en caso de que no este esta cedula registrada entonces retorna null
+	}
+	/*public Cliente buscarcliente(){
 		Iterator<Cliente> nombreIterator = listaClientes.iterator();
 		while(nombreIterator.hasNext()){
 			Cliente Cliente_A_Buscar = nombreIterator.next();
@@ -33,5 +40,8 @@ public class Vendedor extends Empleado{
 			}			
 		}
 		return (null);		
-	}
+	}*/
+	
+	
+	
 }
