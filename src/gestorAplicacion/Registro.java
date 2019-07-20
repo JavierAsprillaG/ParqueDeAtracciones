@@ -1,17 +1,30 @@
 package gestorAplicacion;
 public class Registro {
-	private int ganancias;
+	private int ingresos;
 	private int gastos;
-	public void registro(int ganancias,int gastos){ 
-		this.ganancias = ganancias;
-		this.gastos = gastos;
-	} 
+	
+	public Registro(int ing,int gas){ 
+		this.ingresos = ing;
+		this.gastos = gas;
+	}
+	
 	public Registro() {		
 	}
-	public int getGanancias() {
-		return ganancias;
+
+	public void setingresos(int ing) {
+		this.ingresos += ing;
 	}
+	
+	public void setGastos(int gas) {
+		this.gastos += gas;
+	}
+		
+	public int getingresos() {
+		return ingresos;
+	}
+	
 	public int getGastos() {
 		return gastos;
-	}	
+	}
+	
 }

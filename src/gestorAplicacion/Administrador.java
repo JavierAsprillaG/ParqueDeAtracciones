@@ -4,12 +4,25 @@ public class Administrador extends Empleado{
 		super(nombre,cedula,telefono,tipo,sueldo,lugar);	
 	}
 	
-	public Administrador crearadministrador() {
+	public Administrador crearAdministrador() {
 		return new Administrador(nombre, cedula, telefono, tipo, sueldo, lugar);
 	}
 	
-	public void consultar(){   
+	public int consultar(Registro a, String b){ 
+		//b seria lo que se desea consultar, los ingresos, los gastos o el balance entre ambos
+		if (b.equals("i")) {
+			return a.getingresos();
+		}
+		else if (b.equals("g")) {
+			return a.getGastos();
+		}
+		else {
+			int i = a.getingresos();
+			int g = a.getGastos();
+			return i-g;
+		}
 	}
+	
 	public Tienda crearTienda(int id, String nom, int gan) {
 		return new Tienda(id, nom, gan);
 	}

@@ -1,7 +1,8 @@
 package gestorAplicacion;
 import java.util.Iterator;
 
-public class Vendedor extends Empleado{	
+public class Vendedor extends Empleado{
+	int ingresos=0;
 	public Vendedor(String nom, String ced, String tel,String tip, int suel, String lug){
 		super(nom, ced, tel, tip, suel, lug);		
 	}
@@ -14,11 +15,13 @@ public class Vendedor extends Empleado{
 		return a.consultarInventario(b);
 	}
 	
-	public void reportarbalance(){   
+	public void reportarbalance(Registro a, int ing){
+		ing=ingresos;
+		a.setingresos(ing);
 	}
 	
-	public void Vender(Tienda a, int k, int v) {
-		a.modificarProducto(k, v);
+	public int Vender(Tienda a, int k, int v, int pre) {
+		return ingresos += a.modificarProducto(k, v, pre);
 	}
 	
 	public Cliente buscarcliente(){

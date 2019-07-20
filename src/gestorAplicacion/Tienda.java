@@ -28,15 +28,23 @@ public class Tienda extends Infraestructura {
 		//elimina el producto de codigo k del inventario
 	}
 	
-	public void modificarProducto(int k, int v) {
+	public int modificarProducto(int k, int v, int precio) {
+		//precio se refiere a la cantidad de dinero por producto
 		int w = inventario.remove(k);
 		w -= v;
 		if (w>0) {
 			agregarProducto(k, w);
 		}
+		return v*precio;
 		//se busca y elimina el elemento de codigo k y se venden v unidades del mismo luego se
-		//agrega con la cantidad que queda
+		//agrega con la cantidad que queda, al final regresa la cantidad de dinero obtenido por la venta
 	}
+	
+	public HashMap<Integer, Integer> getInventario() {
+		return inventario;
+		//regresa todos los items del inventario
+	}
+	
 }
 // elemento e con clave k = put (k, e)
 // clave es el codigo del producto 

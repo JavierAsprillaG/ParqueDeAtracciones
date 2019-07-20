@@ -14,4 +14,28 @@ public class Empleado extends Persona{
     public Empleado crearEmpleado() {
     	return new Empleado(nombre, cedula, telefono, tipo, sueldo, lugar);
     }
+    
+    public int getSueldo() {
+		return sueldo;
+	}
+    
+    public String getLugar() {
+		return lugar;
+	}
+    
+    public String getTipo() {
+		return tipo;
+	}
+    
+    public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+    
+    public void setSueldo(int sueldo) {
+		this.sueldo = sueldo;
+	}
+    
+    public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
 }

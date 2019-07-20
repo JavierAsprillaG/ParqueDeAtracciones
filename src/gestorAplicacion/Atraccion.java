@@ -15,10 +15,21 @@ public class Atraccion extends Infraestructura{
 	public void cerrarAtraccion() {
 		estado = false;
 	}
+	
 	public void abrirAtraccion() {
 		estado = true;
 	}
+	
 	public boolean consultarEstado() {
 		return estado;
 	}
+	
+	public int getCapacidad() {
+		return capacidad;
+	}
+	
+	public void setCapacidad(int cap) {
+		this.capacidad = cap;
+	}
+	
 }
