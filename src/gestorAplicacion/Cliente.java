@@ -1,11 +1,12 @@
 package gestorAplicacion;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 //import java.util.Iterator;
 public class Cliente extends Persona {
 	//public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	public static HashMap	<String,Cliente> listaClientes = new HashMap <>();
 	private int saldo= 50000;
+	Boleta x;
 	public Cliente() {		
 	}
 	public Cliente(String nombre, String cedula, String telefono) {	
@@ -50,12 +51,16 @@ public class Cliente extends Persona {
 		//si no lo encuentra devuelve false
 	}
 	
-	public String comprarBoleta(String ced){
+	public Boleta comprarBoleta(String ced, String b, int c, int d){
 		if(verificarRegistro(ced) == true) {
-			return ("");
+			Boleta a = x.crearboleta(b, c, d);
+			a.pagodeboleta(listaClientes.get(ced), a);
+			//si la cedula esta registrada se crea una nueva boleta con los parametros proporcionados, luego de esto se hace el pago de la boleta descontando saldo del cliente
+			//al que pertenece la cedula ingresada y se asigna este usuario a la boleta creada y se retorna la boleta comprada			
+			return a;
 		}
 		else {
-			return("Debe registrarse");
+			return null;
 		}
 	}
 
@@ -74,6 +79,12 @@ public class Cliente extends Persona {
 	}
 	public String gettelefono() {
 		return telefono;
+	}
+	public static HashMap<String, Cliente> getListaClientes() {
+		return listaClientes;
+	}
+	public void setSaldo(int saldo) {
+		this.saldo = saldo;
 	}
 	public String toString (){
         String mensaje="El empleado se llama "+ nombre +" "+" con cedula "+cedula+" y telefono  " +
