@@ -54,10 +54,15 @@ public class Cliente extends Persona {
 	public Boleta comprarBoleta(String ced, String b, int c, int d){
 		if(verificarRegistro(ced) == true) {
 			Boleta a = x.crearboleta(b, c, d);
-			a.pagodeboleta(listaClientes.get(ced), a);
+			if(a.pagodeboleta(listaClientes.get(ced), a) == true) {
+				a.pagodeboleta(listaClientes.get(ced), a);
+				return a;
+			}
+			else{
+				return null;
+			}
 			//si la cedula esta registrada se crea una nueva boleta con los parametros proporcionados, luego de esto se hace el pago de la boleta descontando saldo del cliente
 			//al que pertenece la cedula ingresada y se asigna este usuario a la boleta creada y se retorna la boleta comprada			
-			return a;
 		}
 		else {
 			return null;
