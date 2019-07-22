@@ -6,7 +6,7 @@ public class Cliente extends Persona {
 	//public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	public static HashMap	<String,Cliente> listaClientes = new HashMap <>();
 	private int saldo= 50000;
-	Boleta x;
+	static Boleta x;
 	public Cliente() {		
 	}
 	public Cliente(String nombre, String cedula, String telefono) {	
@@ -36,7 +36,7 @@ public class Cliente extends Persona {
 		}
 	}*/
 	
-	public void registrar(String nom, String ced, String tel) {
+	public static void registrar(String nom, String ced, String tel) {
 		Cliente a = new Cliente (nom, ced, tel);
 		if(listaClientes.containsKey(ced) == false) {
 			listaClientes.put(ced, a);
@@ -45,15 +45,15 @@ public class Cliente extends Persona {
 		}
 	}
 	
-	public boolean verificarRegistro(String ced) {
+	public static boolean verificarRegistro(String ced) {
 		return listaClientes.containsKey(ced);
 		//busca el cliente con la cedula ingresada, en caso de encontrarlo devuelve true, 
 		//si no lo encuentra devuelve false
 	}
 	
-	public Boleta comprarBoleta(String ced, String b, int c, int d){
+	public static Boleta comprarBoleta(String ced, String categori){
 		if(verificarRegistro(ced) == true) {
-			Boleta a = x.crearboleta(b, c, d);
+			Boleta a= Boleta.crearboleta(categori);			
 			if(a.pagodeboleta(listaClientes.get(ced), a) == true) {
 				a.pagodeboleta(listaClientes.get(ced), a);
 				return a;
@@ -68,13 +68,8 @@ public class Cliente extends Persona {
 			return null;
 		}
 	}
-
-	
 	public int getSaldo() {
 		return saldo;
-	}
-	public void setsaldo(int saldo) {
-		this.saldo = saldo;
 	}
 	public String getnombre() {
 		return nombre;
@@ -88,12 +83,12 @@ public class Cliente extends Persona {
 	public static HashMap<String, Cliente> getListaClientes() {
 		return listaClientes;
 	}
-	public void setSaldo(int saldo) {
+	public void setsaldo(int saldo) {
 		this.saldo = saldo;
 	}
 	public String toString (){
-        String mensaje="El empleado se llama "+ nombre +" "+" con cedula "+cedula+" y telefono  " +
-               telefono + " y un salario de "+ saldo;
+        String mensaje="El empleado se llama "+ getnombre() +" "+" con cedula "+getcedula()+" y telefono  " +
+        		gettelefono() + " y un salario de "+ getSaldo();
         return mensaje;
     }
 }
