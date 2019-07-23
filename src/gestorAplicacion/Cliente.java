@@ -71,15 +71,6 @@ public class Cliente extends Persona {
 	public int getSaldo() {
 		return saldo;
 	}
-	public String getnombre() {
-		return nombre;
-	}
-	public String getcedula() {
-		return cedula;
-	}
-	public String gettelefono() {
-		return telefono;
-	}
 	public static HashMap<String, Cliente> getListaClientes() {
 		return listaClientes;
 	}
@@ -87,8 +78,8 @@ public class Cliente extends Persona {
 		this.saldo = saldo;
 	}
 	public String toString (){
-        String mensaje="El empleado se llama "+ getnombre() +" "+" con cedula "+getcedula()+" y telefono  " +
-        		gettelefono() + " y un salario de "+ getSaldo();
+        String mensaje="El empleado se llama "+ getNombre() +" "+" con cedula "+getCedula()+" y telefono  " +
+        		getTelefono() + " y un salario de "+ getSaldo();
         return mensaje;
     }
 }
