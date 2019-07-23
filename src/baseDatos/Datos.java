@@ -4,19 +4,22 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.File;
-
-import com.sun.java.util.jar.pack.Package.File;
-
+import gestorAplicacion.Administrador;
 import gestorAplicacion.Usuario;
 import uiMain.menuconsola.MenuDeConsola;
+import uiMain.menuconsola.OpcionDeMenu;
+
 public class Datos {
 	public static HashMap<String, Usuario> usuarios = new HashMap<String, Usuario>();
+	public static HashMap<String, MenuDeConsola> menus = new HashMap<String, MenuDeConsola>();
+	public static HashMap<String, OpcionDeMenu> operations = new HashMap<String, OpcionDeMenu>();
 	
 	public static void cargarDatos() {
-		createFilesAndDirs();
+		crearArchivYDirects();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
 		cargarUsuarios(ruta);
 		cargarAdmins(ruta);
@@ -35,7 +38,7 @@ public class Datos {
             		String name = user[1];
             		String email = user[2];
             		String password = user[3];
-            		new AdminUser(name, username, email, password);
+            		new Administrador(name, username, email, password);
             	}
             }
             br.close();
@@ -55,7 +58,7 @@ public class Datos {
             		Usuario user = Usuario.getUsuarioPorUsername(menu[0]);
             		//slice de arrays
             		String[] operations = Arrays.copyOfRange(menu, 1, menu.length);
-            		MenuDeConsola.newMenu(user, operations);
+            		MenuDeConsola.nuevoMenu(user, operations);
             	}
             }
             br.close();
@@ -73,10 +76,10 @@ public class Datos {
             	if (!line.isEmpty()) {
             		String [] user = line.split(";");
             		String username = user[0];
-            		String name = user[1];
+            		String nombre = user[1];
             		String email = user[2];
-            		String password = user[3];
-            		new Usuario(name, username, email, password);
+            		String contrasena = user[3];
+            		new Usuario(nombre, username, email, contrasena);
             	}
             }
             br.close();
@@ -101,10 +104,10 @@ public class Datos {
     		for (Map.Entry<String, Usuario> user : usuarios.entrySet()) {
     			Usuario userObj = user.getValue();
     			String line = userObj.getUsername()+";";
-    			line += userObj.getName()+";";
+    			line += userObj.getNombre()+";";
     			line += userObj.getEmail()+";";
-    			line += userObj.getPassword();
-    			if(userObj instanceof AdminUser) {
+    			line += userObj.getContrasena();
+    			if(userObj instanceof Administrador) {
     				pwAdmin.println(line);
 					
 				}else {
@@ -125,8 +128,8 @@ public class Datos {
             PrintWriter pw = new PrintWriter(fw);
     		for (Map.Entry<String, MenuDeConsola> menu : menus.entrySet()) {
     			MenuDeConsola menuObj = menu.getValue();
-    			String line = menuObj.getUser().getUsername()+";";
-    			for (String  opt : menuObj.getOperations()) {
+    			String line = menuObj.getUsuario().getUsername()+";";
+    			for (String  opt : menuObj.getOperaciones()) {
     				line += opt+";";
 				}
     			//Correccion por el ; extra

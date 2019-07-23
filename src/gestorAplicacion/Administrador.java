@@ -1,11 +1,35 @@
 package gestorAplicacion;
+
+import baseDatos.Datos;
+import uiMain.menuconsola.MenuDeConsola;
+
 public class Administrador extends Empleado{
-    public Administrador(String nombre, String cedula, String telefono,String tipo, int sueldo,String lugar) {
-		super(nombre,cedula,telefono,tipo,sueldo,lugar);	
+	
+	Administrador(){
+		super();
 	}
 	
-	public Administrador crearAdministrador() {
-		return new Administrador(nombre, cedula, telefono, tipo, sueldo, lugar);
+    public Administrador(String nombre, String cedula, String telefono,String tip,
+    		String username, String email, String contrasena, int sue,String lug) {
+    	super(nombre,cedula,telefono,tip,username, email, contrasena, sue, lug);	
+	}
+	
+	public String crearAdministrador(String nombre, String cedula, String telefono,String tip,
+    		String username, String email, String contrasena, int sue,String lug) {
+		Administrador admin = new Administrador();
+		admin.setNombre(nombre);
+		admin.setUsername(username);
+		admin.setEmail(email);
+		admin.setContrasena(contrasena);
+		
+		String [] operations = {"1","2","3","4","5"};
+		MenuDeConsola.nuevoMenu(admin, operations);
+		if(true){
+			Datos.usuarios.put(username,admin);
+			return "Ha sido creado";
+		}else{
+			return "No ha sido creado...";
+		}
 	}
 	
 	public int consultar(Registro a, String b){ 
@@ -31,7 +55,7 @@ public class Administrador extends Empleado{
 		return new Atraccion(id, nom, gan, cap, est);
 	}
 	
-	public void asginarcontraseña(){
-		this.crearEmpleado();
-	} 	
+//	public void asginarcontraseña(){
+//		this.crearEmpleado();
+//	} 	
 }

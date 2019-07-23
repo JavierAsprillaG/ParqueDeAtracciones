@@ -5,8 +5,7 @@ import baseDatos.Datos;
 import uiMain.Main.*;
 import uiMain.menuconsola.MenuDeConsola;
 
-public class Usuario{
-	private String nombre;
+public class Usuario extends Persona{
 	private String username;
 	private String email;
 	private String contrasena;
@@ -22,8 +21,9 @@ public class Usuario{
 		Datos.usuarios.put(username, this);
 	}
 
-	public Usuario(String nombre, String username, String email, String contraseña) {
-		this.nombre = nombre;
+	public Usuario(String nombre, String ced, String tel, 
+			String username, String email, String contraseña) {
+		super(nombre,ced,tel);
 		this.username = username;
 		this.email = email;
 		this.contrasena = contraseña;
@@ -78,7 +78,7 @@ public class Usuario{
 		user.setContrasena(contraseña);
 
 		String [] operations = {"5"};
-		MenuDeConsola.newMenu(user, operations);
+		MenuDeConsola.nuevoMenu(user, operations);
 		if(true){
 			Datos.usuarios.put(username,user);
 			return "Ha sido creado";
