@@ -12,7 +12,7 @@ public abstract class Infraestructura {
     	this.ganancias = gan;
     }
     public int getID(){
-        return ID;
+        return id;
     }public String getNombre(){
         return nombre;
     }public int getGanancias(){
