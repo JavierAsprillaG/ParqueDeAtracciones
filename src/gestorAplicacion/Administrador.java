@@ -9,9 +9,13 @@ public class Administrador extends Empleado{
 		super();
 	}
 	
-    public Administrador(String nombre, String cedula, String telefono,String tip,
+	public Administrador(String nom, String ced, String tel,
     		String username, String email, String contrasena, int sue,String lug) {
-    	super(nombre,cedula,telefono,tip,username, email, contrasena, sue, lug);	
+		this(nom,ced,tel,"Administrador",username,email,contrasena,sue,lug);	
+	}
+	public Administrador(String nom, String ced, String tel,String tip,
+    		String username, String email, String contrasena, int sue,String lug) {
+		super(nom,ced,tel,tip,username, email, contrasena, sue, lug);
 	}
 	
 	public String crearAdministrador(String nombre, String cedula, String telefono,String tip,

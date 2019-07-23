@@ -1,11 +1,17 @@
 package gestorAplicacion;
 public class Operario extends Empleado{
-	public Operario(String nombre, String cedula, String telefono,String tipo, int sueldo,String lugar) {
-		super(nombre,cedula,telefono,tipo,sueldo,lugar);	
+	public Operario(String nom, String ced, String tel,
+    		String username, String email, String contrasena, int sue,String lug) {
+		this(nom,ced,tel,"Operario",username,email,contrasena,sue,lug);	
 	}
-	public Empleado crearoperario() {
-		return super.crearEmpleado();
+	public Operario(String nom, String ced, String tel,String tip,
+    		String username, String email, String contrasena, int sue,String lug) {
+		super(nom,ced,tel,tip,username, email, contrasena, sue, lug);
 	}
+//	public void crearoperario(String nom, String ced, String tel,String tip,
+//    		String username, String email, String contrasena, int sue,String lug) {
+//		super.crearEmpleado();
+//	}
 	public void abrir(Atraccion a){ 
 		a.abrirAtraccion();
 	}

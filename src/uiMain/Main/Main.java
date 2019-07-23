@@ -1,6 +1,5 @@
 package uiMain.Main;
 
-import gestorAplicacion.Persona;
 import gestorAplicacion.Usuario;
 import uiMain.menuconsola.*;
 

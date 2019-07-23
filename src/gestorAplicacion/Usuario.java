@@ -6,9 +6,9 @@ import uiMain.Main.*;
 import uiMain.menuconsola.MenuDeConsola;
 
 public class Usuario extends Persona{
-	private String username;
-	private String email;
-	private String contrasena;
+	protected String username;
+	protected String email;
+	protected String contrasena;
 	private MenuDeConsola menu;
 	
 	

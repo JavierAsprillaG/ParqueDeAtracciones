@@ -27,7 +27,6 @@ public class Empleado extends Usuario{
 		user.setEmail(email);
 		user.setContrasena(contrasena);
 		
-		//Menu por defecto al crear un nuevo usuario administrador
 		String [] operations = {"1","2","3","4","5"};
 		MenuDeConsola.nuevoMenu(user, operations);
 		if(true){

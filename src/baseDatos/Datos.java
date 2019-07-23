@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.File;
-import gestorAplicacion.Administrador;
+import gestorAplicacion.*;
 import gestorAplicacion.Usuario;
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
@@ -24,6 +24,7 @@ public class Datos {
 		cargarUsuarios(ruta);
 		cargarAdmins(ruta);
 		cargarMenus(ruta);
+		cargarEmp(ruta);
 	}
 	
 	private static void cargarAdmins(String ruta) {
@@ -35,15 +36,69 @@ public class Datos {
             	if (!line.isEmpty()) {
             		String [] user = line.split(";");
             		String username = user[0];
-            		String name = user[1];
+            		String pass = user[1];
             		String email = user[2];
-            		String password = user[3];
-            		new Administrador(name, username, email, password);
+            		String name = user[3];
+            		String ced = user[4];
+            		String tel = user[5];
+            		String tip = user[6];
+            		int suel = Integer.parseInt((user[7]));
+            		String lug = user[8];
+            		new Administrador(name, tel, ced, tip, username,email,pass, suel,lug);
             	}
             }
             br.close();
         }catch(Exception e){
         	//Error al leer
+        }
+	}
+	
+	private static void cargarEmp(String ruta) {
+		try{
+            FileReader fr = new FileReader(ruta+"empleados.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] user = line.split(";");
+            		String username = user[0];
+            		String pass = user[1];
+            		String email = user[2];
+            		String name = user[3];
+            		String ced = user[4];
+            		String tel = user[5];
+            		String tip = user[6];
+            		int suel = Integer.parseInt((user[7]));
+            		String lug = user[8];
+            		new Empleado(name, tel, ced, tip, username,email,pass, suel,lug);
+            	}
+            }
+            br.close();
+        }catch(Exception e){
+        	//Error al leer
+        }
+	}
+	
+	private static void cargarUsuarios(String ruta) {
+		try{
+            FileReader fr = new FileReader(ruta+"usuarios.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] user = line.split(";");
+            		String username = user[0];
+            		String pass = user[1];
+            		String email = user[2];
+            		String name = user[3];
+            		String ced = user[4];
+            		String tel = user[5];
+            		new Usuario(name,ced,tel, username, email, pass);
+            	}
+            }
+            br.close();
+        }catch(Exception e){
+            //Error al leer
         }
 	}
 	
@@ -67,27 +122,6 @@ public class Datos {
         }
 	}
 	
-	private static void cargarUsuarios(String ruta) {
-		try{
-            FileReader fr = new FileReader(ruta+"usuarios.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String line;
-            while((line = br.readLine()) != null){
-            	if (!line.isEmpty()) {
-            		String [] user = line.split(";");
-            		String username = user[0];
-            		String nombre = user[1];
-            		String email = user[2];
-            		String contrasena = user[3];
-            		new Usuario(nombre, username, email, contrasena);
-            	}
-            }
-            br.close();
-        }catch(Exception e){
-            //Error al leer
-        }
-	}
-	
 	public static void guardarDatos() {
 		crearArchivYDirects();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
@@ -97,19 +131,32 @@ public class Datos {
 	
 	private static void guardarUsuarios(String ruta){
 		try {
-            FileWriter fw = new FileWriter(ruta+"users.txt");
+			FileWriter fwEmp = new FileWriter(ruta+"empleados.txt");
+            PrintWriter pwEmp = new PrintWriter(fwEmp);
+            FileWriter fw = new FileWriter(ruta+"usuarios.txt");
             FileWriter fwAdmin = new FileWriter(ruta+"adminUsers.txt");
             PrintWriter pw = new PrintWriter(fw);
             PrintWriter pwAdmin = new PrintWriter(fwAdmin);
     		for (Map.Entry<String, Usuario> user : usuarios.entrySet()) {
     			Usuario userObj = user.getValue();
     			String line = userObj.getUsername()+";";
-    			line += userObj.getNombre()+";";
+    			line += userObj.getContrasena()+";";
     			line += userObj.getEmail()+";";
-    			line += userObj.getContrasena();
-    			if(userObj instanceof Administrador) {
-    				pwAdmin.println(line);
-					
+    			line += userObj.getNombre()+";";
+				line += userObj.getCedula()+";";
+				line += userObj.getTelefono()+";";
+				
+
+    			if(userObj instanceof Empleado) {
+    				
+	    			line += ((Empleado) userObj).getTipo()+";";
+					line += ((Empleado) userObj).getSueldo()+";";
+					line += ((Empleado) userObj).getLugar()+";";
+    				if(userObj instanceof Administrador){
+    					pwAdmin.println(line);
+    				}else {
+    					pwEmp.println(line);
+    				}
 				}else {
 					pw.println(line);
     			}
