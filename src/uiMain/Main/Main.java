@@ -1,10 +1,11 @@
 package uiMain.Main;
 
 import gestorAplicacion.Persona;
+import gestorAplicacion.Usuario;
 import uiMain.menuconsola.*;
 
 public class Main {
-	Persona usuario = new Persona();
+	public static Usuario usuario = new Usuario();
 	public static void main(String[] args) {
 		//mn.añadirOpcionDeMenu(new OpcSalir);
 		MenuPpal m = new MenuPpal();
