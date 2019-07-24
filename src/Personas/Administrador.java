@@ -1,6 +1,9 @@
-package gestorAplicacion;
+package Personas;
 
 import baseDatos.Datos;
+import gestorAplicacion.Atraccion;
+import gestorAplicacion.Registro;
+import gestorAplicacion.Tienda;
 import uiMain.menuconsola.MenuDeConsola;
 
 public class Administrador extends Empleado{

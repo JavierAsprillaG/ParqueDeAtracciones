@@ -1,8 +1,8 @@
 package uiMain.menuconsola;
 import java.util.Scanner;
 
+import Personas.Usuario;
 import baseDatos.Datos;
-import gestorAplicacion.Usuario;
 public class OpcLogging extends OpcionDeMenu{
 
 	public void ejecutar(){

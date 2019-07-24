@@ -1,6 +1,8 @@
-package gestorAplicacion;
+package Personas;
 //import java.util.ArrayList;
 import java.util.HashMap;
+
+import gestorAplicacion.Boleta;
 //import java.util.Iterator;
 public class Cliente extends Persona {
 	//public static ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();

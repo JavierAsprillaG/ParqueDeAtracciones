@@ -1,4 +1,7 @@
 package gestorAplicacion;
+
+import Personas.Cliente;
+
 public class Boleta {
     private String categoria;
     private static int ID = 0;
