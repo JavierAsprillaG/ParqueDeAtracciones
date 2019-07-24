@@ -168,13 +168,13 @@ public class Datos {
             String line;
             while((line = br.readLine()) != null){
             	if (!line.isEmpty()) {
-            		String [] regis = line.split(";");
-            		String id = regis[0];
-            		int gastos = Integer.parseInt(regis[1]);
-            		int ingresos = Integer.parseInt(regis[2]);
-            		int cap = Integer.parseInt(regis[3]);
-            		boolean est = Boolean.parseBoolean(regis[4]);
-            		new Atraccion(id,nombre,ganancias, cap, est);
+            		String [] atrac = line.split(";");
+            		String nomb = atrac[0];
+            		int ganan = Integer.parseInt(atrac[1]);
+            		int id = Integer.parseInt(atrac[2]);
+            		int cap = Integer.parseInt(atrac[3]);
+            		boolean est = Boolean.parseBoolean(atrac[4]);
+            		new Atraccion(id,nomb,ganan, cap, est);
             	}
             }
             br.close();
