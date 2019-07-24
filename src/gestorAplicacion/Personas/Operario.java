@@ -16,7 +16,7 @@ public class Operario extends Empleado{
 
 	public static String nuevoOperario(String nombre, String cedula, String telefono,String tip,
     		String username, String email, String contrasena, int sue,String lug) {
-		Operario op = new Operario();
+		Operario op = new Operario(nombre,cedula,telefono,tip,username,email,contrasena,sue,lug);
 		op.setNombre(nombre);
 		op.setUsername(username);
 		op.setEmail(email);

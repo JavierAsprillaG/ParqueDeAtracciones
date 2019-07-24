@@ -14,10 +14,12 @@ public class Main {
 		Main.iniciar();
 		while(true) {
 			MenuPpal m = new MenuPpal();
+			System.out.print("Ingrese el numero de la funcionalidad a remover: ");
 			m.lanzarMenu();
 			Scanner sc = new Scanner(System.in);
 			int b = sc.nextInt();
 			m.getOpcion(b).ejecutar();
+			System.out.print("Ingrese el numero de la funcionalidad a remover: ");
 			try {
 				if(Main.usuario != null){
 					Main.usuario.getMenu().lanzarMenu();
