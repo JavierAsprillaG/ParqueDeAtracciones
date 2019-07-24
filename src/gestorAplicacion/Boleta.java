@@ -79,10 +79,10 @@ public class Boleta {
     public void setValor(int valor) {
 		this.valor = valor;
 	}
-    public String toString (){
+    /*public String toString (){
         String mensaje="Esta Boleta es categoria "+ getCategoria() +" con ID "+getID()+" y un valor de " +
         		getvalor() + " asocida al usuario "+ usuario.getnombre();
         return mensaje;
-    }
+    }*/
     
 }

@@ -31,18 +31,5 @@ public class Vendedor extends Empleado{
 		//se recibe un objeto tipo cliente, busca si la cedula del cliente ingresado
 		//se encuentra en la lista de clientes, en caso afirmativo devuelve el cliente
 		//en caso de que no este esta cedula registrada entonces retorna null
-	}
-	/*public Cliente buscarcliente(){
-		Iterator<Cliente> nombreIterator = listaClientes.iterator();
-		while(nombreIterator.hasNext()){
-			Cliente Cliente_A_Buscar = nombreIterator.next();
-			if (Cliente_A_Buscar.getnombre().equals(nombre)  && Cliente_A_Buscar.getcedula().equals(cedula) ) {
-				return(Cliente_A_Buscar);
-			}			
-		}
-		return (null);		
-	}*/
-	
-	
-	
+	}			
 }
