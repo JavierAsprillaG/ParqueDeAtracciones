@@ -1,4 +1,5 @@
 package gestorAplicacion.Infraestructuras;
+/**/
 public abstract class Infraestructura {
 	private int id;
     private String nombre;
