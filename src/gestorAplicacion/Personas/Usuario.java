@@ -86,6 +86,9 @@ public class Usuario extends Persona{
 		}else{
 			return "No ha sido creado...";
 		}
+	// el metodo crea un Usuario user asignandole los valores correspondientes
+	// y llama al menu consola para informarle al usuario en caso de que
+	// haya creado un nuevo Usuario o el caso contrario
 	}
 	public static String editarUsuario(Usuario u,int option, String value){
 		switch (option) {
@@ -98,11 +101,14 @@ public class Usuario extends Persona{
 		default:
 			return "Opcion no valida";
 		}
+	// el metodo permite a un Usuario u el poder cambiar su nombre o contraseña por un 
+	// String value elegiendo entre opciones 1 y 2 con option.
 	}
 	
 	public static String borrarUsuario(String username){
 		Datos.usuarios.remove(username);
 		return "Ha sido eliminado";
+	// el metodo permite
 	}
 	
 	public static Usuario getUsuarioPorUsername(String username){

@@ -23,6 +23,7 @@ public class Vendedor extends Empleado{
 	
 	public int solicitarproducto(Tienda a, int b){
 		return a.consultarInventario(b);
+	// se consulta si el producto solicitado b existe dentro de la tienda a.
 	}
 	
 	public static String nuevoVendedor(String nombre, String cedula, String telefono,String tip,
@@ -45,11 +46,15 @@ public class Vendedor extends Empleado{
 		}else{
 			return "No ha sido creado...";
 		}
+	// el metodo crea un Vendedor vend asignandole los valores correspondientes
+	// y llama al menu consola para informarle al usuario en caso de que
+	// haya creado un nuevo Vendedor o el caso contrario
 	}
 	
 	public void reportarbalance(Registro a, int ing){
 		ing=ingresos;
 		a.setIngresos(ing);
+	//se añaden ingresos ing al registro a
 	}
 	
 	public int Vender(Tienda a, int k, int v, int pre) {

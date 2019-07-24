@@ -46,7 +46,6 @@ public class Main {
 		Datos.operations.put("4", new OpcNuevoAdmin("4"));
 		Datos.operations.put("4", new OpcNuevoVendedor("4"));
 		Datos.operations.put("5", new OpcSalir());
-		
 		//Cargar los datos
 		Datos.cargarDatos();
 	}

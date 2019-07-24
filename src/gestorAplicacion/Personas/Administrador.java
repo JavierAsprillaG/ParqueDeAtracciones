@@ -41,6 +41,9 @@ public class Administrador extends Empleado{
 		}else{
 			return "No ha sido creado...";
 		}
+	// el metodo crea un Administrador asignandole los valores correspondientes
+	// y llama al menu consola para informarle al usuario en caso de que
+	// haya creado un nuevo Administrador o el caso contrario.
 	}
 	
 	public int consultar(Registro a, String b){ 
