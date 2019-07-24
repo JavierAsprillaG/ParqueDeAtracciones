@@ -11,31 +11,7 @@ public class Cliente extends Persona {
 	}
 	public Cliente(String nombre, String cedula, String telefono) {	
 		super(nombre,cedula,telefono);
-	}
-	/*public void registrar(String nombre, String cedula, String telefono) {
-		Cliente Cliente1 = new Cliente (nombre, cedula, telefono);
-		listaClientes.add(Cliente1);
-		
-	}
-	public static boolean verificar_registro(String nombre, String cedula) {
-		Iterator<Cliente> nombreIterator = listaClientes.iterator();
-		while(nombreIterator.hasNext()){
-			Cliente Cliente_A_Buscar = nombreIterator.next();
-			if (Cliente_A_Buscar.getnombre().equals(nombre)  && Cliente_A_Buscar.getcedula().equals(cedula) ) {
-				return(true);
-			}			
-		}
-		return (false);
-	}
-	public String comprarboleta(String nombre, String cedula) {
-		if(verificar_registro(nombre,cedula) == true) {
-			return("");
-		}
-		else {
-			return("Debe Registrarse");
-		}
-	}*/
-	
+	}	
 	public static void registrar(String nom, String ced, String tel) {
 		Cliente a = new Cliente (nom, ced, tel);
 		if(listaClientes.containsKey(ced) == false) {
