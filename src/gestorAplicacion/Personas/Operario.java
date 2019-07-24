@@ -16,31 +16,36 @@ public class Operario extends Empleado{
 
 	public static String nuevoOperario(String nombre, String cedula, String telefono,String tip,
     		String username, String email, String contrasena, int sue,String lug) {
-		Vendedor vend = new Vendedor();
-		vend.setNombre(nombre);
-		vend.setUsername(username);
-		vend.setEmail(email);
-		vend.setContrasena(contrasena);
-		vend.setLugar(lug);
-		vend.setTipo(tip);
-		vend.setCedula(cedula);
-		vend.setTelefono(telefono);
+		Operario op = new Operario();
+		op.setNombre(nombre);
+		op.setUsername(username);
+		op.setEmail(email);
+		op.setContrasena(contrasena);
+		op.setLugar(lug);
+		op.setTipo(tip);
+		op.setCedula(cedula);
+		op.setTelefono(telefono);
 		
 		String [] operations = {"1","2","3","4","5"};
-		MenuDeConsola.nuevoMenu(vend, operations);
+		MenuDeConsola.nuevoMenu(op, operations);
 		if(true){
-			Datos.usuarios.put(username,vend);
+			Datos.usuarios.put(username,op);
 			return "Ha sido creado";
 		}else{
 			return "No ha sido creado...";
 		}
+	// el metodo crea un Operaroio op asignandole los valores correspondientes
+	// y llama al menu consola para informarle al usuario en caso de que
+	// haya creado un nuevo Operario o el caso contrario
 	}
 	
 	public void abrir(Atraccion a){ 
 		a.abrirAtraccion();
+	// este metodo le permite al operario abrir una atraccion a
 	}
 	public void cerrar(Atraccion a){
 		a.cerrarAtraccion();
+	// este metodo le permite al operario cerrar una atraccion a
 	}
 	public void solicitar_mantenimiento(Atraccion a){
 		a.cerrarAtraccion();

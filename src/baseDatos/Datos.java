@@ -177,7 +177,7 @@ public class Datos {
             		boolean est = Boolean.parseBoolean(regis[5]);
             		int ganancias = ingresos - gastos;
             		new Atraccion(id, nombre, ganancias, cap, est);
-            	}
+            		}
             }
             br.close();
         }catch(Exception e){

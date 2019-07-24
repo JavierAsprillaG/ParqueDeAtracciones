@@ -35,6 +35,9 @@ public class Empleado extends Usuario{
 		}else{
 			return "No se ha creado el empleado";
 		}
+	// el metodo crea un Empleado user y asignandole valores correspondientes
+	// y llama al menu consola para informarle al usuario en caso de que
+	// haya creado un nuevo Empleado o el caso contrario.
     }
     
     public int getSueldo() {

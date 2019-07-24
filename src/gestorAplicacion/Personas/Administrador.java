@@ -33,7 +33,7 @@ public class Administrador extends Empleado{
 		admin.setCedula(cedula);
 		admin.setTelefono(telefono);
 		
-		String [] operations = {"1","2","3","4","5"};
+		String [] operations = {"1","2","3","4","5","6"};
 		MenuDeConsola.nuevoMenu(admin, operations);
 		if(true){
 			Datos.usuarios.put(username,admin);
@@ -41,6 +41,9 @@ public class Administrador extends Empleado{
 		}else{
 			return "No ha sido creado...";
 		}
+	// el metodo crea un Administrador asignandole los valores correspondientes
+	// y llama al menu consola para informarle al usuario en caso de que
+	// haya creado un nuevo Administrador o el caso contrario.
 	}
 	
 	public int consultar(Registro a, String b){ 
