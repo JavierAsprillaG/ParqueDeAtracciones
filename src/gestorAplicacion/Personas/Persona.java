@@ -1,7 +1,7 @@
 package gestorAplicacion.Personas;
 public abstract class Persona {
 	//protected int ID;
-	private String nombre;
+	protected String nombre;
 	protected String cedula;
 	private String telefono;
 	public Persona(){		
