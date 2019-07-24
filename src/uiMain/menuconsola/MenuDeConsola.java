@@ -8,6 +8,8 @@ public class MenuDeConsola {
 	private Usuario usu;
 	private ArrayList<OpcionDeMenu> opciones = new ArrayList<OpcionDeMenu>();
 	
+	public MenuDeConsola() {
+	}
 	public MenuDeConsola(ArrayList<OpcionDeMenu> options){
 		this.opciones = options;
 	}
