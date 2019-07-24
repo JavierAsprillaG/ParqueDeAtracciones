@@ -1,8 +1,9 @@
-package gestorAplicacion;
-//import java.util.Iterator;
-
-
+package gestorAplicacion.Personas;
+import java.util.HashMap;
+import gestorAplicacion.Registro;
+import gestorAplicacion.Infraestructuras.Tienda;
 public class Vendedor extends Empleado{
+	public static HashMap	<String,Vendedor> RegistroVendedores = new HashMap <>();
 	int ingresos=0;
 	public Vendedor(String nom, String ced, String tel,
     		String username, String email, String contrasena, int sue,String lug) {

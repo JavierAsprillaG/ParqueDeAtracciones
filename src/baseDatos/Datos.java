@@ -9,7 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.io.File;
 import gestorAplicacion.*;
-import gestorAplicacion.Usuario;
+import gestorAplicacion.Personas.Administrador;
+import gestorAplicacion.Personas.Empleado;
+import gestorAplicacion.Personas.Usuario;
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
 

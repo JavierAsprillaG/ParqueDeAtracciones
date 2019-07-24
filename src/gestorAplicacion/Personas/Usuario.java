@@ -1,6 +1,7 @@
-package gestorAplicacion;
+package gestorAplicacion.Personas;
 
 import java.util.HashMap;
+
 import baseDatos.Datos;
 import uiMain.Main.*;
 import uiMain.menuconsola.MenuDeConsola;

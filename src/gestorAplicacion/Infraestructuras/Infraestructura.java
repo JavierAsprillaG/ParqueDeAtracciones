@@ -1,8 +1,8 @@
-package gestorAplicacion;
+package gestorAplicacion.Infraestructuras;
 public abstract class Infraestructura {
-	protected int id;
-    protected String nombre;
-    protected int ganancias;
+	private int id;
+    private String nombre;
+    private int ganancias;
     
     public Infraestructura() {   	
     }

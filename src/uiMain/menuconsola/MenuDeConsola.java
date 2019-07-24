@@ -2,7 +2,7 @@ package uiMain.menuconsola;
 import java.util.ArrayList;
 
 import baseDatos.Datos;
-import gestorAplicacion.Usuario;
+import gestorAplicacion.Personas.Usuario;
 
 public class MenuDeConsola {
 	private Usuario usu;

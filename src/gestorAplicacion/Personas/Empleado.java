@@ -1,4 +1,4 @@
-package gestorAplicacion;
+package gestorAplicacion.Personas;
 
 import baseDatos.Datos;
 import uiMain.menuconsola.MenuDeConsola;
@@ -7,7 +7,7 @@ public class Empleado extends Usuario{
     protected String tipo;
     protected int sueldo;
     protected String lugar;
-    protected MenuDeConsola men;
+    
     public Empleado() {
     	
     }

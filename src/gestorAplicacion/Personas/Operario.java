@@ -1,4 +1,7 @@
-package gestorAplicacion;
+package gestorAplicacion.Personas;
+
+import gestorAplicacion.Infraestructuras.Atraccion;
+
 public class Operario extends Empleado{
 	public Operario(String nom, String ced, String tel,
     		String username, String email, String contrasena, int sue,String lug) {

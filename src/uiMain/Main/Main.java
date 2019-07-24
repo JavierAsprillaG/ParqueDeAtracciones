@@ -2,9 +2,9 @@ package uiMain.Main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import baseDatos.Datos;
-import gestorAplicacion.Usuario;
+import gestorAplicacion.*;
+import gestorAplicacion.Personas.Usuario;
 import uiMain.menuconsola.*;
 
 public class Main {

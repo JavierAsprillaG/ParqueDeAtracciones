@@ -1,4 +1,5 @@
-package gestorAplicacion;
+package gestorAplicacion.Infraestructuras;
+
 public class Atraccion extends Infraestructura{
 	private int capacidad;
 	private boolean estado;

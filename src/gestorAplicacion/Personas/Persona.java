@@ -1,10 +1,10 @@
-package gestorAplicacion;
+package gestorAplicacion.Personas;
 public abstract class Persona {
 	//protected int ID;
 	protected String nombre;
 	protected String cedula;
-	protected String telefono;
-	protected Persona(){		
+	private String telefono;
+	public Persona(){		
 	}
 	public Persona(String nombre, String cedula, String telefono){
 		//ID = id;
