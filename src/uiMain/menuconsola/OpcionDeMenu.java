@@ -1,5 +1,4 @@
 package uiMain.menuconsola;
-import java.util.HashMap;
 import java.util.Map;
 
 import baseDatos.Datos;

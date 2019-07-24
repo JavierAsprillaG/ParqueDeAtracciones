@@ -8,7 +8,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.io.File;
-import gestorAplicacion.*;
+
+import gestorAplicacion.Registro;
+import gestorAplicacion.Infraestructuras.Atraccion;
 import gestorAplicacion.Personas.Administrador;
 import gestorAplicacion.Personas.Empleado;
 import gestorAplicacion.Personas.Usuario;
@@ -20,6 +22,7 @@ public class Datos {
 	public static HashMap<String, MenuDeConsola> menus = new HashMap<String, MenuDeConsola>();
 	public static HashMap<String, OpcionDeMenu> operations = new HashMap<String, OpcionDeMenu>();
 	public static HashMap<String, Atraccion> atracciones = new HashMap<String, Atraccion>();
+	public static HashMap<String, Registro> registro = new HashMap<String, Registro>();
 	
 	public static void cargarDatos() {
 		crearArchivYDirects();
@@ -29,6 +32,7 @@ public class Datos {
 		cargarMenus(ruta);
 		cargarEmp(ruta);
 		cargarAtracciones(ruta);
+		cargarRegistros(ruta);
 	}
 	
 	private static void cargarAdmins(String ruta) {
@@ -132,6 +136,7 @@ public class Datos {
 		guardarUsuarios(ruta);
 		guardarMenus(ruta);
 		guardarAtracciones(ruta);
+		guardarRegistro(ruta);
 	}
 	
 	private static void guardarAtracciones(String ruta) {
@@ -163,12 +168,55 @@ public class Datos {
             String line;
             while((line = br.readLine()) != null){
             	if (!line.isEmpty()) {
-            		String [] atrac = line.split(";");
-            		String nombre = atrac[0];
-            		int ganancias = Integer.parseInt(atrac[1]);
-            		int id = Integer.parseInt(atrac[2]);
-            		int cap = Integer.parseInt(atrac[3]);
-            		boolean est = Boolean.parseBoolean(atrac[4]);
+            		String [] regis = line.split(";");
+            		String id = regis[0];
+            		int gastos = Integer.parseInt(regis[1]);
+            		int ingresos = Integer.parseInt(regis[2]);
+            		int cap = Integer.parseInt(regis[3]);
+            		boolean est = Boolean.parseBoolean(regis[4]);
+            		new Atraccion(id,nombre,ganancias, cap, est);
+            	}
+            }
+            br.close();
+        }catch(Exception e){
+            //Error al leer
+        }
+	}
+	
+	private static void guardarRegistro(String ruta) {
+		try {
+			FileWriter fw = new FileWriter(ruta+"registro.txt");
+			PrintWriter pw = new PrintWriter(fw);
+			
+			for (Map.Entry<String, Registro> r : registro.entrySet()) {
+				Registro at = r.getValue();
+				String line = at.getID()+";";
+				line += at.getGastos()+";";
+				line += at.getIngresos()+";";
+				pw.println(line);
+			}
+			pw.close();
+		}
+		
+		catch(Exception e){
+			
+		}
+	}
+	
+	
+	private static void cargarRegistros(String ruta) {
+		try{
+            FileReader fr = new FileReader(ruta+"registro.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] regstro = line.split(";");
+            		String nombre = regstro[0];
+            		int ganancias = Integer.parseInt(regstro[1]);
+            		int id = Integer.parseInt(regstro[2]);
+            		int cap = Integer.parseInt(regstro[3]);
+            		boolean est = Boolean.parseBoolean(regstro[4]);
             		new Atraccion(id,nombre,ganancias, cap, est);
             	}
             }
@@ -248,10 +296,12 @@ public class Datos {
 	    }
 		File usersRegisteredFile = new File(ruta+"users.txt");
 		File adminUsersFile = new File(ruta+"adminUsers.txt");
+		File register = new File(ruta+"registro.txt");
 		File usersMenus = new File(ruta+"usersMenus.txt");
 		File atracc = new File(ruta+"atracciones.txt");
 		usersRegisteredFile.createNewFile();
 		adminUsersFile.createNewFile();
+		register.createNewFile();
 		atracc.createNewFile();
 		usersMenus.createNewFile();
 		}

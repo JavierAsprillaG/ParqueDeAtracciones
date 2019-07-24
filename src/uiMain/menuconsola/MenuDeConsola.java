@@ -77,7 +77,7 @@ public class MenuDeConsola {
 		}
 	}
 	
-	public void removeOpc(int i) {
+	public void eliminarOpc(int i) {
 		opciones.remove(i-1);
 	}
 	

@@ -1,8 +1,7 @@
 package uiMain.menuconsola;
 
 import java.util.Scanner;
-
-import gestorAplicacion.Usuario;
+import gestorAplicacion.Personas.Usuario;
 
 public class OpcRegistrarse extends OpcionDeMenu{
 	public void ejecutar() {

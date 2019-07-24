@@ -2,7 +2,7 @@ package uiMain.menuconsola;
 
 import java.util.Scanner;
 
-import gestorAplicacion.Usuario;
+import gestorAplicacion.Personas.Usuario;;
 
 public class OpcAnadirOpc extends OpcionDeMenu {
 

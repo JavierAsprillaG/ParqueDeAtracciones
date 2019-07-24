@@ -45,14 +45,6 @@ public class Empleado extends Usuario{
 		return lugar;
 	}
     
-    public MenuDeConsola getMenu() {
-		return men;
-	}
-    
-    public void getLugar(MenuDeConsola m) {
-		men=m;
-	}
-    
     public String getTipo() {
 		return tipo;
 	}

@@ -41,10 +41,11 @@ public class Main {
 	public static void iniciar() {
 		//Cargar las opciones del programa primero
 		Datos.operations.put("1", new OpcVerOpciones("1"));
-		Datos.operations.put("2", new AddOpt("2"));
-		Datos.operations.put("3", new RemoveOpt("3"));
-		Datos.operations.put("4", new NewAdmin("4"));
-		Datos.operations.put("5", new SignOut("5"));
+		Datos.operations.put("2", new OpcAnadirOpc("2"));
+		Datos.operations.put("3", new OpcEliminarOpc("3"));
+		Datos.operations.put("4", new OpcNuevoAdmin("4"));
+		Datos.operations.put("4", new OpcNuevoVendedor("4"));
+		Datos.operations.put("5", new OpcSalir());
 		
 		//Cargar los datos
 		Datos.cargarDatos();

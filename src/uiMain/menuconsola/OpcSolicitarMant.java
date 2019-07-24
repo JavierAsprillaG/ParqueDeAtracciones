@@ -2,9 +2,12 @@ package uiMain.menuconsola;
 
 public class OpcSolicitarMant extends OpcionDeMenu {
 
-	@Override
+	public OpcSolicitarMant(String key){
+		super(key);
+	}
+	
 	public void ejecutar() {
-		// TODO Auto-generated method stub
+		
 
 	}
 
