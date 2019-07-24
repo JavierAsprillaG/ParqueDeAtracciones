@@ -6,26 +6,14 @@ import gestorAplicacion.Usuario;
 public class OpcLogging extends OpcionDeMenu{
 
 	public void ejecutar(){
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Ingrese su usuario: ");
-		String str1 = sc.next();
-		Usuario u = Usuario.getUsuarioPorUsername(str1);
-		while(u == null){
-			System.out.println("El usuario ingresado es incorrecto o no existe\nInténtelo de nuevo");
-			str1 = sc.next();
-			if(str1.equals("0")) {
-				MenuPpal m = new MenuPpal();
-				m.lanzarMenu();
-				System.out.println(m);
-			}
-			
-		}
-		System.out.println("Ingrese su contraseña");
-		String str2 = sc.next();
-		while(!u.getContrasena().equals(str2)){
-			System.out.println("La contraseña ingresada es incorrecta\nInténtelo de nuevo");
-			str1 = sc.next();
-		}
+		Scanner leer = new Scanner(System.in);
+		System.out.print("Ingrese su usuario: ");
+		String username = leer.next();
+		System.out.print("Ingrese su contraseña: ");
+		String password = leer.next();
+		
+		System.out.println(Usuario.login(username, password));
+		
 	}
 	
 	public String toString() {

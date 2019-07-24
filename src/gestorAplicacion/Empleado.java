@@ -7,7 +7,7 @@ public class Empleado extends Usuario{
     protected String tipo;
     protected int sueldo;
     protected String lugar;
-    
+    protected MenuDeConsola men;
     public Empleado() {
     	
     }
@@ -43,6 +43,14 @@ public class Empleado extends Usuario{
     
     public String getLugar() {
 		return lugar;
+	}
+    
+    public MenuDeConsola getMenu() {
+		return men;
+	}
+    
+    public void getLugar(MenuDeConsola m) {
+		men=m;
 	}
     
     public String getTipo() {

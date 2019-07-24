@@ -11,7 +11,12 @@ public class Atraccion extends Infraestructura{
 	/*public Atraccion crearAtraccion() {
 		return new Atraccion(ID, nombre, ganancias, capacidad, estado);
 	}*/
-	
+	public boolean getEstado() {
+		return estado;
+	}
+	public void setEstado(boolean e) {
+		estado=e;
+	}
 	public void cerrarAtraccion() {
 		estado = false;
 	}

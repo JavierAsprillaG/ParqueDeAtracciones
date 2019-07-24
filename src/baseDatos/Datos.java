@@ -17,6 +17,7 @@ public class Datos {
 	public static HashMap<String, Usuario> usuarios = new HashMap<String, Usuario>();
 	public static HashMap<String, MenuDeConsola> menus = new HashMap<String, MenuDeConsola>();
 	public static HashMap<String, OpcionDeMenu> operations = new HashMap<String, OpcionDeMenu>();
+	public static HashMap<String, Atraccion> atracciones = new HashMap<String, Atraccion>();
 	
 	public static void cargarDatos() {
 		crearArchivYDirects();
@@ -25,6 +26,7 @@ public class Datos {
 		cargarAdmins(ruta);
 		cargarMenus(ruta);
 		cargarEmp(ruta);
+		cargarAtracciones(ruta);
 	}
 	
 	private static void cargarAdmins(String ruta) {
@@ -127,6 +129,51 @@ public class Datos {
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
 		guardarUsuarios(ruta);
 		guardarMenus(ruta);
+		guardarAtracciones(ruta);
+	}
+	
+	private static void guardarAtracciones(String ruta) {
+		try {
+			FileWriter fw = new FileWriter(ruta+"atracciones.txt");
+			PrintWriter pw = new PrintWriter(fw);
+			
+			for (Map.Entry<String, Atraccion> aa : atracciones.entrySet()) {
+				Atraccion at = aa.getValue();
+				String line = at.getNombre()+";";
+				line += at.getGanancias()+";";
+				line += at.getID()+";";
+				line += at.getCapacidad()+";";
+				line += at.getEstado()+";";
+				pw.println(line);
+			}
+			pw.close();
+		}
+		
+		catch(Exception e){
+			
+		}
+	}
+	
+	private static void cargarAtracciones(String ruta) {
+		try{
+            FileReader fr = new FileReader(ruta+"usuarios.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] atrac = line.split(";");
+            		String nombre = atrac[0];
+            		int ganancias = Integer.parseInt(atrac[1]);
+            		int id = Integer.parseInt(atrac[2]);
+            		int cap = Integer.parseInt(atrac[3]);
+            		boolean est = Boolean.parseBoolean(atrac[4]);
+            		new Atraccion(id,nombre,ganancias, cap, est);
+            	}
+            }
+            br.close();
+        }catch(Exception e){
+            //Error al leer
+        }
 	}
 	
 	private static void guardarUsuarios(String ruta){
@@ -163,6 +210,7 @@ public class Datos {
     		}
             pw.close();
             pwAdmin.close();
+            pwEmp.close();
             
         } catch (IOException ioObj) {
         	//Ocurrio algo al guardar en txt los datos
@@ -199,8 +247,11 @@ public class Datos {
 		File usersRegisteredFile = new File(ruta+"users.txt");
 		File adminUsersFile = new File(ruta+"adminUsers.txt");
 		File usersMenus = new File(ruta+"usersMenus.txt");
+		File atracc = new File(ruta+"atracciones.txt");
 		usersRegisteredFile.createNewFile();
 		adminUsersFile.createNewFile();
+		atracc.createNewFile();
+		usersMenus.createNewFile();
 		}
 		catch(IOException e){
 			//Ocurrio algo al crear las carpetas y los archivos

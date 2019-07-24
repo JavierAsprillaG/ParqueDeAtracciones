@@ -34,7 +34,7 @@ public class MenuDeConsola {
 	}
 	
 	public OpcionDeMenu getOpcion(int i) {
-		return opciones.get(i);
+		return opciones.get(i-1);
 	}
 	
 	public void añadirOpcionDeMenu(OpcionDeMenu op) {
@@ -45,7 +45,7 @@ public class MenuDeConsola {
 		String [] opt = new String[opciones.size()];
 		int i = 0;
 		for (OpcionDeMenu opcionDeMenu : opciones) {
-			//opt[i] = opcionDeMenu.getKey();
+			opt[i] = opcionDeMenu.getKey();
 			i++;
 		}
 		return opt;
@@ -67,6 +67,22 @@ public class MenuDeConsola {
 		MenuDeConsola menu = new MenuDeConsola(user, operationsMenu);
 		user.setMenu(menu);
 		Datos.menus.put(user.getUsername(), menu);
+	}
+	
+	public void verOpc() {
+		int i = 1;
+		for (OpcionDeMenu opcionDeMenu : opciones) {
+			System.out.println(i + " "+opcionDeMenu);
+			i++;
+		}
+	}
+	
+	public void removeOpc(int i) {
+		opciones.remove(i-1);
+	}
+	
+	public void anadirOpc(String op) {
+		opciones.add(Datos.operations.get(op));
 	}
 	
 }

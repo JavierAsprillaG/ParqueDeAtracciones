@@ -11,6 +11,7 @@ public class Vendedor extends Empleado{
 	public Vendedor(String nom, String ced, String tel,String tip,
     		String username, String email, String contrasena, int sue,String lug) {
 		super(nom,ced,tel,tip,username, email, contrasena, sue, lug);
+		this.set
 	}
 	
 	public int solicitarproducto(Tienda a, int b){
