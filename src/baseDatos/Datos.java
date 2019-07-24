@@ -7,13 +7,11 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
-import Personas.Administrador;
-import Personas.Empleado;
-import Personas.Usuario;
-
 import java.io.File;
 import gestorAplicacion.*;
+import gestorAplicacion.Personas.Administrador;
+import gestorAplicacion.Personas.Empleado;
+import gestorAplicacion.Personas.Usuario;
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
 

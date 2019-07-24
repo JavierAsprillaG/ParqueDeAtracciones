@@ -1,4 +1,4 @@
-package gestorAplicacion;
+package gestorAplicacion.Infraestructuras;
 public abstract class Infraestructura {
 	protected int id;
     protected String nombre;

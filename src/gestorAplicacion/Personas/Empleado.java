@@ -1,4 +1,4 @@
-package Personas;
+package gestorAplicacion.Personas;
 
 import baseDatos.Datos;
 import uiMain.menuconsola.MenuDeConsola;

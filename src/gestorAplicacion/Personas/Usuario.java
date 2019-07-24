@@ -1,4 +1,4 @@
-package Personas;
+package gestorAplicacion.Personas;
 
 import java.util.HashMap;
 

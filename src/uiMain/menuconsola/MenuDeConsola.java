@@ -1,8 +1,8 @@
 package uiMain.menuconsola;
 import java.util.ArrayList;
 
-import Personas.Usuario;
 import baseDatos.Datos;
+import gestorAplicacion.Personas.Usuario;
 
 public class MenuDeConsola {
 	private Usuario usu;

@@ -1,8 +1,8 @@
-package Personas;
+package gestorAplicacion.Personas;
 //import java.util.Iterator;
 
 import gestorAplicacion.Registro;
-import gestorAplicacion.Tienda;
+import gestorAplicacion.Infraestructuras.Tienda;
 
 public class Vendedor extends Empleado{
 	int ingresos=0;

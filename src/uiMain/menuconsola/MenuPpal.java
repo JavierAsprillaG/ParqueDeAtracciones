@@ -3,7 +3,7 @@ package uiMain.menuconsola;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import Personas.Usuario;
+import gestorAplicacion.Personas.Usuario;
 import uiMain.*;
 
 public class MenuPpal extends MenuDeConsola{

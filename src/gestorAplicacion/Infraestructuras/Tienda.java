@@ -1,4 +1,4 @@
-package gestorAplicacion;
+package gestorAplicacion.Infraestructuras;
 import java.util.HashMap;
 
 public class Tienda extends Infraestructura {
