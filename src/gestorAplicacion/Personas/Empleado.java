@@ -4,9 +4,9 @@ import baseDatos.Datos;
 import uiMain.menuconsola.MenuDeConsola;
 
 public class Empleado extends Usuario{
-    protected String tipo;
-    protected int sueldo;
-    protected String lugar;
+    private String tipo;
+    private int sueldo;
+    private String lugar;
     
     public Empleado() {
     	
