@@ -33,7 +33,7 @@ public class Administrador extends Empleado{
 		admin.setCedula(cedula);
 		admin.setTelefono(telefono);
 		
-		String [] operations = {"1","2","3","4","5"};
+		String [] operations = {"1","2","3","4","5","6"};
 		MenuDeConsola.nuevoMenu(admin, operations);
 		if(true){
 			Datos.usuarios.put(username,admin);
