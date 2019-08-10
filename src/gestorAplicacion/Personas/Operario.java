@@ -7,24 +7,15 @@ import uiMain.menuconsola.MenuDeConsola;
 public class Operario extends Empleado{
 	public Operario(String nom, String ced, String tel,
     		String username, String email, String contrasena, int sue,String lug) {
-		this(nom,ced,tel,"Operario",username,email,contrasena,sue,lug);	
-	}
-	public Operario(String nom, String ced, String tel,String tip,
-    		String username, String email, String contrasena, int sue,String lug) {
-		super(nom,ced,tel,tip,username, email, contrasena, sue, lug);
+		super(nom,ced,tel,username, email, contrasena, sue, lug);
 	}
 
-	public static String nuevoOperario(String nombre, String cedula, String telefono,String tip,
+	public static String crearUsuario(String nombre, String cedula, String telefono,
     		String username, String email, String contrasena, int sue,String lug) {
-		Operario op = new Operario(nombre,cedula,telefono,tip,username,email,contrasena,sue,lug);
-		op.setNombre(nombre);
+		Operario op = new Operario(nombre,cedula,telefono,username,email,contrasena,sue,lug);
 		op.setUsername(username);
 		op.setEmail(email);
 		op.setContrasena(contrasena);
-		op.setLugar(lug);
-		op.setTipo(tip);
-		op.setCedula(cedula);
-		op.setTelefono(telefono);
 		
 		String [] operations = {"1","2","3","4","5"};
 		MenuDeConsola.nuevoMenu(op, operations);

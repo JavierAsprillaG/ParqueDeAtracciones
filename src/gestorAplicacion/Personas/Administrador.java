@@ -8,35 +8,25 @@ import uiMain.menuconsola.MenuDeConsola;
 
 public class Administrador extends Empleado{
 	
-	Administrador(){
+	public Administrador(){
 		super();
 	}
-	
 	public Administrador(String nom, String ced, String tel,
     		String username, String email, String contrasena, int sue,String lug) {
-		this(nom,ced,tel,"Administrador",username,email,contrasena,sue,lug);	
-	}
-	public Administrador(String nom, String ced, String tel,String tip,
-    		String username, String email, String contrasena, int sue,String lug) {
-		super(nom,ced,tel,tip,username, email, contrasena, sue, lug);
+		super(nom,ced,tel,username, email, contrasena, sue, lug);
 	}
 	
-	public static String crearAdministrador(String nombre, String cedula, String telefono,String tip,
+	public static String crearUsuario(String nombre, String cedula, String telefono,String tip,
     		String username, String email, String contrasena, int sue,String lug) {
-		Administrador admin = new Administrador();
-		admin.setNombre(nombre);
+		Administrador admin = new Administrador(nombre,cedula,telefono,username, email, contrasena, sue, lug);
 		admin.setUsername(username);
 		admin.setEmail(email);
 		admin.setContrasena(contrasena);
-		admin.setLugar(lug);
-		admin.setTipo(tip);
-		admin.setCedula(cedula);
-		admin.setTelefono(telefono);
 		
 		String [] operations = {"1","2","3","4","5","6"};
 		MenuDeConsola.nuevoMenu(admin, operations);
 		if(true){
-			Datos.usuarios.put(username,admin);
+			Datos.admins.put(username,admin);
 			return "Ha sido creado";
 		}else{
 			return "No ha sido creado...";

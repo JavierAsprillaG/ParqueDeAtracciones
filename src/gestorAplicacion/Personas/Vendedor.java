@@ -10,15 +10,11 @@ public class Vendedor extends Empleado{
 		super();
 	}
 	
-	public static HashMap	<String,Vendedor> RegistroVendedores = new HashMap <>();
+	public static HashMap<String,Vendedor> registroVendedores = new HashMap <>();
 	int ingresos=0;
 	public Vendedor(String nom, String ced, String tel,
     		String username, String email, String contrasena, int sue,String lug) {
-		this(nom,ced,tel,"Vendedor",username,email,contrasena,sue,lug);	
-	}
-	public Vendedor(String nom, String ced, String tel,String tip,
-    		String username, String email, String contrasena, int sue,String lug) {
-		super(nom,ced,tel,tip,username, email, contrasena, sue, lug);
+		super(nom,ced,tel,username, email, contrasena, sue, lug);
 	}
 	
 	public int solicitarproducto(Tienda a, int b){
@@ -26,22 +22,17 @@ public class Vendedor extends Empleado{
 	// se consulta si el producto solicitado b existe dentro de la tienda a.
 	}
 	
-	public static String nuevoVendedor(String nombre, String cedula, String telefono,String tip,
+	public static String crearUsuario(String nombre, String cedula, String telefono,
     		String username, String email, String contrasena, int sue,String lug) {
-		Vendedor vend = new Vendedor();
-		vend.setNombre(nombre);
+		Vendedor vend = new Vendedor(nombre,cedula,telefono,username,email,contrasena,sue,lug);
 		vend.setUsername(username);
 		vend.setEmail(email);
 		vend.setContrasena(contrasena);
-		vend.setLugar(lug);
-		vend.setTipo(tip);
-		vend.setCedula(cedula);
-		vend.setTelefono(telefono);
 		
 		String [] operations = {"1","2","3","4","5"};
 		MenuDeConsola.nuevoMenu(vend, operations);
 		if(true){
-			Datos.usuarios.put(username,vend);
+			Datos.vendedors.put(username,vend);
 			return "Ha sido creado";
 		}else{
 			return "No ha sido creado...";
@@ -51,13 +42,13 @@ public class Vendedor extends Empleado{
 	// haya creado un nuevo Vendedor o el caso contrario
 	}
 	
-	public void reportarbalance(Registro a, int ing){
+	public void reportarBalance(Registro a, int ing){
 		ing=ingresos;
 		a.setIngresos(ing);
 	//se añaden ingresos ing al registro a
 	}
 	
-	public int Vender(Tienda a, int k, int v, int pre) {
+	public int vender(Tienda a, int k, int v, int pre) {
 		return ingresos += a.modificarProducto(k, v, pre);
 	}
 	

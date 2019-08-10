@@ -19,6 +19,9 @@ import uiMain.menuconsola.OpcionDeMenu;
 
 public class Datos {
 	public static HashMap<String, Usuario> usuarios = new HashMap<String, Usuario>();
+	public static HashMap<String, Usuario> admins = new HashMap<String, Usuario>();
+	public static HashMap<String, Usuario> vendedors = new HashMap<String, Usuario>();
+	public static HashMap<String, Usuario> operarios = new HashMap<String, Usuario>();
 	public static HashMap<String, MenuDeConsola> menus = new HashMap<String, MenuDeConsola>();
 	public static HashMap<String, OpcionDeMenu> operations = new HashMap<String, OpcionDeMenu>();
 	public static HashMap<String, Atraccion> atracciones = new HashMap<String, Atraccion>();
@@ -49,10 +52,9 @@ public class Datos {
             		String name = user[3];
             		String ced = user[4];
             		String tel = user[5];
-            		String tip = user[6];
             		int suel = Integer.parseInt((user[7]));
             		String lug = user[8];
-            		new Administrador(name, tel, ced, tip, username,email,pass, suel,lug);
+            		new Administrador(name, tel, ced, username,email,pass, suel,lug);
             	}
             }
             br.close();
@@ -75,10 +77,9 @@ public class Datos {
             		String name = user[3];
             		String ced = user[4];
             		String tel = user[5];
-            		String tip = user[6];
             		int suel = Integer.parseInt((user[7]));
             		String lug = user[8];
-            		new Empleado(name, tel, ced, tip, username,email,pass, suel,lug);
+            		new Empleado(name, tel, ced,username,email,pass, suel,lug);
             	}
             }
             br.close();
@@ -247,8 +248,6 @@ public class Datos {
 				
 
     			if(userObj instanceof Empleado) {
-    				
-	    			line += ((Empleado) userObj).getTipo()+";";
 					line += ((Empleado) userObj).getSueldo()+";";
 					line += ((Empleado) userObj).getLugar()+";";
     				if(userObj instanceof Administrador){
