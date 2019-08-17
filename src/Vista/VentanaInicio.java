@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 public class VentanaInicio extends JFrame{
 	Container cont = getContentPane();
-	JPanel p1,p2,p3,p4,p5,p6;
+	JPanel p1,p2,p3,p4,p5,p6,p7,p8,p9,p10;
 	JLabel l1,l2,l3,l4;
 	JButton bfoto,b2,b3,b4;
 	JTextArea textarea;
@@ -21,10 +21,19 @@ public class VentanaInicio extends JFrame{
 		p4 = new JPanel();p5 = new JPanel();p6 = new JPanel();
 		b2 = new JButton("Administrador"); b3 = new JButton("UsuarioComun");b4 = new JButton("Salir");
 		
-		p1.setLayout(new GridLayout(2,1));p4.setLayout(new BorderLayout(0,0));
-		p2.setLayout(new GridLayout(2,1));p5.setLayout(new BorderLayout(0,0));
-	
-		p3.add(l1); p6.add(b2);p6.add(b3);p6.add(l2);p6.add(l3);p6.add(t1);p6.add(l4);p6.add(t2);p6.add(b4);
+		p1.setLayout(new BorderLayout());p4.setLayout(new BorderLayout(0,0));
+		p2.setLayout(new BorderLayout());p5.setLayout(new BorderLayout(0,0));
+		p6.setLayout(new GridLayout(4,1,5,5));
+		p7 = new JPanel();p8 = new JPanel();p9 = new JPanel();
+		p10 = new JPanel();
+		p7.add(b2);p7.add(b3);
+		p8.add(l2);
+		p9.setLayout(new GridLayout(2,2,5,5));
+		p9.add(l3);p9.add(t1);
+		p9.add(l4);p9.add(t2);
+		p10.add(b4);
+		p3.add(l1);
+		p6.add(p7);p6.add(p8);p6.add(p9);p6.add(p10);
 		l1.setFont(new Font("Courier New", Font.ITALIC, 75));
 		textarea = new JTextArea("Esta aplicacion tiene como fin ayudar\na la administracion de un parque "
 				+ "de diversiones\ncon diferentes tipos de locales y trabajadores."
@@ -43,8 +52,8 @@ public class VentanaInicio extends JFrame{
 		b3 = new JButton("UsuarioComun");
 		p4.add(bfoto);
 		p5.add(scrollArea);
-		p1.add(p3);p1.add(p4);
-		p2.add(p5);p2.add(p6);
+		p1.add(p3,  BorderLayout.NORTH);p1.add(p4,BorderLayout.CENTER);
+		p2.add(p5,BorderLayout.NORTH);p2.add(p6,BorderLayout.CENTER);
 		cont.add(p1);
 		cont.add(p2);
 		this.setSize(900, 700);
