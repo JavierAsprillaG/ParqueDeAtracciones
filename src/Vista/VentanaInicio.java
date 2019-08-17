@@ -23,7 +23,7 @@ public class VentanaInicio extends JFrame{
 		
 		p1.setLayout(new BorderLayout());p4.setLayout(new BorderLayout(0,0));
 		p2.setLayout(new BorderLayout());p5.setLayout(new BorderLayout(0,0));
-		p6.setLayout(new GridLayout(4,1,5,5));
+		p6.setLayout(new GridLayout(10,1,5,5));
 		p7 = new JPanel();p8 = new JPanel();p9 = new JPanel();
 		p10 = new JPanel();
 		p7.add(b2);p7.add(b3);
