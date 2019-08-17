@@ -2,10 +2,11 @@ package gestorAplicacion.Infraestructuras;
 import java.util.HashMap;
 /**/
 public class Tienda extends Infraestructura {
+	private int ganancias;
 	public HashMap	<Integer,Integer> inventario = new HashMap <>();
 	
 	public Tienda(int id, String nom, int gan) {
-		super(id, nom, gan);
+		super(id, nom);
 		// TODO Auto-generated constructor stub
 		}
 	
@@ -41,11 +42,18 @@ public class Tienda extends Infraestructura {
 		/*Se busca y elimina el elemento de código k y se venden v unidades de este luego se agrega con 
 		 * la cantidad que queda, al final regresa la cantidad de dinero obtenido por la venta*/
 	}
-	
+	public int getGanancias() {
+		return ganancias;
+	}
+	public void setGanancias(int ganancias) {
+		this.ganancias = ganancias;
+	}
 	public HashMap<Integer, Integer> getInventario() {
 		return inventario;
 		//regresa todos los items del inventario
 	}
+	
+	
 	
 }
 // elemento e con clave k = put (k, e)
