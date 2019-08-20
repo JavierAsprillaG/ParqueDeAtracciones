@@ -51,11 +51,11 @@ public class Administrador extends Empleado{
 		}
 	}
 	
-	public Tienda crearTienda(int id, String nom, int gan) {
+	public Tienda crearTienda(String id, String nom, int gan) {
 		return new Tienda(id, nom, gan);
 	}
 	
-	public Atraccion crearAtraccion(int id, String nom, int gan, int cap, boolean est) {
+	public Atraccion crearAtraccion(String id, String nom, int gan, int cap, boolean est) {
 		return new Atraccion(id, nom, gan, cap, est);
 	}
 	

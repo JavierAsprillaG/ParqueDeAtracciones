@@ -9,11 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.io.File;
 
-import gestorAplicacion.Registro;
-import gestorAplicacion.Infraestructuras.Atraccion;
-import gestorAplicacion.Personas.Administrador;
-import gestorAplicacion.Personas.Empleado;
-import gestorAplicacion.Personas.Usuario;
+import gestorAplicacion.*;
+import gestorAplicacion.Infraestructuras.*;
+import gestorAplicacion.Personas.*;
 import uiMain.menuconsola.MenuDeConsola;
 import uiMain.menuconsola.OpcionDeMenu;
 
@@ -26,16 +24,20 @@ public class Datos {
 	public static HashMap<String, OpcionDeMenu> operations = new HashMap<String, OpcionDeMenu>();
 	public static HashMap<String, Atraccion> atracciones = new HashMap<String, Atraccion>();
 	public static HashMap<String, Registro> registro = new HashMap<String, Registro>();
+	public static HashMap<String, Tienda> tiendas = new HashMap<String, Tienda>();
+	public static HashMap<Integer,Producto> listaProductos = new HashMap<Integer,Producto>();
 	
 	public static void cargarDatos() {
 		crearArchivYDirects();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
+		cargarProductos(ruta);
 		cargarUsuarios(ruta);
 		cargarAdmins(ruta);
 		cargarMenus(ruta);
 		cargarEmp(ruta);
 		cargarAtracciones(ruta);
 		cargarRegistros(ruta);
+		cargarTiendas(ruta);
 	}
 	
 	private static void cargarAdmins(String ruta) {
@@ -134,10 +136,12 @@ public class Datos {
 	public static void guardarDatos() {
 		crearArchivYDirects();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
+		guardarProductos(ruta);
 		guardarUsuarios(ruta);
 		guardarMenus(ruta);
 		guardarAtracciones(ruta);
 		guardarRegistro(ruta);
+		guardarTiendas(ruta);
 	}
 	
 	private static void guardarAtracciones(String ruta) {
@@ -148,7 +152,7 @@ public class Datos {
 			for (Map.Entry<String, Atraccion> aa : atracciones.entrySet()) {
 				Atraccion at = aa.getValue();
 				String line = at.getNombre()+";";
-				line += at.getGanancias()+";";
+				//line += at.getGanancias()+";";
 				line += at.getID()+";";
 				line += at.getCapacidad()+";";
 				line += at.getEstado()+";";
@@ -171,7 +175,7 @@ public class Datos {
             	if (!line.isEmpty()) {
             		String [] regis = line.split(";");
             		String nombre = regis[0];
-            		int id = Integer.parseInt(regis[1]);
+            		String id = regis[1];
             		int gastos = Integer.parseInt(regis[2]);
             		int ingresos = Integer.parseInt(regis[3]);
             		int cap = Integer.parseInt(regis[4]);
@@ -179,6 +183,86 @@ public class Datos {
             		int ganancias = ingresos - gastos;
             		new Atraccion(id, nombre, ganancias, cap, est);
             		}
+            }
+            br.close();
+        }catch(Exception e){
+            //Error al leer
+        }
+	}
+	
+	private static void guardarProductos(String ruta) {
+		try {
+			FileWriter fw = new FileWriter(ruta+"productos.txt");
+			PrintWriter pw = new PrintWriter(fw);
+			
+			for (Map.Entry<Integer, Producto> r : listaProductos.entrySet()) {
+				Producto pro = r.getValue();
+				String line = pro.getCodigo()+";";
+				line += pro.getNombre()+";";
+				line += pro.getPrecio()+";";
+				pw.println(line);
+			}
+			pw.close();
+		}
+		
+		catch(Exception e){
+			
+		}
+	}
+	
+	private static void cargarTiendas(String ruta) {
+		try{
+            FileReader fr = new FileReader(ruta+"productos.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] tienda = line.split(";");
+            		int id = Integer.parseInt(tienda[0]);
+            		String nombre = tienda[1];
+            		double ganancias = Double.parseDouble(tienda[3]);
+            		new Producto(id,nombre,ganancias);
+            	}
+            }
+            br.close();
+        }catch(Exception e){
+            //Error al leer
+        }
+	}
+	
+	private static void guardarTiendas(String ruta) {
+		try {
+			FileWriter fw = new FileWriter(ruta+"tiendas.txt");
+			PrintWriter pw = new PrintWriter(fw);
+			
+			for (Map.Entry<String, Tienda> r : tiendas.entrySet()) {
+				Tienda pro = r.getValue();
+				String line = pro.getID()+";";
+				line += pro.getNombre()+";";
+				line += pro.getGanancias()+";";
+				pw.println(line);
+			}
+			pw.close();
+		}
+		
+		catch(Exception e){
+			
+		}
+	}
+	
+	private static void cargarProductos(String ruta) {
+		try{
+            FileReader fr = new FileReader(ruta+"productos.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] prod = line.split(";");
+            		String nombre = prod[1];
+            		int codigo = Integer.parseInt(prod[0]);
+            		double valor = Double.parseDouble(prod[2]);
+            		new Producto(codigo,nombre,valor);
+            	}
             }
             br.close();
         }catch(Exception e){
@@ -217,7 +301,7 @@ public class Datos {
             		String [] regstro = line.split(";");
             		String nombre = regstro[0];
             		int ganancias = Integer.parseInt(regstro[1]);
-            		int id = Integer.parseInt(regstro[2]);
+            		String id = regstro[2];
             		int cap = Integer.parseInt(regstro[3]);
             		boolean est = Boolean.parseBoolean(regstro[4]);
             		new Atraccion(id,nombre,ganancias, cap, est);
@@ -297,14 +381,18 @@ public class Datos {
 	    }
 		File usersRegisteredFile = new File(ruta+"users.txt");
 		File adminUsersFile = new File(ruta+"adminUsers.txt");
-		File register = new File(ruta+"registro.txt");
 		File usersMenus = new File(ruta+"usersMenus.txt");
 		File atracc = new File(ruta+"atracciones.txt");
+		File products = new File(ruta+"productos.txt");
+		File register = new File(ruta+"registro.txt");
+		File tien = new File(ruta+"tiendas.txt");
 		usersRegisteredFile.createNewFile();
 		adminUsersFile.createNewFile();
-		register.createNewFile();
-		atracc.createNewFile();
 		usersMenus.createNewFile();
+		register.createNewFile();
+		products.createNewFile();
+		atracc.createNewFile();
+		tien.createNewFile();
 		}
 		catch(IOException e){
 			//Ocurrio algo al crear las carpetas y los archivos
