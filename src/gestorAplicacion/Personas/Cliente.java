@@ -1,7 +1,7 @@
 package gestorAplicacion.Personas;
 import java.util.HashMap;
 import gestorAplicacion.Boleta;
-public class Cliente extends Persona {	
+public class Cliente extends Usuario {	
 	public static HashMap	<String,Cliente> listaClientes = new HashMap <>();
 	private int saldo= 50000;
 	public Cliente() {		

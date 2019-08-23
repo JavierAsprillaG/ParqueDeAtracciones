@@ -10,16 +10,9 @@ public class Usuario extends Persona{
 	protected String username;
 	protected String email;
 	protected String contrasena;
-	private MenuDeConsola menu;
 	
 	
 	public Usuario() {
-	}
-	
-	protected Usuario(String username, MenuDeConsola menu) {
-		this.username = username;
-		this.menu = menu;
-		Datos.usuarios.put(username, this);
 	}
 
 	public Usuario(String nombre, String ced, String tel, 
@@ -63,33 +56,25 @@ public class Usuario extends Persona{
 		this.contrasena = contrasena;
 	}
 	
-	public MenuDeConsola getMenu() {
-		return menu;
-	}
-
-	public void setMenu(MenuDeConsola menu) {
-		this.menu = menu;
-	}
-	
-	public static String nuevoUsuario(String nombre, String username, String email, String contraseña){
-		Usuario user = new Usuario();
-		user.setNombre(nombre);
-		user.setUsername(username);
-		user.setEmail(email);
-		user.setContrasena(contraseña);
-
-		String [] operations = {"5"};
-		MenuDeConsola.nuevoMenu(user, operations);
-		if(true){
-			Datos.usuarios.put(username,user);
-			return "Ha sido creado";
-		}else{
-			return "No ha sido creado...";
-		}
-	// el metodo crea un Usuario user asignandole los valores correspondientes
-	// y llama al menu consola para informarle al usuario en caso de que
-	// haya creado un nuevo Usuario o el caso contrario
-	}
+//	public static String nuevoUsuario(String nombre, String username, String email, String contraseña){
+//		Usuario user = new Usuario();
+//		user.setNombre(nombre);
+//		user.setUsername(username);
+//		user.setEmail(email);
+//		user.setContrasena(contraseña);
+//
+//		String [] operations = {"5"};
+//		MenuDeConsola.nuevoMenu(user, operations);
+//		if(true){
+//			Datos.usuarios.put(username,user);
+//			return "Ha sido creado";
+//		}else{
+//			return "No ha sido creado...";
+//		}
+//	// el metodo crea un Usuario user asignandole los valores correspondientes
+//	// y llama al menu consola para informarle al usuario en caso de que
+//	// haya creado un nuevo Usuario o el caso contrario
+//	}
 	public static String editarUsuario(Usuario u,int option, String value){
 		switch (option) {
 		case 1:	

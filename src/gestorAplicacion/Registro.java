@@ -4,10 +4,9 @@ import baseDatos.Datos;
 import gestorAplicacion.Personas.Persona;
 
 public class Registro {
-	private  int ingresos;
-	private  int gastos;
-	private  int ID = 0;
-	private Persona usuario;
+	private  static int ingresos;
+	private  static int gastos;
+	private  static int ID = 0;
 	public Registro(int ing,int gas,Persona usuario){ 
 		this.ingresos = ing;
 		this.gastos = gas;

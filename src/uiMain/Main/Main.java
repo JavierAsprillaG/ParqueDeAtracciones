@@ -2,6 +2,8 @@ package uiMain.Main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Vista.VentanaInicio;
 import baseDatos.Datos;
 import gestorAplicacion.*;
 import gestorAplicacion.Personas.Usuario;
@@ -10,7 +12,7 @@ import uiMain.menuconsola.*;
 public class Main {
 	public static Usuario usuario = new Usuario();
 	public static MenuDeConsola usuInvitado;
-//	public static void main(String[] args) {
+	public static void main(String[] args) {
 //		Main.iniciar();
 //		while(true) {
 //			MenuPpal m = new MenuPpal();
@@ -38,19 +40,11 @@ public class Main {
 //				System.exit(0);
 //			}
 //		}
-//	}
+		VentanaInicio v= new VentanaInicio();
+		v.arranca();
+	}
 	
 	public static void iniciar() {
-		//Cargar las opciones del programa primero
-		Datos.operations.put("1", new OpcVerOpciones("1"));
-		Datos.operations.put("2", new OpcAnadirOpc("2"));
-		Datos.operations.put("3", new OpcEliminarOpc("3"));
-		Datos.operations.put("4", new OpcNuevoAdmin("4"));
-		Datos.operations.put("5", new OpcNuevoVendedor("5"));
-		Datos.operations.put("6", new OpcNuevoOperario("6"));
-		
-		Datos.operations.put("5", new OpcSalir());
-		//Cargar los datos
 		Datos.cargarDatos();
 	}
 

@@ -1,20 +1,20 @@
 package gestorAplicacion.Personas;
 
 import baseDatos.Datos;
-import uiMain.menuconsola.MenuDeConsola;
+import gestorAplicacion.Infraestructuras.Infraestructura;
 
 public class Empleado extends Usuario{
     protected int sueldo;
     protected String lugar;
-    
+    protected String lugarTrabajo;
     public Empleado() {
     	
     }
     public Empleado(String nom, String ced, String tel,
-    		String username, String email, String contrasena, int sue,String lug) { 
+    		String username, String email, String contrasena, int sue,String idlugarTrabajo) { 
         super(nom,ced,tel, username, email, contrasena);
 		this.sueldo = sue; 
-		this.lugar = lug;
+		this.lugar = idlugarTrabajo;
     }
         
     public int getSueldo() {

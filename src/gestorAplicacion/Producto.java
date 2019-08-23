@@ -4,18 +4,18 @@ import baseDatos.Datos;
 import gestorAplicacion.Infraestructuras.Tienda;
 
 public class Producto {
-	private int codigo;
+	private String codigo;
 	private String nombre;
 	private double precio;
 	private Tienda tienda;
 	//Clase Datos tendra el hash de la lista de productos
-	public Producto(int cod, String nombre, double valor) {
+	public Producto(String cod, String nombre, double valor) {
 		setCodigo(cod);
 		this.setNombre(nombre);
 		setPrecio(valor);
 		Datos.listaProductos.put(cod, this);
 	}
-	public Producto(int cod, String nombre, double valor, String idTienda) {
+	public Producto(String cod, String nombre, double valor, String idTienda) {
 		setCodigo(cod);
 		this.setNombre(nombre);
 		setPrecio(valor);
@@ -25,10 +25,10 @@ public class Producto {
 	public void eliminarProducto(int codig) {//Busca por el codigo en el hash para eliminar el producto de la lista
 		Datos.listaProductos.remove(codig);
 	}
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {

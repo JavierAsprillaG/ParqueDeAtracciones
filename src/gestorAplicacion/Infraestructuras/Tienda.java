@@ -1,9 +1,12 @@
 package gestorAplicacion.Infraestructuras;
 import java.util.HashMap;
+import java.util.ArrayList;
+
 /**/
 public class Tienda extends Infraestructura {
 	private double ganancias;
 	public HashMap	<Integer,Integer> inventario = new HashMap <Integer,Integer>();
+	private ArrayList<String> empleados = new ArrayList<>();
 	//Cada tienda tendra una tabla que guardara codigo de un producto y su cantidad
 	public Tienda(String id, String nom, int gan) {
 		super(id, nom);
@@ -45,6 +48,9 @@ public class Tienda extends Infraestructura {
 	public HashMap<Integer, Integer> getInventario() {
 		return inventario;
 		//regresa todos los items del inventario
+	}
+	public void asignarEmpleado(String id) {
+		
 	}
 	
 	

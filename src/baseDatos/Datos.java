@@ -21,11 +21,11 @@ public class Datos {
 	public static HashMap<String, Usuario> vendedors = new HashMap<String, Usuario>();
 	public static HashMap<String, Usuario> operarios = new HashMap<String, Usuario>();
 	public static HashMap<String, MenuDeConsola> menus = new HashMap<String, MenuDeConsola>();
-	public static HashMap<String, OpcionDeMenu> operations = new HashMap<String, OpcionDeMenu>();
+	public static HashMap<String, String> operations = new HashMap<String, String>();
 	public static HashMap<String, Atraccion> atracciones = new HashMap<String, Atraccion>();
 	public static HashMap<String, Registro> registro = new HashMap<String, Registro>();
 	public static HashMap<String, Tienda> tiendas = new HashMap<String, Tienda>();
-	public static HashMap<Integer,Producto> listaProductos = new HashMap<Integer,Producto>();
+	public static HashMap<String,Producto> listaProductos = new HashMap<String,Producto>();
 	
 	public static void cargarDatos() {
 		crearArchivYDirects();
@@ -195,7 +195,7 @@ public class Datos {
 			FileWriter fw = new FileWriter(ruta+"productos.txt");
 			PrintWriter pw = new PrintWriter(fw);
 			
-			for (Map.Entry<Integer, Producto> r : listaProductos.entrySet()) {
+			for (Map.Entry<String, Producto> r : listaProductos.entrySet()) {
 				Producto pro = r.getValue();
 				String line = pro.getCodigo()+";";
 				line += pro.getNombre()+";";
@@ -218,7 +218,7 @@ public class Datos {
             while((line = br.readLine()) != null){
             	if (!line.isEmpty()) {
             		String [] tienda = line.split(";");
-            		int id = Integer.parseInt(tienda[0]);
+            		String id = tienda[0];
             		String nombre = tienda[1];
             		double ganancias = Double.parseDouble(tienda[3]);
             		new Producto(id,nombre,ganancias);
@@ -259,7 +259,7 @@ public class Datos {
             	if (!line.isEmpty()) {
             		String [] prod = line.split(";");
             		String nombre = prod[1];
-            		int codigo = Integer.parseInt(prod[0]);
+            		String codigo = prod[0];
             		double valor = Double.parseDouble(prod[2]);
             		new Producto(codigo,nombre,valor);
             	}

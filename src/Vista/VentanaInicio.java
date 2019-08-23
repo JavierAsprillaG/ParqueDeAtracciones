@@ -1,8 +1,11 @@
 package Vista;
 
 import javax.swing.*;
+
+import Control.ControlEstandar;
+
 import java.awt.*;
-public class VentanaInicio extends JFrame{
+public class VentanaInicio extends JFrame implements InterfazVista{
 	Container cont = getContentPane();
 	JPanel p1,p2,p3,p4,p5,p6,p7,p8,p9,p10;
 	JLabel l1,l2,l3,l4;
@@ -59,9 +62,21 @@ public class VentanaInicio extends JFrame{
 		this.setSize(900, 700);
 	}
 	
-	public static void main(String[] args) {
-		VentanaInicio v = new VentanaInicio();
-		v.setVisible(true);
+//	public static void main(String[] args) {
+//		VentanaInicio v = new VentanaInicio();
+//		v.setVisible(true);
+//	}
+
+	@Override
+	public void setControlador(ControlEstandar c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void arranca() {
+		pack();// coloca los componentes
+		setLocationRelativeTo(null);// centra la ventana en la pantalla
+		setVisible(true);// visualiza la ventana
 	}
 	
 }
