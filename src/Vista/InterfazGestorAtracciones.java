@@ -13,7 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.border.EmptyBorder;
 
-public class InterfazGestorAtracciones extends JFrame {
+import Control.ControlEstandar;
+
+public class InterfazGestorAtracciones extends JFrame implements InterfazVista{
 	Container cont;
 	JPanel p1,p2;
 	JButton bArchivo, bAyuda, bPyC, bAbrir, bCerrar, bSolMant;
@@ -60,4 +62,16 @@ public class InterfazGestorAtracciones extends JFrame {
 			p2.add(bSolMant);
 			p2.add(bCerrar);
 		}
+
+	@Override
+	public void setControlador(ControlEstandar c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void arranca() {
+		// TODO Auto-generated method stub
+		
+	}
 }

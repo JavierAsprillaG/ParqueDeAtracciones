@@ -8,7 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JToolBar;
 
-public class InterfazOperario extends JFrame {
+import Control.ControlEstandar;
+
+public class InterfazOperario extends JFrame implements InterfazVista {
 	Container cont;
 	JButton bArchivo, bAyuda, bPyC;
 	JToolBar BarraH;
@@ -36,4 +38,16 @@ public class InterfazOperario extends JFrame {
 			cont.add(saludo, BorderLayout.CENTER);
 			
 		}
+
+	@Override
+	public void setControlador(ControlEstandar c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void arranca() {
+		// TODO Auto-generated method stub
+		
+	}
 }
