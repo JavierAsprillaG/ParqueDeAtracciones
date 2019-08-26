@@ -38,7 +38,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
 		constraints.weighty = 1.0;
 		constraints.weightx = 1.0;
-		constraints.fill = GridBagConstraints.BOTH;
+		constraints.fill = GridBagConstraints.NONE;
 		p6.add(b2,constraints);
 		constraints.gridx = 1; // El boton empieza b2 la columna cero.
 		constraints.gridy = 0; // El área de boton b2 empieza en la fila cero
@@ -75,7 +75,8 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		constraints.gridy = 4; // El área de boton b2 empieza en la fila cero
 		constraints.gridwidth = 2; // El área de texto ocupa una columnas.
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
-		constraints.fill = GridBagConstraints.BOTH;
+		constraints.fill = GridBagConstraints.NONE;
+		constraints.anchor = GridBagConstraints.CENTER;
 		p6.add(b4,constraints);	
 		raisedbevel = BorderFactory.createRaisedBevelBorder();
 		loweredbevel = BorderFactory.createLoweredBevelBorder();
