@@ -15,7 +15,7 @@ import javax.swing.border.EmptyBorder;
 
 import Control.ControlEstandar;
 
-public class InterfazGestorAtracciones extends JFrame implements InterfazVista{
+public class InterfazGestorAtracciones extends JPanel implements InterfazVista{
 	Container cont;
 	JPanel p1,p2;
 	JButton bArchivo, bAyuda, bPyC, bAbrir, bCerrar, bSolMant;
@@ -26,8 +26,6 @@ public class InterfazGestorAtracciones extends JFrame implements InterfazVista{
 	public InterfazGestorAtracciones(){
 			setSize(700,600);
 			setVisible(true);
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setTitle("Gestor de atracciones");
 			
 			bArchivo = new JButton("Archivo");
 			bPyC = new JButton("Procesos y consultas");
@@ -48,7 +46,6 @@ public class InterfazGestorAtracciones extends JFrame implements InterfazVista{
 			BarraH.add(bPyC);
 			BarraH.add(bAyuda);
 			
-			cont = this.getContentPane();
 			cont.setLayout(new BorderLayout());
 			cont.add(BarraH, BorderLayout.NORTH);
 			cont.add(p1, BorderLayout.CENTER);
