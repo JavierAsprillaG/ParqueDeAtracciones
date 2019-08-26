@@ -16,7 +16,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		cont.setLayout(new GridLayout(1,2));
 		JTextField t1 = new JTextField(); JTextField t2 = new JTextField();
-		l1 = new JLabel("Benvenuti!");l2 = new JLabel("Ingrese su código de usuario y su clave!",SwingConstants.CENTER);
+		l1 = new JLabel("Bienvenido!",SwingConstants.CENTER);l2 = new JLabel("Ingrese su código de usuario y su clave!",SwingConstants.CENTER);
 		l3 = new JLabel("Usuario: ",SwingConstants.CENTER); l4 = new JLabel("Contraseña: ",SwingConstants.CENTER);
 		p1 = new JPanel();p2 = new JPanel();p3 = new JPanel();
 		p4 = new JPanel();p5 = new JPanel();p6 = new JPanel();
@@ -74,7 +74,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		constraints.fill = GridBagConstraints.BOTH;
 		p6.add(b4,constraints);
 		
-		l1.setFont(new Font("Courier New", Font.ITALIC, 75));
+		l1.setFont(new Font("Courier New", Font.ITALIC, 60));
 		textarea = new JTextArea("Esta aplicacion tiene como fin ayudar\na la administracion de un parque "
 				+ "de diversiones\ncon diferentes tipos de locales y trabajadores."
 				+ "\nPara ingresar como administrador dé clic\n en Administrador y luego llene los campos usuario y contraseña"
@@ -92,6 +92,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		b3 = new JButton("UsuarioComun");
 		p4.add(bfoto);
 		p5.add(scrollArea);
+		p3.add(l1);
 		p1.add(p3,  BorderLayout.NORTH);p1.add(p4,BorderLayout.CENTER);
 		p2.add(p5,BorderLayout.NORTH);p2.add(p6,BorderLayout.CENTER);
 		cont.add(p1);
