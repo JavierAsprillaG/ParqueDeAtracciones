@@ -1,5 +1,8 @@
 package ErroresAplicacion;
 
-public class ErrorAplicacion {
+public class ErrorAplicacion extends Exception {
+	public ErrorAplicacion() {
+
+	}
 
 }

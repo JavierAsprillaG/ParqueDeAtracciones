@@ -15,8 +15,6 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		super("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		cont.setLayout(new GridLayout(1,2));
-		
-
 		JTextField t1 = new JTextField(); JTextField t2 = new JTextField();
 		l1 = new JLabel("Benvenuti!");l2 = new JLabel("Ingrese su código de usuario y su clave!",SwingConstants.CENTER);
 		l3 = new JLabel("Usuario: ",SwingConstants.CENTER); l4 = new JLabel("Contraseña: ",SwingConstants.CENTER);
