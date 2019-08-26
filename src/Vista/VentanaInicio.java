@@ -1,6 +1,7 @@
 package Vista;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 
 import Control.ControlEstandar;
 
@@ -11,6 +12,11 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 	JLabel l1,l2,l3,l4;
 	JButton bfoto,b2,b3,b4;
 	JTextArea textarea;
+	Border blackline, raisedetched, loweredetched,
+    raisedbevel, loweredbevel, empty;
+	Border compound;
+	Border redline = BorderFactory.createLineBorder(Color.red);
+
 	public VentanaInicio(){
 		super("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -21,11 +27,11 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		p1 = new JPanel();p2 = new JPanel();p3 = new JPanel();
 		p4 = new JPanel();p5 = new JPanel();p6 = new JPanel();
 		b2 = new JButton("Administrador"); b3 = new JButton("UsuarioComun");b4 = new JButton("Salir");
-		
 		p1.setLayout(new BorderLayout());p4.setLayout(new BorderLayout(0,0));
 		p2.setLayout(new BorderLayout());p5.setLayout(new BorderLayout(0,0));
 		p6.setLayout(new GridBagLayout());
 		GridBagConstraints constraints = new GridBagConstraints();
+		
 		constraints.gridx = 0; // El boton empieza b2 la columna cero.
 		constraints.gridy = 0; // El área de boton b2 empieza en la fila cero
 		constraints.gridwidth = 1; // El área de texto ocupa una columnas.
@@ -44,13 +50,11 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		constraints.gridwidth = 2; // El área de texto ocupa una columnas.
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
 		constraints.fill = GridBagConstraints.HORIZONTAL;
-
 		p6.add(l2,constraints);
 		constraints.gridx = 0; // El boton empieza b2 la columna cero.
 		constraints.gridy = 2; // El área de boton b2 empieza en la fila cero
 		constraints.gridwidth = 1; // El área de texto ocupa una columnas.
-		constraints.gridheight = 1; // El área de texto ocupa una filas.
-		
+		constraints.gridheight = 1; // El área de texto ocupa una filas.	
 		p6.add(l3,constraints);
 		constraints.gridx = 1; // El boton empieza b2 la columna cero.
 		constraints.gridy = 2; // El área de boton b2 empieza en la fila cero
@@ -72,9 +76,23 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		constraints.gridwidth = 2; // El área de texto ocupa una columnas.
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
 		constraints.fill = GridBagConstraints.BOTH;
-		p6.add(b4,constraints);
-		
-		l1.setFont(new Font("Courier New", Font.ITALIC, 60));
+		p6.add(b4,constraints);	
+		raisedbevel = BorderFactory.createRaisedBevelBorder();
+		loweredbevel = BorderFactory.createLoweredBevelBorder();
+		empty = BorderFactory.createEmptyBorder(15,15,15,15);
+		compound = BorderFactory.createCompoundBorder(
+                raisedbevel, loweredbevel);
+		compound = BorderFactory.createCompoundBorder(
+                redline, compound);
+		compound = BorderFactory.createCompoundBorder(
+                empty, compound);
+		p6.setBorder(compound);
+		p5.setBorder(compound);
+		p2.setBorder(compound);
+		p3.setBorder(compound);
+		p4.setBorder(compound);
+		p1.setBorder(compound);
+		l1.setFont(new Font("Courier New", Font.ITALIC, 55));
 		textarea = new JTextArea("Esta aplicacion tiene como fin ayudar\na la administracion de un parque "
 				+ "de diversiones\ncon diferentes tipos de locales y trabajadores."
 				+ "\nPara ingresar como administrador dé clic\n en Administrador y luego llene los campos usuario y contraseña"
@@ -84,8 +102,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		textarea.setFont(new Font("Arial", Font.PLAIN, 16));
 		textarea.setEditable(false);
 		JScrollPane scrollArea = new JScrollPane();
-		scrollArea.setViewportView(textarea);
-		
+		scrollArea.setViewportView(textarea);		
 		bfoto = new JButton("Haga clic "
 				+ "para ver fotos de los autores del sistema");
 		b2 = new JButton("Administrador");
