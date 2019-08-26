@@ -4,7 +4,6 @@ import java.util.HashMap;
 import baseDatos.Datos;
 import gestorAplicacion.Registro;
 import gestorAplicacion.Infraestructuras.Tienda;
-import uiMain.menuconsola.MenuDeConsola;
 public class Vendedor extends Empleado{
 	public Vendedor() {
 		super();
@@ -30,7 +29,6 @@ public class Vendedor extends Empleado{
 		vend.setContrasena(contrasena);
 		
 		String [] operations = {"1","2","3","4","5"};
-		MenuDeConsola.nuevoMenu(vend, operations);
 		if(true){
 			Datos.vendedors.put(username,vend);
 			return "Ha sido creado";

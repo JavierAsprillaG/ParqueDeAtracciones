@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import baseDatos.Datos;
 import uiMain.Main.*;
-import uiMain.menuconsola.MenuDeConsola;
 
 public class Usuario extends Persona{
 	protected String username;

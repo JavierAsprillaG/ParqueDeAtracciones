@@ -4,7 +4,6 @@ import baseDatos.Datos;
 import gestorAplicacion.Registro;
 import gestorAplicacion.Infraestructuras.Atraccion;
 import gestorAplicacion.Infraestructuras.Tienda;
-import uiMain.menuconsola.MenuDeConsola;
 
 public class Administrador extends Empleado{
 	
@@ -24,7 +23,6 @@ public class Administrador extends Empleado{
 		admin.setContrasena(contrasena);
 		
 		String [] operations = {"1","2","3","4","5","6"};
-		MenuDeConsola.nuevoMenu(admin, operations);
 		if(true){
 			Datos.admins.put(username,admin);
 			return "Ha sido creado";
@@ -36,20 +34,20 @@ public class Administrador extends Empleado{
 	// haya creado un nuevo Administrador o el caso contrario.
 	}
 	
-	public int consultar(Registro a, String b){ 
-		//b seria lo que se desea consultar, los ingresos, los gastos o el balance entre ambos
-		if (b.equals("i")) {
-			return a.getIngresos();
-		}
-		else if (b.equals("g")) {
-			return a.getGastos();
-		}
-		else {
-			int i = a.getIngresos();
-			int g = a.getGastos();
-			return i-g;
-		}
-	}
+//	public int consultar(Registro a, String b){ 
+//		//b seria lo que se desea consultar, los ingresos, los gastos o el balance entre ambos
+//		if (b.equals("i")) {
+//			return a.getIngresos();
+//		}
+//		else if (b.equals("g")) {
+//			return a.getGastos();
+//		}
+//		else {
+//			int i = a.getIngresos();
+//			int g = a.getGastos();
+//			return i-g;
+//		}
+//	}
 	
 	public Tienda crearTienda(String id, String nom, int gan) {
 		return new Tienda(id, nom, gan);

@@ -2,7 +2,6 @@ package gestorAplicacion.Personas;
 
 import baseDatos.Datos;
 import gestorAplicacion.Infraestructuras.Atraccion;
-import uiMain.menuconsola.MenuDeConsola;
 
 public class Operario extends Empleado{
 	public Operario(String nom, String ced, String tel,
@@ -18,7 +17,6 @@ public class Operario extends Empleado{
 		op.setContrasena(contrasena);
 		
 		String [] operations = {"1","2","3","4","5"};
-		MenuDeConsola.nuevoMenu(op, operations);
 		if(true){
 			Datos.usuarios.put(username,op);
 			return "Ha sido creado";

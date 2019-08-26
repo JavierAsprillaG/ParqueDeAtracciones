@@ -4,7 +4,6 @@ public abstract class Infraestructura {
 	private String id;
     private String nombre;
     
-    
     public Infraestructura() {   	
     }
     public Infraestructura(String id, String nom){

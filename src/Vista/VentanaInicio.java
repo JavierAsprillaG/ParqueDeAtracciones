@@ -2,15 +2,15 @@ package Vista;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-
-import Control.ControlEstandar;
+import Control.*;
 
 import java.awt.*;
 public class VentanaInicio extends JFrame implements InterfazVista{
-	Container cont = getContentPane();
+	public static Container cont;
 	JPanel p1,p2,p3,p4,p5,p6;
 	JLabel l1,l2,l3,l4;
-	JButton bfoto,b2,b3,b4;
+	public static JTextField t1,t2;
+	public static JButton bfoto,b2,b3,b4;
 	JTextArea textarea;
 	Border blackline, raisedetched, loweredetched,
     raisedbevel, loweredbevel, empty;
@@ -20,8 +20,10 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 	public VentanaInicio(){
 		super("Inicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		cont = this.getContentPane();
 		cont.setLayout(new GridLayout(1,2));
-		JTextField t1 = new JTextField(); JTextField t2 = new JTextField();
+		t1 = new JTextField(); t2 = new JTextField();
+		t1.setEnabled(false); t2.setEnabled(false);
 		l1 = new JLabel("Bienvenido!",SwingConstants.CENTER);l2 = new JLabel("Ingrese su código de usuario y su clave!",SwingConstants.CENTER);
 		l3 = new JLabel("Usuario: ",SwingConstants.CENTER); l4 = new JLabel("Contraseña: ",SwingConstants.CENTER);
 		p1 = new JPanel();p2 = new JPanel();p3 = new JPanel();
@@ -107,7 +109,9 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		bfoto = new JButton("Haga clic "
 				+ "para ver fotos de los autores del sistema");
 		b2 = new JButton("Administrador");
+		b2.addActionListener(new ControlLogeo());
 		b3 = new JButton("UsuarioComun");
+		b3.addActionListener(new ControlLogeo());
 		p4.add(bfoto);
 		p5.add(scrollArea);
 		p3.add(l1);
@@ -133,6 +137,10 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		pack();// coloca los componentes
 		setLocationRelativeTo(null);// centra la ventana en la pantalla
 		setVisible(true);// visualiza la ventana
+	}
+	public void salir() {
+		setVisible(false);
+		dispose();
 	}
 	
 }

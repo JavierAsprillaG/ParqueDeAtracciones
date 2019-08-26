@@ -12,15 +12,12 @@ import java.io.File;
 import gestorAplicacion.*;
 import gestorAplicacion.Infraestructuras.*;
 import gestorAplicacion.Personas.*;
-import uiMain.menuconsola.MenuDeConsola;
-import uiMain.menuconsola.OpcionDeMenu;
 
 public class Datos {
 	public static HashMap<String, Usuario> usuarios = new HashMap<String, Usuario>();
 	public static HashMap<String, Usuario> admins = new HashMap<String, Usuario>();
 	public static HashMap<String, Usuario> vendedors = new HashMap<String, Usuario>();
 	public static HashMap<String, Usuario> operarios = new HashMap<String, Usuario>();
-	public static HashMap<String, MenuDeConsola> menus = new HashMap<String, MenuDeConsola>();
 	public static HashMap<String, String> operations = new HashMap<String, String>();
 	public static HashMap<String, Atraccion> atracciones = new HashMap<String, Atraccion>();
 	public static HashMap<String, Registro> registro = new HashMap<String, Registro>();
@@ -33,7 +30,6 @@ public class Datos {
 		cargarProductos(ruta);
 		cargarUsuarios(ruta);
 		cargarAdmins(ruta);
-		cargarMenus(ruta);
 		cargarEmp(ruta);
 		cargarAtracciones(ruta);
 		cargarRegistros(ruta);
@@ -113,32 +109,12 @@ public class Datos {
         }
 	}
 	
-	private static void cargarMenus(String ruta) {
-		try{
-            FileReader fr = new FileReader(ruta+"usersMenus.txt");
-            BufferedReader br = new BufferedReader(fr);
-            String line;
-            while((line = br.readLine()) != null){
-            	if (!line.isEmpty()) {
-            		String [] menu = line.split(";");
-            		Usuario user = Usuario.getUsuarioPorUsername(menu[0]);
-            		//slice de arrays
-            		String[] operations = Arrays.copyOfRange(menu, 1, menu.length);
-            		MenuDeConsola.nuevoMenu(user, operations);
-            	}
-            }
-            br.close();
-        }catch(Exception e){
-        	//Error al leer
-        }
-	}
 	
 	public static void guardarDatos() {
 		crearArchivYDirects();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
 		guardarProductos(ruta);
 		guardarUsuarios(ruta);
-		guardarMenus(ruta);
 		guardarAtracciones(ruta);
 		guardarRegistro(ruta);
 		guardarTiendas(ruta);
@@ -274,13 +250,23 @@ public class Datos {
 		try {
 			FileWriter fw = new FileWriter(ruta+"registro.txt");
 			PrintWriter pw = new PrintWriter(fw);
-			
+			boolean b = true;
 			for (Map.Entry<String, Registro> r : registro.entrySet()) {
-				Registro at = r.getValue();
-				String line = at.getID()+";";
-				line += at.getGastos()+";";
-				line += at.getIngresos()+";";
-				pw.println(line);
+				if(b) {
+					Registro at = r.getValue();
+					String line = at.getIngresos()+";";
+					line += at.getGastos()+";";
+					line += at.getIdGeneral()+";";
+					b=false;
+					pw.println(line);
+				}
+				else {
+					Registro at = r.getValue();
+					String line = at.getidRegistro()+";";
+					line += at.getValor()+";";
+					line += at.getIdDetalle()+";";
+					pw.println(line);
+				}
 			}
 			pw.close();
 		}
@@ -296,15 +282,27 @@ public class Datos {
             FileReader fr = new FileReader(ruta+"registro.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
+            boolean b = true;
             while((line = br.readLine()) != null){
             	if (!line.isEmpty()) {
-            		String [] regstro = line.split(";");
-            		String nombre = regstro[0];
-            		int ganancias = Integer.parseInt(regstro[1]);
-            		String id = regstro[2];
-            		int cap = Integer.parseInt(regstro[3]);
-            		boolean est = Boolean.parseBoolean(regstro[4]);
-            		new Atraccion(id,nombre,ganancias, cap, est);
+            		if(b) {
+            			String [] regstro = line.split(";");
+            			double gastos = Double.parseDouble(regstro[0]);
+            			double ingres = Double.parseDouble(regstro[1]);
+            			int idGen = Integer.parseInt(regstro[2]);
+            			Registro r = new Registro();
+            			r.setGastos(gastos);
+            			r.setIngresos(ingres);
+            			r.setIdGeneral(idGen);
+            			b = false;
+            		}
+            		else{
+            			String [] regstro = line.split(";");
+            			int idRegis = Integer.parseInt(regstro[0]);
+            			double val = Double.parseDouble(regstro[1]);
+            			String idDetall = regstro[2];
+            			new Registro(idRegis,val,idDetall);
+            		}
             	}
             }
             br.close();
@@ -346,26 +344,6 @@ public class Datos {
             pw.close();
             pwAdmin.close();
             pwEmp.close();
-            
-        } catch (IOException ioObj) {
-        	//Ocurrio algo al guardar en txt los datos
-        }
-	}
-	
-	private static void guardarMenus(String ruta){
-		try {
-            FileWriter fw = new FileWriter(ruta+"usersMenus.txt");
-            PrintWriter pw = new PrintWriter(fw);
-    		for (Map.Entry<String, MenuDeConsola> menu : menus.entrySet()) {
-    			MenuDeConsola menuObj = menu.getValue();
-    			String line = menuObj.getUsuario().getUsername()+";";
-    			for (String  opt : menuObj.getOperaciones()) {
-    				line += opt+";";
-				}
-    			//Correccion por el ; extra
-    			pw.println(line.substring(0,(line.length()-1)));
-    		}
-            pw.close();
             
         } catch (IOException ioObj) {
         	//Ocurrio algo al guardar en txt los datos

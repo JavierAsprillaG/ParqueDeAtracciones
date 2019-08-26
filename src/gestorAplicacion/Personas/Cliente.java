@@ -7,7 +7,7 @@ public class Cliente extends Usuario {
 	public Cliente() {		
 	}
 	public Cliente(String nombre, String cedula, String telefono) {	
-		super(nombre,cedula,telefono);
+		//super(nombre,cedula,telefono);
 	}	
 	public static void registrar(String nom, String ced, String tel) {
 		Cliente a = new Cliente (nom, ced, tel);

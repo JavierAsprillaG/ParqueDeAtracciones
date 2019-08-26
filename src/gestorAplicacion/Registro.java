@@ -4,56 +4,74 @@ import baseDatos.Datos;
 import gestorAplicacion.Personas.Persona;
 
 public class Registro {
-	private  static int ingresos;
-	private  static int gastos;
-	private  static int ID = 0;
-	public Registro(int ing,int gas,Persona usuario){ 
-		this.ingresos = ing;
-		this.gastos = gas;
-		this.usuario=usuario;
-	}
-	public  Registro crearregistro(int ing,int gas,Persona a) {
-		ID=ID+1;
-		return new Registro(ing, gas, a);		
-	}   	
+	private  static double ingresosGenerales;
+	private  static double gastosGenerales;
+	private  static int idGenerico;
+	private int idRegistro;
+	private double valor;
+	private String idDetalle;
 	
-	public static String nuevoRegistro(int id, int g, int gan) {
-		Registro r = new Registro();
-		r.setID(id);
-		r.setGastos(g);
-		r.setIngresos(g);
-		if(true){
-			Datos.registro.put(""+id,r);
-			return "Ha sido creado";
-		}else{
-			return "No ha sido creado...";
+	public Registro(double cantidad, String det){ 
+		idRegistro = idGenerico;
+		idGenerico++;
+		if(cantidad < 0) {//Si se ingreso un gasto
+			gastosGenerales+=cantidad;
 		}
+		else if(cantidad > 0) {//Si se ingreso un gasto
+			ingresosGenerales+=cantidad;
+		}
+		valor = Math.abs(cantidad);
+		setIdDetalle(det);
+		Datos.registro.put(Integer.toString(idRegistro), this);
 	}
-	
-	public Registro() {		
+	public Registro(int idR,double v, String idD) {
+		idRegistro = idR;
+		valor = v;
+		idDetalle=idD;
+	}
+	public Registro(){
+		
 	}
 
-	public  void setIngresos(int ing) {
-		ingresos += ing;
+	public  void setIngresos(double ing) {
+		ingresosGenerales += ing;
 	}
 	
-	public  void setGastos(int gas) {
-		gastos += gas;
+	public  void setGastos(double gas) {
+		gastosGenerales += gas;
 	}
 		
-	public int getIngresos() {
-		return ingresos;
+	public double getIngresos() {
+		return ingresosGenerales;
 	}
 	
-	public int getGastos() {
-		return gastos;
+	public double getGastos() {
+		return gastosGenerales;
 	}
-	public  int getID() {
-		return ID;
+	public  int getIdGeneral() {
+		return idGenerico;
+	}
+	public void setIdGeneral(int i) {
+		idGenerico = i;
 	}
 
-	public  void setID(int iD) {
-		ID = iD;
+	public  void setIdRegistro(int iD) {
+		idRegistro = iD;
+	}
+	public int getidRegistro() {
+		return idRegistro;
+	}
+	public String getIdDetalle() {
+		return idDetalle;
+	}
+	public void setIdDetalle(String idDetalle) {
+		this.idDetalle = idDetalle;
+	}
+	public double getValor() {
+		return valor;
+	}
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 	
 	
