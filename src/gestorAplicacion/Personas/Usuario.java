@@ -22,7 +22,6 @@ public class Usuario extends Persona{
 		this.contrasena = contraseña;
 		Datos.usuarios.put(username, this);
 	}
-	
 	public String getNombre() {
 		return nombre;
 	}

@@ -105,9 +105,9 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		l1.setFont(new Font("Courier New", Font.ITALIC, 55));
 		textarea = new JTextArea("Esta aplicacion tiene como fin ayudar\na la administracion de un parque "
 				+ "de diversiones\ncon diferentes tipos de locales y trabajadores."
-				+ "\nPara ingresar como administrador dé clic\n en Administrador y luego llene los campos usuario y contraseña"
+				+ "\n• Para ingresar como administrador dé clic\n en Administrador y luego llene los campos usuario y contraseña"
 				+ "\ny dé clic en Administrador Complete y Nuevamente Clic"
-				+ "\nPara entrar como otro tipo de usuario dé clic\n en UsuarioComun y luego llene los campos usuario y contraseña"
+				+ "\n• Para entrar como otro tipo de usuario dé clic\n en UsuarioComun y luego llene los campos usuario y contraseña"
 				+ "\ny dé clic en Usuario Complete y Nuevamente Clic");
 		textarea.setFont(new Font("Arial", Font.PLAIN, 16));
 		textarea.setEditable(false);
