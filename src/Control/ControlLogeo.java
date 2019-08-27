@@ -14,7 +14,7 @@ public class ControlLogeo extends ControlEstandar{
 		//VentanaInicio.cont.removeAll();
 		if(selectedOpc.equals("Administrador")) {
 			VentanaInicio.b2.setText("Administrador Complete y Nuevamente Clic");
-			VentanaInicio.b3.setText("UsuarioComun  ");
+			VentanaInicio.b3.setText("UsuarioComun");
 			VentanaInicio.t1.setEnabled(true);
 			VentanaInicio.t2.setEnabled(true);
 			VentanaInicio.t1.setVisible(true);
@@ -28,6 +28,8 @@ public class ControlLogeo extends ControlEstandar{
 			
 		}
 		else if(selectedOpc.equals("UsuarioComun")){
+			VentanaInicio.b2.setText("Administrador");
+			VentanaInicio.b3.setText("Usuario Complete y Nuevamente Clic");
 			VentanaInicio.t1.setEnabled(true);
 			VentanaInicio.t2.setEnabled(true);
 			VentanaInicio.t1.setVisible(true);
