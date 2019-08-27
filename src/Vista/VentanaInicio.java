@@ -7,7 +7,7 @@ import Control.*;
 import java.awt.*;
 public class VentanaInicio extends JFrame implements InterfazVista{
 	public static Container cont;
-	public static JPanel p1,p2,p3,p4,p5,p6;
+	JPanel p1,p2,p3,p4,p5,p6;
 	public static JLabel l1,l2,l3,l4;
 	public static JTextField t1,t2;
 	public static JButton bfoto,b2,b3,b4;
@@ -122,7 +122,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		p2.add(p5,BorderLayout.NORTH);p2.add(p6,BorderLayout.CENTER);
 		cont.add(p1);
 		cont.add(p2);
-		this.setPreferredSize(null);
+		this.setPreferredSize(new Dimension(1080, 720));
 	}
 	
 //	public static void main(String[] args) {
