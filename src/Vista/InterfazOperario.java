@@ -6,11 +6,12 @@ import java.awt.Container;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
 import Control.ControlEstandar;
 
-public class InterfazOperario extends JFrame implements InterfazVista {
+public class InterfazOperario extends JPanel implements InterfazVista {
 	Container cont;
 	JButton bArchivo, bAyuda, bPyC;
 	JToolBar BarraH;
@@ -19,8 +20,6 @@ public class InterfazOperario extends JFrame implements InterfazVista {
 	public InterfazOperario(){
 			setSize(600,600);
 			setVisible(true);
-			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setTitle("Operario: ");
 			
 			bArchivo = new JButton("Archivo");
 			bPyC = new JButton("Procesos y consultas");
@@ -32,7 +31,7 @@ public class InterfazOperario extends JFrame implements InterfazVista {
 			BarraH.add(bPyC);
 			BarraH.add(bAyuda);
 			
-			cont = this.getContentPane();
+			
 			cont.setLayout(new BorderLayout());
 			cont.add(BarraH, BorderLayout.NORTH);
 			cont.add(saludo, BorderLayout.CENTER);
