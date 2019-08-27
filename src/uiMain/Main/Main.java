@@ -7,12 +7,14 @@ import ErroresAplicacion.Exception_Informacion_Usuario;
 import Vista.VentanaInicio;
 import baseDatos.Datos;
 import gestorAplicacion.*;
+import gestorAplicacion.Personas.Administrador;
 import gestorAplicacion.Personas.Usuario;
 
 public class Main {
 	public static Usuario usuario = new Usuario();
 	public static VentanaInicio v;
 	public static void main(String[] args) {
+		Datos.admins.put("jairillo", new Administrador("Jairo","10366","2312973","jairillo","jairo003@gmail.com","4321",1500000,"Oficina 3"));
 //		Main.iniciar();
 //		while(true) {
 //			MenuPpal m = new MenuPpal();
