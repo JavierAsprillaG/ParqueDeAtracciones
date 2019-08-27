@@ -29,6 +29,7 @@ public class ControlLogeo extends ControlEstandar{
 		}
 		else if(selectedOpc.equals("Salir")) {
 			Datos.guardarDatos();
+			Main.v.dispose();
 			
 		}
 		else if(selectedOpc.equals("UsuarioComun")){
