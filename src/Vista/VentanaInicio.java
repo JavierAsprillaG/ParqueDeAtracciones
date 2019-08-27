@@ -7,8 +7,8 @@ import Control.*;
 import java.awt.*;
 public class VentanaInicio extends JFrame implements InterfazVista{
 	public static Container cont;
-	JPanel p1,p2,p3,p4,p5,p6;
-	JLabel l1,l2,l3,l4;
+	public static JPanel p1,p2,p3,p4,p5,p6;
+	public static JLabel l1,l2,l3,l4;
 	public static JTextField t1,t2;
 	public static JButton bfoto,b2,b3,b4;
 	JTextArea textarea;
@@ -36,20 +36,20 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		
 		constraints.gridx = 0; // El boton empieza b2 la columna cero.
 		constraints.gridy = 0; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 1; // El área de texto ocupa una columnas.
+		constraints.gridwidth = 2; // El área de texto ocupa una columnas.
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
 		constraints.weighty = 1.0;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.NONE;
 		p6.add(b2,constraints);
-		constraints.gridx = 1; // El boton empieza b2 la columna cero.
+		constraints.gridx = 2; // El boton empieza b2 la columna cero.
 		constraints.gridy = 0; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 1; // El área de texto ocupa una columnas.
+		constraints.gridwidth = 2; // El área de texto ocupa una columnas.
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
 		p6.add(b3,constraints);
 		constraints.gridx = 0; // El boton empieza b2 la columna cero.
 		constraints.gridy = 1; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 2; // El área de texto ocupa una columnas.
+		constraints.gridwidth = 4; // El área de texto ocupa una columnas.
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		p6.add(l2,constraints);
@@ -60,7 +60,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		p6.add(l3,constraints);
 		constraints.gridx = 1; // El boton empieza b2 la columna cero.
 		constraints.gridy = 2; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 1; // El área de texto ocupa una columnas.
+		constraints.gridwidth = 3; // El área de texto ocupa una columnas.
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
 		p6.add(t1,constraints);
 		constraints.gridx = 0; // El boton empieza b2 la columna cero.
@@ -70,15 +70,20 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		p6.add(l4,constraints);
 		constraints.gridx = 1; // El boton empieza b2 la columna cero.
 		constraints.gridy = 3; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 1; // El área de texto ocupa una columnas.
+		constraints.gridwidth = 3; // El área de texto ocupa una columnas.
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
 		p6.add(t2,constraints);
 		constraints.gridx = 0; // El boton empieza b2 la columna cero.
 		constraints.gridy = 4; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 2; // El área de texto ocupa una columnas.
+		constraints.gridwidth = 4; // El área de texto ocupa una columnas.
 		constraints.gridheight = 1; // El área de texto ocupa una filas.
 		constraints.fill = GridBagConstraints.NONE;
 		constraints.anchor = GridBagConstraints.CENTER;
+		t1.setVisible(false);
+		t2.setVisible(false);
+		l3.setVisible(false);
+		l4.setVisible(false);
+		l2.setVisible(false);
 		p6.add(b4,constraints);	
 		raisedbevel = BorderFactory.createRaisedBevelBorder();
 		loweredbevel = BorderFactory.createLoweredBevelBorder();
@@ -117,7 +122,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		p2.add(p5,BorderLayout.NORTH);p2.add(p6,BorderLayout.CENTER);
 		cont.add(p1);
 		cont.add(p2);
-		this.setPreferredSize(new Dimension(900, 700));
+		this.setPreferredSize(null);
 	}
 	
 //	public static void main(String[] args) {
