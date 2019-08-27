@@ -1,2 +1,0 @@
-Juanpabloxv;12345;juanpabloxv@hotmail.com;Juan_Pablo;null;null;
-pedro2;2;pedro@gmail.com;pedro;null;null;

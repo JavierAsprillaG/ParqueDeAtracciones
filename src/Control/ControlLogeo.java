@@ -38,6 +38,16 @@ public class ControlLogeo extends ControlEstandar{
 			VentanaInicio.l4.setVisible(true);
 			VentanaInicio.l2.setVisible(true);
 		}
+		else if(selectedOpc.equals("Administrador Complete y Nuevamente Clic")){
+			System.out.println("#s");
+			//Si se le da click por segunda vez se debe comprobar que los datos se encuentren ingresados de 
+			//manera correcta con manejo de errores para el administrador
+		}
+		else if(selectedOpc.equals("Usuario Complete y Nuevamente Clic")){
+			System.out.println("#s");
+			//Si se le da click por segunda vez se debe comprobar que los datos se encuentren ingresados de 
+			//manera correcta con manejo de errores para el usuario comun
+		}
 	}
 
 }

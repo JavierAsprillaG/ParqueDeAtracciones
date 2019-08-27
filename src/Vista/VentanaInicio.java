@@ -117,6 +117,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 				+ "para ver fotos de los autores del sistema");
 		b2.addActionListener(new ControlLogeo());
 		b3.addActionListener(new ControlLogeo());
+		b4.addActionListener(new ControlLogeo());
 		p4.add(bfoto);
 		p5.add(scrollArea);
 		p3.add(l1);
