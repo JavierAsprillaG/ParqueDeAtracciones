@@ -2,6 +2,8 @@ package Control;
 
 import java.awt.event.ActionEvent;
 
+import javax.swing.JOptionPane;
+
 import ErroresAplicacion.Exception_Informacion_Usuario;
 import Vista.InterfazVendedor;
 import Vista.PanelVendedor;
@@ -13,9 +15,7 @@ public class ControlLogeo extends ControlEstandar{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("#HOLLA");
 		String selectedOpc = e.getActionCommand();
-		//VentanaInicio.cont.removeAll();
 		if(selectedOpc.equals("Administrador")) {
 			VentanaInicio.b2.setText("Administrador Complete y Nuevamente Clic");
 			VentanaInicio.b3.setText("UsuarioComun");
@@ -44,6 +44,7 @@ public class ControlLogeo extends ControlEstandar{
 		}
 		else if(selectedOpc.equals("Administrador Complete y Nuevamente Clic")){
 			System.out.println("#s");
+			JOptionPane.showMessageDialog(null, "Informacion ingresada es incorrecta ", "Error faltan datos ", JOptionPane.WARNING_MESSAGE);
 			//Si se le da click por segunda vez se debe comprobar que los datos se encuentren ingresados de 
 			//manera correcta con manejo de errores para el administrador
 		}
@@ -54,7 +55,8 @@ public class ControlLogeo extends ControlEstandar{
 				Main.v.cont.removeAll();
 				Main.v.cont.add(new PanelVendedor());
 				Main.v.pack();
-				//InterfazVendedor c = new InterfazVendedor();
+				JOptionPane.showMessageDialog(null, "                 Informacion No ingresada "
+						+ "\n Por favor llene todos los campos para continuar ", "Error faltan datos ", JOptionPane.WARNING_MESSAGE);
 				//Si se le da click por segunda vez se debe comprobar que los datos se encuentren ingresados de 
 				//manera correcta con manejo de errores para el usuario comun
 			}
