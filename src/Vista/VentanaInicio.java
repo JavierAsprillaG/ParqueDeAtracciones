@@ -115,6 +115,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		scrollArea.setViewportView(textarea);		
 		bfoto = new JButton("Haga clic "
 				+ "para ver fotos de los autores del sistema");
+		bfoto.addActionListener(new ControlMain());
 		b2.addActionListener(new ControlLogeo());
 		b3.addActionListener(new ControlLogeo());
 		b4.addActionListener(new ControlLogeo());

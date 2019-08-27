@@ -1,7 +1,9 @@
 package Control;
 
 import java.awt.event.ActionEvent;
+import java.io.File;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import ErroresAplicacion.Exception_Informacion_Usuario;
@@ -30,7 +32,7 @@ public class ControlLogeo extends ControlEstandar{
 		else if(selectedOpc.equals("Salir")) {
 			Datos.guardarDatos();
 			Main.v.dispose();
-			
+			System.exit(0);
 		}
 		else if(selectedOpc.equals("UsuarioComun")){
 			VentanaInicio.b2.setText("Administrador");
@@ -62,15 +64,15 @@ public class ControlLogeo extends ControlEstandar{
 				//manera correcta con manejo de errores para el usuario comun
 			}
 
-			try {
+//			try {
 				if(selectedOpc.equals("Usuario Complete y Nuevamente Clic")){
 					VentanaInicio.t2.getText();
 				}
-			}
-			catch(Exception_Informacion_Usuario R){
-				JOptionPane.showMessageDialog(null, "                 Informacion No ingresada "
-						+ "\n Por favor llene todos los campos para continuar ", "Error faltan datos ", JOptionPane.WARNING_MESSAGE);
-			}
+//			}
+//			catch(Exception_Informacion_Usuario R){
+//				JOptionPane.showMessageDialog(null, "                 Informacion No ingresada "
+//						+ "\n Por favor llene todos los campos para continuar ", "Error faltan datos ", JOptionPane.WARNING_MESSAGE);
+//			}
 			
 				if(selectedOpc.equals("Usuario Complete y Nuevamente Clic")){
 					System.out.println("#s");
@@ -83,9 +85,6 @@ public class ControlLogeo extends ControlEstandar{
 					//Si se le da click por segunda vez se debe comprobar que los datos se encuentren ingresados de 
 					//manera correcta con manejo de errores para el usuario comun
 				}
-
-			
-			}
 		}
 			
 	
