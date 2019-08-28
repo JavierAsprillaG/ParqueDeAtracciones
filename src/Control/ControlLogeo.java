@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import Modelo.ErroresAplicacion.Exception_Contraseña_Invalida;
 import Modelo.ErroresAplicacion.Exception_Informacion_Administrador;
 import Modelo.ErroresAplicacion.Exception_Informacion_Usuario;
+import Modelo.ErroresAplicacion.Exception_Usuario_Invalido;
 import Vista.*;
 import Vista.VentanaInicio;
 import Modelo.Main.Main;
@@ -71,13 +72,21 @@ public class ControlLogeo extends ControlEstandar {
 						"Error faltan datos ", JOptionPane.WARNING_MESSAGE);
 			}
 			try {
+				Usuario.verificarusuario(username);			
+			} catch (Exception_Usuario_Invalido R) {
+				JOptionPane.showMessageDialog(null,
+						"                 Usuario no encontrado "
+								+ "\n Ingrese usuario valido para continuar ",
+						"Error Usename Invalido ", JOptionPane.WARNING_MESSAGE);
+			}
+			try {
 			Usuario.verificarcontrasena(username, passw);
 			}
 			catch (Exception_Contraseña_Invalida R) {
 				JOptionPane.showMessageDialog(null,
 						"                 Contraseña Invalida "
 								+ "\n La contraseña no coincide con el nombre de usuario  ",
-						"Error faltan datos ", JOptionPane.WARNING_MESSAGE);
+						"Error Contraseña Invalida ", JOptionPane.WARNING_MESSAGE);
 			}			
 			if (Usuario.login(username, passw)) {
 				Main.v.cont.removeAll();
