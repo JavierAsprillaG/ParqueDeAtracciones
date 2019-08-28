@@ -2,6 +2,8 @@ package Modelo.Personas;
 
 import java.util.HashMap;
 
+import Modelo.ErroresAplicacion.Exception_Informacion_Administrador;
+import Modelo.ErroresAplicacion.Exception_Informacion_Usuario;
 import Modelo.Main.*;
 import Modelo.baseDatos.Datos;
 
@@ -102,15 +104,24 @@ public class Usuario extends Persona{
 		return Datos.usuarios;
 	}
 	
-    public static boolean login(String username, String contrasena){
-        Usuario u = Usuario.getUsuarioPorUsername(username);
+    public static void verificarlogin(String username, String contrasena) throws Exception_Informacion_Usuario {
+        Usuario u = Usuario.getUsuarioPorUsername(username);        
+        if (username.equals("") || contrasena .equals("")){
+        	throw new Exception_Informacion_Usuario();
+        }
+        else {
+        	Main.usuario = u;          	
+        }
+    }
+    public static boolean login (String username, String contrasena)  {
+        Usuario u = Usuario.getUsuarioPorUsername(username);        
         if (u != null){
             if(u.getUsername().equals(username) && u.getContrasena().equals(contrasena)){
             	Main.usuario = u;
                 return true;
             }
         }
-        return false;
+        return false;       
     }
     
     public static String signOut(){
