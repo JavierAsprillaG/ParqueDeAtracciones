@@ -150,8 +150,7 @@ public class Usuario extends Persona{
         	System.out.println("#n2");      	
         }
     }
-    public static String signOut(){
-    	Main.usuario = getUsuarioPorUsername("default");
-        return "Adios";
+    public static void signOut(){
+    	Main.usuario = null;
     }
 }

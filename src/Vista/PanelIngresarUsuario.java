@@ -1,12 +1,17 @@
 package Vista;
 import javax. swing .*;
 import javax.swing.border.Border;
+import Control.*;
 import java.awt.*;
+import java.util.ArrayList;
 import Vista.FieldPanel;
+
 public class PanelIngresarUsuario extends JPanel {
+	public static String ocupacion="";
 	JPanel p1,p2,p3,p4;
 	JLabel l1,l2,l3;
 	JButton b1,b2;
+	FieldPanel fp;
 	Border blackline, raisedetched, loweredetched,
 	raisedbevel, loweredbevel, empty;
 	Border compound;
@@ -15,7 +20,7 @@ public class PanelIngresarUsuario extends JPanel {
 			"Sueldo: ","Lugar: "};
 	public PanelIngresarUsuario() {
 		this.setLayout(new GridBagLayout());
-		FieldPanel fp = new FieldPanel("Dictamen",c,"Ingrese aqui",null);
+		fp = new FieldPanel("Dictamen",c,"Ingrese aqui",null);
 		p1= new JPanel();
 		p2= new JPanel();
 		p3= new JPanel();
@@ -29,8 +34,8 @@ public class PanelIngresarUsuario extends JPanel {
 		constraints.fill = GridBagConstraints.CENTER;
 		constraints.anchor = GridBagConstraints.CENTER;
 		p1.setLayout(new BorderLayout(10,10));
-		l1= new JLabel("Nombre de la consulta",SwingConstants.CENTER);
-		l2= new JLabel("Descripcion",SwingConstants.CENTER);
+		l1= new JLabel("INGRESAR USUARIO NUEVO",SwingConstants.CENTER);
+		l2= new JLabel("Complete todos los datos a continuacion para añadir un nuevo usuario",SwingConstants.CENTER);
 		p1.add(l1,BorderLayout.NORTH);
 		p1.add(l2,BorderLayout.CENTER);
 		this.add(p1,constraints);
@@ -46,12 +51,20 @@ public class PanelIngresarUsuario extends JPanel {
 		JMenuBar sssx =new JMenuBar();
 		JMenu sss = new JMenu("Escoga una Ocupacion");
 		sssx.add(sss);
-		JMenuItem m12 = new JMenuItem("Operario");
+		JMenuItem m12 = new JMenuItem("Admin");
 		JMenuItem m22 = new JMenuItem("Vendedor");
 		JMenuItem m32 = new JMenuItem("Cliente");
+		JMenuItem m42 = new JMenuItem("Operario");
+
+		m12.addActionListener(new ControlMenuOcupacion());
+		m22.addActionListener(new ControlMenuOcupacion());
+		m32.addActionListener(new ControlMenuOcupacion());
+		m42.addActionListener(new ControlMenuOcupacion());
+		
 		sss.add(m12);
 		sss.add(m22);
 		sss.add(m32);
+		sss.add(m42);
 		p4= new JPanel();
 		p4.add(l3,BorderLayout.SOUTH);
 		p4.add(sssx,BorderLayout.PAGE_END);
@@ -61,7 +74,9 @@ public class PanelIngresarUsuario extends JPanel {
 		constraints.gridheight = 2; 
 		this.add(p4,constraints);
 		b1=new JButton("Aceptar");
-		b2=new JButton("Salir");
+		b1.addActionListener(new ControlPanIngresarUsuario());
+		b2=new JButton("Cancelar");
+		b2.addActionListener(new ControlPanIngresarUsuario());
 		p3.add(b1);
 		p3.add(b2);
 		constraints.gridx = 1; 
@@ -85,5 +100,9 @@ public class PanelIngresarUsuario extends JPanel {
 		p4.setBorder(compound);
 		p3.setBorder(compound);
 
+	}
+	
+	public ArrayList<String> getFPTexts(){
+		return fp.getAllStrings();
 	}
 }

@@ -13,7 +13,7 @@ public class FieldPanel extends JPanel {
     raisedbevel, loweredbevel, empty;
 	Border compound;
 	Border redline = BorderFactory.createLineBorder(Color.red);
-	
+	ArrayList<JTextField> jtexts = new ArrayList<JTextField>();
 	public FieldPanel(String criterio,String[] c,String val,String[] v,Boolean[] b) {
 		crite=criterio;
 		valo=val;
@@ -50,21 +50,21 @@ public class FieldPanel extends JPanel {
 				}else {
 					e.setEnabled(false);
 				}
+				jtexts.add(e);
 			}
 			else {
 				JTextField e= new JTextField(vals[i]);
 				add(e);
 				if(boo==null) {
 					e.setEnabled(true);
-			}
+				}
 				else if(boo[i]==true) {
 					e.setEnabled(true);
 				}else {
 					e.setEnabled(false);
 				}
-				
+				jtexts.add(e);
 			}
-			
 			
 		}
 		
@@ -97,16 +97,28 @@ public class FieldPanel extends JPanel {
 			add(p);
 			if(vals==null) {
 				JTextField e= new JTextField();
+				jtexts.add(e);
 				add(e);
 			}
 			else {
 				JTextField e= new JTextField(vals[i]);
+				jtexts.add(e);
 				add(e);
 				
 			}
 			
 			
 		}	
+	}
+	
+	public ArrayList<String> getAllStrings() {
+	    Component[] comps = this.getComponents();
+	    ArrayList<String> compList = new ArrayList<String>();
+	    for (Component comp : comps) {
+	        if (comp instanceof JTextField)
+		        compList.add(((JTextField) comp).getText());
+	    }
+	    return compList;
 	}
 	
 	

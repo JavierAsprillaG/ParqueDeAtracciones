@@ -25,4 +25,7 @@ public abstract class Persona {
 	}public void setTelefono(String telefono){
 		this.telefono=telefono;
 	}
+	public String toString() {
+    	return "Nombre: "+nombre+"\nCedula: "+cedula+"\nTelefono: "+telefono;
+    }
 }
