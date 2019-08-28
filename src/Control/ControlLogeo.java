@@ -45,6 +45,7 @@ public class ControlLogeo extends ControlEstandar {
 		} else if (selectedOpc.equals("Administrador Complete y Nuevamente Clic")) {
 			String username = Main.v.t1.getText();
 			String passw = Main.v.t2.getText();
+			System.out.println("#Entre");
 			try {
 				Administrador.verificarloginadmin(username, passw);
 			} catch (Exception_Informacion_Administrador R) {
@@ -53,6 +54,23 @@ public class ControlLogeo extends ControlEstandar {
 								+ "\n Por favor llene todos los campos para continuar ",
 						"Error faltan datos ", JOptionPane.WARNING_MESSAGE);
 			}
+			 try {
+					Administrador.verificarusuarioadmin(username);			
+				} catch (Exception_Usuario_Invalido R) {
+					JOptionPane.showMessageDialog(null,
+							"               Usuario no encontrado "
+									+ "\n Ingrese usuario valido para continuar ",
+							"Error Usename Invalido ", JOptionPane.WARNING_MESSAGE);
+				}
+			 try {
+				 Administrador.verificarcontrasenaadmin(username, passw);
+					}
+					catch (Exception_Contraseña_Invalida R) {
+						JOptionPane.showMessageDialog(null,
+								"                 Contraseña Invalida "
+										+ "\n La contraseña no coincide con el nombre de usuario  ",
+								"Error Contraseña Invalida ", JOptionPane.WARNING_MESSAGE);
+					}
 			if (Usuario.login(username, passw)) {
 				Main.v.cont.removeAll();
 				Main.v.cont.add(new PanelAdmin());
@@ -75,7 +93,7 @@ public class ControlLogeo extends ControlEstandar {
 				Usuario.verificarusuario(username);			
 			} catch (Exception_Usuario_Invalido R) {
 				JOptionPane.showMessageDialog(null,
-						"                 Usuario no encontrado "
+						"              Usuario no encontrado "
 								+ "\n Ingrese usuario valido para continuar ",
 						"Error Usename Invalido ", JOptionPane.WARNING_MESSAGE);
 			}

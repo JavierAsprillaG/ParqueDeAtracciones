@@ -125,29 +125,29 @@ public class Usuario extends Persona{
         return false;       
     }
     public static void verificarcontrasena(String username, String contrasena) throws Exception_Contraseña_Invalida {
-        Usuario u = Usuario.getUsuarioPorUsername(username);
-        System.out.println(u);
+        Usuario u = Usuario.getUsuarioPorUsername(username);     
         if (u != null && u.getContrasena().equals("") ) {
         	Main.usuario = u;
+        	System.out.println("#s1");
         }
         else if (u != null && u.getContrasena()!=("")){
+        	System.out.println("#s2");
         	throw new Exception_Contraseña_Invalida(); 
         }
         else {
-        	System.out.println("#s");
+        	System.out.println("#s3");
         	Main.usuario = u;         	         	
         }
     }
     public static void verificarusuario(String username) throws Exception_Usuario_Invalido {
         Usuario u = Usuario.getUsuarioPorUsername(username);
-        System.out.println("f");
-        if (u == null &&  ("")!=username ){
-        	System.out.println("#nno da");
+        if (u == null &&  ("")!=username ){ 
+        	System.out.println("#n1");
         	throw new Exception_Usuario_Invalido();  
         }
-        else {
-        	System.out.println("#juan");
-        	Main.usuario = u;        	
+        else { 
+        	Main.usuario = u;
+        	System.out.println("#n2");      	
         }
     }
     public static String signOut(){

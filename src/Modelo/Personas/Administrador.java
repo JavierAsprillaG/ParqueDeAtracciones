@@ -1,7 +1,9 @@
 package Modelo.Personas;
 
 import Modelo.Registro;
+import Modelo.ErroresAplicacion.Exception_Contraseña_Invalida;
 import Modelo.ErroresAplicacion.Exception_Informacion_Administrador;
+import Modelo.ErroresAplicacion.Exception_Usuario_Invalido;
 import Modelo.Infraestructuras.Atraccion;
 import Modelo.Infraestructuras.Tienda;
 import Modelo.Main.Main;
@@ -68,6 +70,32 @@ public class Administrador extends Empleado {
 			Main.usuario = u;
 		}
 	}
+	public static void verificarusuarioadmin(String username) throws Exception_Usuario_Invalido {
+        Usuario u = Usuario.getUsuarioPorUsername(username);
+        if (u == null &&  ("")!=username ){ 
+        	System.out.println("#n1");
+        	throw new Exception_Usuario_Invalido();  
+        }
+        else { 
+        	Main.usuario = u;
+        	System.out.println("#n2");      	
+        }
+    }
+	 public static void verificarcontrasenaadmin(String username, String contrasena) throws Exception_Contraseña_Invalida {
+	        Usuario u = Usuario.getUsuarioPorUsername(username);
+	        if (u != null && u.getContrasena().equals("") ) {
+	        	Main.usuario = u;
+	        	System.out.println("#s1");
+	        }
+	        else if (u != null && u.getContrasena()!=("")){
+	        	System.out.println("#s2");
+	        	throw new Exception_Contraseña_Invalida(); 
+	        }
+	        else {
+	        	System.out.println("#s3");
+	        	Main.usuario = u;         	         	
+	        }
+	    }
 //	public void asginarcontraseña(){
 //		this.crearEmpleado();
 //	} 	
