@@ -72,8 +72,13 @@ public class Administrador extends Empleado {
 	}
 	public static void verificarusuarioadmin(String username) throws Exception_Usuario_Invalido {
         Usuario u = Usuario.getUsuarioPorUsername(username);
-        if (u == null &&  ("")!=username ){ 
-        	System.out.println("#n1");
+        System.out.println(username);
+        System.out.println("");
+        if (u == null &&  username.equals("")){ 
+        	System.out.println("#O:O"); 
+        }
+        else if(u == null &&  username != ("")) {
+        	System.out.println("Estoy es aqui");
         	throw new Exception_Usuario_Invalido();  
         }
         else { 
@@ -86,6 +91,10 @@ public class Administrador extends Empleado {
 	        if (u != null && u.getContrasena().equals("") ) {
 	        	Main.usuario = u;
 	        	System.out.println("#s1");
+	        }
+	        else if (u != null && u.getContrasena().equals(contrasena) ) {
+	        	Main.usuario = u;
+	        	System.out.println("#s4");
 	        }
 	        else if (u != null && u.getContrasena()!=("")){
 	        	System.out.println("#s2");
