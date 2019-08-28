@@ -35,10 +35,10 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		p6.setLayout(new GridBagLayout());
 		GridBagConstraints constraints = new GridBagConstraints();
 		
-		constraints.gridx = 0; // El boton empieza b2 la columna cero.
-		constraints.gridy = 0; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 2; // El área de texto ocupa una columnas.
-		constraints.gridheight = 1; // El área de texto ocupa una filas.
+		constraints.gridx = 0; 
+		constraints.gridy = 0; 
+		constraints.gridwidth = 2; 
+		constraints.gridheight = 1; 
 		constraints.weighty = 1.0;
 		constraints.weightx = 1.0;
 		constraints.fill = GridBagConstraints.CENTER;
