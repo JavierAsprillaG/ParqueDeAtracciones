@@ -1,4 +1,4 @@
-package baseDatos;
+package Modelo.baseDatos;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -7,11 +7,12 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.io.File;
 
-import gestorAplicacion.*;
-import gestorAplicacion.Infraestructuras.*;
-import gestorAplicacion.Personas.*;
+import Modelo.*;
+import Modelo.Infraestructuras.*;
+import Modelo.Personas.*;
+
+import java.io.File;
 
 public class Datos {
 	public static HashMap<String, Usuario> usuarios = new HashMap<String, Usuario>();

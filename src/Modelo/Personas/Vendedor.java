@@ -1,9 +1,9 @@
-package gestorAplicacion.Personas;
+package Modelo.Personas;
 import java.util.HashMap;
 
-import baseDatos.Datos;
-import gestorAplicacion.Registro;
-import gestorAplicacion.Infraestructuras.Tienda;
+import Modelo.Registro;
+import Modelo.Infraestructuras.Tienda;
+import Modelo.baseDatos.Datos;
 public class Vendedor extends Empleado{
 	public Vendedor() {
 		super();

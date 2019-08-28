@@ -1,7 +1,7 @@
-package gestorAplicacion.Infraestructuras;
+package Modelo.Infraestructuras;
 import java.util.HashMap;
 
-import gestorAplicacion.Registro;
+import Modelo.Registro;
 
 import java.util.ArrayList;
 

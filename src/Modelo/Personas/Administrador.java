@@ -1,9 +1,9 @@
-package gestorAplicacion.Personas;
+package Modelo.Personas;
 
-import baseDatos.Datos;
-import gestorAplicacion.Registro;
-import gestorAplicacion.Infraestructuras.Atraccion;
-import gestorAplicacion.Infraestructuras.Tienda;
+import Modelo.Registro;
+import Modelo.Infraestructuras.Atraccion;
+import Modelo.Infraestructuras.Tienda;
+import Modelo.baseDatos.Datos;
 
 public class Administrador extends Empleado{
 	

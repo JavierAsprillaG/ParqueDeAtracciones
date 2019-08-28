@@ -1,7 +1,7 @@
-package gestorAplicacion.Personas;
+package Modelo.Personas;
 
-import baseDatos.Datos;
-import gestorAplicacion.Infraestructuras.Infraestructura;
+import Modelo.Infraestructuras.Infraestructura;
+import Modelo.baseDatos.Datos;
 
 public class Empleado extends Usuario{
     protected int sueldo;

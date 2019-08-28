@@ -1,6 +1,6 @@
-package gestorAplicacion;
+package Modelo;
 
-import gestorAplicacion.Personas.Cliente;
+import Modelo.Personas.Cliente;
 
 public class Boleta {
     private String categoria;

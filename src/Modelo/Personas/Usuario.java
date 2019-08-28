@@ -1,9 +1,9 @@
-package gestorAplicacion.Personas;
+package Modelo.Personas;
 
 import java.util.HashMap;
 
-import baseDatos.Datos;
-import uiMain.Main.*;
+import Modelo.Main.*;
+import Modelo.baseDatos.Datos;
 
 public class Usuario extends Persona{
 	protected String username;

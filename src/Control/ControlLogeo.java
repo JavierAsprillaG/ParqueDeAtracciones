@@ -6,12 +6,12 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-import ErroresAplicacion.Exception_Informacion_Usuario;
+import Modelo.ErroresAplicacion.Exception_Informacion_Usuario;
 import Vista.InterfazVendedor;
 import Vista.PanelVendedor;
 import Vista.VentanaInicio;
-import baseDatos.Datos;
-import uiMain.Main.Main;
+import Modelo.Main.Main;
+import Modelo.baseDatos.Datos;
 
 public class ControlLogeo extends ControlEstandar{
 	

@@ -1,4 +1,4 @@
-package ErroresAplicacion;
+package Modelo.ErroresAplicacion;
 
 public class ExceptionUsuario extends ErrorAplicacion {
 	public ExceptionUsuario () {		

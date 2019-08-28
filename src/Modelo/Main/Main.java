@@ -1,14 +1,14 @@
-package uiMain.Main;
+package Modelo.Main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import ErroresAplicacion.Exception_Informacion_Usuario;
+import Modelo.*;
+import Modelo.ErroresAplicacion.Exception_Informacion_Usuario;
+import Modelo.Personas.Administrador;
+import Modelo.Personas.Usuario;
+import Modelo.baseDatos.Datos;
 import Vista.VentanaInicio;
-import baseDatos.Datos;
-import gestorAplicacion.*;
-import gestorAplicacion.Personas.Administrador;
-import gestorAplicacion.Personas.Usuario;
 
 public class Main {
 	public static Usuario usuario = new Usuario();

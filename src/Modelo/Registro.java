@@ -1,7 +1,7 @@
-package gestorAplicacion;
+package Modelo;
 
-import baseDatos.Datos;
-import gestorAplicacion.Personas.Persona;
+import Modelo.Personas.Persona;
+import Modelo.baseDatos.Datos;
 
 public class Registro {
 	private  static double ingresosGenerales;

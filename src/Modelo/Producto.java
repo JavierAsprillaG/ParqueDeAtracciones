@@ -1,7 +1,7 @@
-package gestorAplicacion;
+package Modelo;
 
-import baseDatos.Datos;
-import gestorAplicacion.Infraestructuras.Tienda;
+import Modelo.Infraestructuras.Tienda;
+import Modelo.baseDatos.Datos;
 
 public class Producto {
 	private String codigo;

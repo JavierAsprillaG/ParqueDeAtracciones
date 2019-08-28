@@ -1,4 +1,4 @@
-package gestorAplicacion.Infraestructuras;
+package Modelo.Infraestructuras;
 /**/
 public abstract class Infraestructura {
 	private String id;

@@ -1,4 +1,4 @@
-package gestorAplicacion.Personas;
+package Modelo.Personas;
 public abstract class Persona {
 	//protected int ID;
 	protected String nombre;
