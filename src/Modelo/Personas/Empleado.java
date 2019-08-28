@@ -6,7 +6,6 @@ import Modelo.baseDatos.Datos;
 public class Empleado extends Usuario{
     protected int sueldo;
     protected String lugar;
-    protected String lugarTrabajo;
     public Empleado() {
     	
     }
@@ -32,4 +31,7 @@ public class Empleado extends Usuario{
     public void setSueldo(int sueldo) {
 		this.sueldo = sueldo;
 	}
+    public String toString() {
+    	return super.toString()+"\nUsuario: "+this.getUsername()+"\nLugar de trabajo: "+ lugar;
+    }
 }

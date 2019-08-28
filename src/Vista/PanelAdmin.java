@@ -4,12 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import javax.swing.*;
 
-import Control.ControlEstandar;
-import Control.ControlPanelAdmin;
+import Control.*;
 
 public class PanelAdmin extends JPanel {
 	JMenu bArchivo, bAyuda, bPyC;
-	JMenuItem crear, veratrac;
+	JMenuItem usu,salir,crear, veratrac,acerca;
 	JMenuBar BarraH;
 	JLabel saludo;
 
@@ -18,10 +17,19 @@ public class PanelAdmin extends JPanel {
 		bPyC = new JMenu("Procesos y consultas");
 		crear = new JMenuItem("Crear nuevo Usuario");
 		veratrac = new JMenuItem("Ver Atracciones");
+		usu = new JMenuItem("Usuario");
+		usu.addActionListener(new ControlMenuBar());
+		salir = new JMenuItem("Salir");
+		salir.addActionListener(new ControlMenuBar());
 		crear.addActionListener(new ControlPanelAdmin());
+		bArchivo.add(usu);
+		bArchivo.add(salir);
 		bPyC.add(crear);
 		bPyC.add(veratrac);
 		bAyuda = new JMenu("Ayuda");
+		acerca = new JMenuItem("Acerca de:");
+		acerca.addActionListener(new ControlMenuBar());
+		bAyuda.add(acerca);
 		BarraH = new JMenuBar();
 		saludo = new JLabel("Bienvenido Administrador Haga clic en procesos y consultas para seleccionar lo que desea");
 

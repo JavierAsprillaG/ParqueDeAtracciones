@@ -21,7 +21,6 @@ public class ControlPanIngresarUsuario extends ControlEstandar{
 		if(selectedOpc.equals("Aceptar")) {
 			PanelAdmin x = (PanelAdmin) Main.v.cont.getComponent(0);
 			PanelIngresarUsuario p1 = (PanelIngresarUsuario)x.getComponent(2);
-			JPanel p2 = (JPanel)p1.getComponent(2);
 			ArrayList<String> mio = p1.getFPTexts();
 			if(PanelIngresarUsuario.ocupacion.equals("Operario")) {
 				Operario o = new Operario(mio.get(0),mio.get(1),mio.get(2),mio.get(3),mio.get(4),mio.get(5),Integer.parseInt(mio.get(6)),mio.get(7));
@@ -36,7 +35,7 @@ public class ControlPanIngresarUsuario extends ControlEstandar{
 				Administrador o = new Administrador(mio.get(0),mio.get(1),mio.get(2),mio.get(3),mio.get(4),mio.get(5),Integer.parseInt(mio.get(6)),mio.get(7));
 			}
 		}
-		else if (selectedOpc.equals("Salir")) {
+		else if (selectedOpc.equals("Cancelar")) {
 			Datos.guardarDatos();
 			Main.v.cont.removeAll();
 			Main.v.cont.add(new PanelAdmin());

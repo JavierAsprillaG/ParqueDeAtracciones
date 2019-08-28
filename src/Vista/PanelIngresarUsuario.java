@@ -75,7 +75,7 @@ public class PanelIngresarUsuario extends JPanel {
 		this.add(p4,constraints);
 		b1=new JButton("Aceptar");
 		b1.addActionListener(new ControlPanIngresarUsuario());
-		b2=new JButton("Salir");
+		b2=new JButton("Cancelar");
 		b2.addActionListener(new ControlPanIngresarUsuario());
 		p3.add(b1);
 		p3.add(b2);
