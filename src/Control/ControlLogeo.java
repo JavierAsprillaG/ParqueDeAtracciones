@@ -54,17 +54,18 @@ public class ControlLogeo extends ControlEstandar{
 			
 		}
 		
-			if(selectedOpc.equals("Usuario Complete y Nuevamente Clic")){
-				System.out.println("#s");
-				VentanaInicio.l2.setText("Informacion ingresada es incorrecta ");
+		else if(selectedOpc.equals("Usuario Complete y Nuevamente Clic")){
+			String username=Main.v.t1.getText();
+			String passw=Main.v.t2.getText();
+			if(Usuario.login(username, passw)) {//Try
 				Main.v.cont.removeAll();
-				Main.v.cont.add(new PanelVendedor());
+				Main.v.cont.add(new PanelAdmin());
 				Main.v.pack();
-				JOptionPane.showMessageDialog(null, "                 Informacion No ingresada "
-						+ "\n Por favor llene todos los campos para continuar ", "Error faltan datos ", JOptionPane.WARNING_MESSAGE);
-				//Si se le da click por segunda vez se debe comprobar que los datos se encuentren ingresados de 
-				//manera correcta con manejo de errores para el usuario comun
+			}else {
+				JOptionPane.showMessageDialog(null, "Informacion ingresada no es correcta", "Datos Incorrectos", JOptionPane.WARNING_MESSAGE);			
 			}
+			
+		}
 
 //			try {
 				if(selectedOpc.equals("Usuario Complete y Nuevamente Clic")){
