@@ -39,13 +39,31 @@ public class FieldPanel extends JPanel {
 		for (int i=0;i<(cri.length);i++) {
 			JLabel p= new JLabel(cri[i]);
 			add(p);
-			if(vals.equals(null)) {
+			if(vals==null) {
 				JTextField e= new JTextField();
 				add(e);
-			}else {
+				if(boo==null) {
+					e.setEnabled(true);
+			}
+				else if(boo[i]==true) {
+					e.setEnabled(true);
+				}else {
+					e.setEnabled(false);
+				}
+			}
+			else {
 				JTextField e= new JTextField(vals[i]);
 				add(e);
-			}	
+				if(boo==null) {
+					e.setEnabled(true);
+			}
+				else if(boo[i]==true) {
+					e.setEnabled(true);
+				}else {
+					e.setEnabled(false);
+				}
+				
+			}
 			
 			
 		}	
