@@ -15,10 +15,10 @@ import Modelo.Personas.*;
 import java.io.File;
 
 public class Datos {
-	public static HashMap<String, Usuario> usuarios = new HashMap<String, Usuario>();
-	public static HashMap<String, Usuario> admins = new HashMap<String, Usuario>();
-	public static HashMap<String, Usuario> vendedors = new HashMap<String, Usuario>();
-	public static HashMap<String, Usuario> operarios = new HashMap<String, Usuario>();
+	public static HashMap<String, Cliente> usuarios = new HashMap<String, Cliente>();
+	public static HashMap<String, Administrador> admins = new HashMap<String, Administrador>();
+	public static HashMap<String, Vendedor> vendedors = new HashMap<String, Vendedor>();
+	public static HashMap<String, Operario> operarios = new HashMap<String, Operario>();
 	public static HashMap<String, String> operations = new HashMap<String, String>();
 	public static HashMap<String, Atraccion> atracciones = new HashMap<String, Atraccion>();
 	public static HashMap<String, Registro> registro = new HashMap<String, Registro>();
@@ -29,12 +29,27 @@ public class Datos {
 		crearArchivYDirects();
 		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
 		cargarProductos(ruta);
-		cargarUsuarios(ruta);
+		cargarClientes(ruta);
 		cargarAdmins(ruta);
-		cargarEmp(ruta);
+		cargarOperarios(ruta);
+		cargarVendedores(ruta);
 		cargarAtracciones(ruta);
 		cargarRegistros(ruta);
 		cargarTiendas(ruta);
+	}
+	
+
+	public static void guardarDatos() {
+		crearArchivYDirects();
+		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
+		guardarAdmins(ruta);
+		guardarVendedores(ruta);
+		guardarOperarios(ruta);
+		guardarProductos(ruta);
+		guardarUsuarios(ruta);
+		guardarAtracciones(ruta);
+		guardarRegistro(ruta);
+		guardarTiendas(ruta);
 	}
 	
 	private static void cargarAdmins(String ruta) {
@@ -62,9 +77,9 @@ public class Datos {
         }
 	}
 	
-	private static void cargarEmp(String ruta) {
+	private static void cargarOperarios(String ruta) {
 		try{
-            FileReader fr = new FileReader(ruta+"empleados.txt");
+            FileReader fr = new FileReader(ruta+"operarios.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){
@@ -78,7 +93,7 @@ public class Datos {
             		String tel = user[5];
             		int suel = Integer.parseInt((user[7]));
             		String lug = user[8];
-            		new Empleado(name, tel, ced,username,email,pass, suel,lug);
+            		new Operario(name, tel, ced, username,email,pass, suel,lug);
             	}
             }
             br.close();
@@ -87,7 +102,32 @@ public class Datos {
         }
 	}
 	
-	private static void cargarUsuarios(String ruta) {
+	private static void cargarVendedores(String ruta) {
+		try{
+            FileReader fr = new FileReader(ruta+"vendedores.txt");
+            BufferedReader br = new BufferedReader(fr);
+            String line;
+            while((line = br.readLine()) != null){
+            	if (!line.isEmpty()) {
+            		String [] user = line.split(";");
+            		String username = user[0];
+            		String pass = user[1];
+            		String email = user[2];
+            		String name = user[3];
+            		String ced = user[4];
+            		String tel = user[5];
+            		int suel = Integer.parseInt((user[7]));
+            		String lug = user[8];
+            		new Vendedor(name, tel, ced,username,email,pass, suel,lug);
+            	}
+            }
+            br.close();
+        }catch(Exception e){
+        	//Error al leer
+        }
+	}
+	
+	private static void cargarClientes(String ruta) {
 		try{
             FileReader fr = new FileReader(ruta+"usuarios.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -101,7 +141,7 @@ public class Datos {
             		String name = user[3];
             		String ced = user[4];
             		String tel = user[5];
-            		new Usuario(name,ced,tel, username, email, pass);
+            		new Cliente(name,ced,tel, username, email, pass);
             	}
             }
             br.close();
@@ -110,17 +150,7 @@ public class Datos {
         }
 	}
 	
-	
-	public static void guardarDatos() {
-		crearArchivYDirects();
-		String ruta = System.getProperty("user.dir")+"\\src\\temp\\";
-		guardarProductos(ruta);
-		guardarUsuarios(ruta);
-		guardarAtracciones(ruta);
-		guardarRegistro(ruta);
-		guardarTiendas(ruta);
-	}
-	
+		
 	private static void guardarAtracciones(String ruta) {
 		try {
 			FileWriter fw = new FileWriter(ruta+"atracciones.txt");
@@ -145,7 +175,7 @@ public class Datos {
 	
 	private static void cargarAtracciones(String ruta) {
 		try{
-            FileReader fr = new FileReader(ruta+"usuarios.txt");
+            FileReader fr = new FileReader(ruta+"atracciones.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){
@@ -189,7 +219,7 @@ public class Datos {
 	
 	private static void cargarTiendas(String ruta) {
 		try{
-            FileReader fr = new FileReader(ruta+"productos.txt");
+            FileReader fr = new FileReader(ruta+"tiendas.txt");
             BufferedReader br = new BufferedReader(fr);
             String line;
             while((line = br.readLine()) != null){
@@ -314,37 +344,92 @@ public class Datos {
 	
 	private static void guardarUsuarios(String ruta){
 		try {
-			FileWriter fwEmp = new FileWriter(ruta+"empleados.txt");
-            PrintWriter pwEmp = new PrintWriter(fwEmp);
-            FileWriter fw = new FileWriter(ruta+"usuarios.txt");
-            FileWriter fwAdmin = new FileWriter(ruta+"adminUsers.txt");
-            PrintWriter pw = new PrintWriter(fw);
-            PrintWriter pwAdmin = new PrintWriter(fwAdmin);
-    		for (Map.Entry<String, Usuario> user : usuarios.entrySet()) {
-    			Usuario userObj = user.getValue();
+            FileWriter fwUsu = new FileWriter(ruta+"usuarios.txt");
+            PrintWriter pwUsu = new PrintWriter(fwUsu);
+    		for (Map.Entry<String, Cliente> user : usuarios.entrySet()) {
+    			Cliente userObj = user.getValue();
     			String line = userObj.getUsername()+";";
     			line += userObj.getContrasena()+";";
     			line += userObj.getEmail()+";";
     			line += userObj.getNombre()+";";
 				line += userObj.getCedula()+";";
 				line += userObj.getTelefono()+";";
-				
-
-    			if(userObj instanceof Empleado) {
-					line += ((Empleado) userObj).getSueldo()+";";
-					line += ((Empleado) userObj).getLugar()+";";
-    				if(userObj instanceof Administrador){
-    					pwAdmin.println(line);
-    				}else {
-    					pwEmp.println(line);
-    				}
-				}else {
-					pw.println(line);
-    			}
+				pwUsu.println(line);
+    			
     		}
-            pw.close();
+            pwUsu.close();
+            
+        } catch (IOException ioObj) {
+        	//Ocurrio algo al guardar en txt los datos
+        }
+	}
+	
+	private static void guardarAdmins(String ruta){
+		try {
+            FileWriter fwAdmin = new FileWriter(ruta+"adminUsers.txt");
+            PrintWriter pwAdmin = new PrintWriter(fwAdmin);
+    		for (Map.Entry<String, Administrador> user : admins.entrySet()) {
+    			Administrador userObj = user.getValue();
+    			String line = userObj.getUsername()+";";
+    			line += userObj.getContrasena()+";";
+    			line += userObj.getEmail()+";";
+    			line += userObj.getNombre()+";";
+				line += userObj.getCedula()+";";
+				line += userObj.getTelefono()+";";
+				line += userObj.getSueldo()+";";
+				line += userObj.getLugar()+";";
+				pwAdmin.println(line);
+    			
+    		}
             pwAdmin.close();
-            pwEmp.close();
+            
+        } catch (IOException ioObj) {
+        	//Ocurrio algo al guardar en txt los datos
+        }
+	}
+	
+	private static void guardarVendedores(String ruta){
+		try {
+            FileWriter fwAdmin = new FileWriter(ruta+"vendedores.txt");
+            PrintWriter pwAdmin = new PrintWriter(fwAdmin);
+    		for (Map.Entry<String, Vendedor> user : vendedors.entrySet()) {
+    			Vendedor userObj = user.getValue();
+    			String line = userObj.getUsername()+";";
+    			line += userObj.getContrasena()+";";
+    			line += userObj.getEmail()+";";
+    			line += userObj.getNombre()+";";
+				line += userObj.getCedula()+";";
+				line += userObj.getTelefono()+";";
+				line += userObj.getSueldo()+";";
+				line += userObj.getLugar()+";";
+				pwAdmin.println(line);
+    			
+    		}
+            pwAdmin.close();
+            
+        } catch (IOException ioObj) {
+        	//Ocurrio algo al guardar en txt los datos
+        }
+	}
+	
+	private static void guardarOperarios(String ruta){
+		try {
+            FileWriter fwAdmin = new FileWriter(ruta+"operarios.txt");
+            PrintWriter pwAdmin = new PrintWriter(fwAdmin);
+    		for (Map.Entry<String, Operario> user : operarios.entrySet()) {
+    			Operario userObj = user.getValue();
+    			String line = userObj.getUsername()+";";
+    			line += userObj.getContrasena()+";";
+    			line += userObj.getEmail()+";";
+    			line += userObj.getNombre()+";";
+				line += userObj.getCedula()+";";
+				line += userObj.getTelefono()+";";
+				line += userObj.getSueldo()+";";
+				line += userObj.getLugar()+";";
+				pwAdmin.println(line);
+    			
+    		}
+            pwAdmin.close();
             
         } catch (IOException ioObj) {
         	//Ocurrio algo al guardar en txt los datos
@@ -358,8 +443,10 @@ public class Datos {
 	    if (! directory.exists()){
 	        directory.mkdir();
 	    }
-		File usersRegisteredFile = new File(ruta+"users.txt");
+		File usersRegisteredFile = new File(ruta+"usuarios.txt");
 		File adminUsersFile = new File(ruta+"adminUsers.txt");
+		File vendedoresFile = new File(ruta+"vendedores.txt");
+		File operariosFile = new File(ruta+"operarios.txt");
 		File usersMenus = new File(ruta+"usersMenus.txt");
 		File atracc = new File(ruta+"atracciones.txt");
 		File products = new File(ruta+"productos.txt");
@@ -367,6 +454,8 @@ public class Datos {
 		File tien = new File(ruta+"tiendas.txt");
 		usersRegisteredFile.createNewFile();
 		adminUsersFile.createNewFile();
+		vendedoresFile.createNewFile();
+		operariosFile.createNewFile();
 		usersMenus.createNewFile();
 		register.createNewFile();
 		products.createNewFile();

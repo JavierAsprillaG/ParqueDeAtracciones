@@ -23,7 +23,6 @@ public class Usuario extends Persona{
 		this.username = username;
 		this.email = email;
 		this.contrasena = contraseña;
-		Datos.usuarios.put(username, this);
 	}
 	public String getNombre() {
 		return nombre;
@@ -105,10 +104,6 @@ public class Usuario extends Persona{
 		return null;
     }
 	
-	public HashMap<String, Usuario> getUsuarios(){
-		return Datos.usuarios;
-	}
-	
     public static void verificarlogin(String username, String contrasena) throws Exception_Informacion_Usuario {
         Usuario u = Usuario.getUsuarioPorUsername(username);        
         if (username.equals("") || contrasena .equals("")){
@@ -119,7 +114,7 @@ public class Usuario extends Persona{
         }
     }
     public static boolean login (String username, String contrasena)  {
-        Usuario u = Usuario.getUsuarioPorUsername(username);        
+        Usuario u = Usuario.getUsuarioPorUsername(username);
         if (u != null){
             if(u.getUsername().equals(username) && u.getContrasena().equals(contrasena)){
             	Main.usuario = u;
