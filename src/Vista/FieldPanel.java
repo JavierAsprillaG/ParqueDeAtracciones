@@ -98,26 +98,10 @@ public class FieldPanel extends JPanel {
 			if(vals==null) {
 				JTextField e= new JTextField();
 				add(e);
-				if(boo==null) {
-					e.setEnabled(true);
-			}
-				else if(boo[i]==true) {
-					e.setEnabled(true);
-				}else {
-					e.setEnabled(false);
-				}
 			}
 			else {
 				JTextField e= new JTextField(vals[i]);
 				add(e);
-				if(boo==null) {
-					e.setEnabled(true);
-			}
-				else if(boo[i]==true) {
-					e.setEnabled(true);
-				}else {
-					e.setEnabled(false);
-				}
 				
 			}
 			

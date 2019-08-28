@@ -44,42 +44,42 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		constraints.fill = GridBagConstraints.CENTER;
 		constraints.anchor = GridBagConstraints.CENTER;
 		p6.add(b2,constraints);
-		constraints.gridx = 2; // El boton empieza b2 la columna cero.
-		constraints.gridy = 0; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 2; // El área de texto ocupa una columnas.
-		constraints.gridheight = 1; // El área de texto ocupa una filas.
+		constraints.gridx = 2; 
+		constraints.gridy = 0; 
+		constraints.gridwidth = 2; 
+		constraints.gridheight = 1; 
 		p6.add(b3,constraints);
 		constraints.weightx = 0.0;
-		constraints.gridx = 0; // El boton empieza b2 la columna cero.
-		constraints.gridy = 1; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 4; // El área de texto ocupa una columnas.
-		constraints.gridheight = 1; // El área de texto ocupa una filas.
+		constraints.gridx = 0; 
+		constraints.gridy = 1; 
+		constraints.gridwidth = 4; 
+		constraints.gridheight = 1; 
 		constraints.fill = GridBagConstraints.HORIZONTAL;
 		p6.add(l2,constraints);
-		constraints.gridx = 0; // El boton empieza b2 la columna cero.
-		constraints.gridy = 2; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 1; // El área de texto ocupa una columnas.
-		constraints.gridheight = 1; // El área de texto ocupa una filas.	
+		constraints.gridx = 0; 
+		constraints.gridy = 2; 
+		constraints.gridwidth = 1; 
+		constraints.gridheight = 1; 	
 		p6.add(l3,constraints);
-		constraints.gridx = 1; // El boton empieza b2 la columna cero.
-		constraints.gridy = 2; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 3; // El área de texto ocupa una columnas.
-		constraints.gridheight = 1; // El área de texto ocupa una filas.
+		constraints.gridx = 1; 
+		constraints.gridy = 2; 
+		constraints.gridwidth = 3; 
+		constraints.gridheight = 1; 
 		p6.add(t1,constraints);
-		constraints.gridx = 0; // El boton empieza b2 la columna cero.
-		constraints.gridy = 3; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 1; // El área de texto ocupa una columnas.
-		constraints.gridheight = 1; // El área de texto ocupa una filas.
+		constraints.gridx = 0; 
+		constraints.gridy = 3; 
+		constraints.gridwidth = 1; 
+		constraints.gridheight = 1; 
 		p6.add(l4,constraints);
-		constraints.gridx = 1; // El boton empieza b2 la columna cero.
-		constraints.gridy = 3; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 3; // El área de texto ocupa una columnas.
-		constraints.gridheight = 1; // El área de texto ocupa una filas.
+		constraints.gridx = 1; 
+		constraints.gridy = 3; 
+		constraints.gridwidth = 3; 
+		constraints.gridheight = 1; 
 		p6.add(t2,constraints);
-		constraints.gridx = 0; // El boton empieza b2 la columna cero.
-		constraints.gridy = 4; // El área de boton b2 empieza en la fila cero
-		constraints.gridwidth = 4; // El área de texto ocupa una columnas.
-		constraints.gridheight = 1; // El área de texto ocupa una filas.
+		constraints.gridx = 0; 
+		constraints.gridy = 4; 
+		constraints.gridwidth = 4; 
+		constraints.gridheight = 1; 
 		constraints.fill = GridBagConstraints.NONE;
 		constraints.anchor = GridBagConstraints.CENTER;
 		t1.setVisible(false);
