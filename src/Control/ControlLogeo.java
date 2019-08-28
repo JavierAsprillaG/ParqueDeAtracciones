@@ -3,6 +3,7 @@ package Control;
 import java.awt.event.ActionEvent;
 import javax.swing.JOptionPane;
 
+import Modelo.ErroresAplicacion.Exception_Contraseña_Invalida;
 import Modelo.ErroresAplicacion.Exception_Informacion_Administrador;
 import Modelo.ErroresAplicacion.Exception_Informacion_Usuario;
 import Vista.*;
@@ -69,6 +70,15 @@ public class ControlLogeo extends ControlEstandar {
 								+ "\n Por favor llene todos los campos para continuar ",
 						"Error faltan datos ", JOptionPane.WARNING_MESSAGE);
 			}
+			try {
+			Usuario.verificarcontrasena(username, passw);
+			}
+			catch (Exception_Contraseña_Invalida R) {
+				JOptionPane.showMessageDialog(null,
+						"                 Contraseña Invalida "
+								+ "\n La contraseña no coincide con el nombre de usuario  ",
+						"Error faltan datos ", JOptionPane.WARNING_MESSAGE);
+			}			
 			if (Usuario.login(username, passw)) {
 				Main.v.cont.removeAll();
 				Main.v.cont.add(new PanelVendedor());
