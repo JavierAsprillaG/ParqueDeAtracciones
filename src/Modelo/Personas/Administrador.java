@@ -78,6 +78,7 @@ public class Administrador extends Empleado {
         	System.out.println("#O:O"); 
         }
         else if(u == null &&  username != ("")) {
+        	Main.usuario = u;
         	System.out.println("Estoy es aqui");
         	throw new Exception_Usuario_Invalido();  
         }

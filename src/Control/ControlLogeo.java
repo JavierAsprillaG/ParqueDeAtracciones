@@ -70,10 +70,11 @@ public class ControlLogeo extends ControlEstandar {
 										+ "\n La contraseña no coincide con el nombre de usuario  ",
 								"Error Contraseña Invalida ", JOptionPane.WARNING_MESSAGE);
 					}
-			if (Usuario.login(username, passw)) {
+			if (Usuario.login(username, passw)) {			
 				Main.v.cont.removeAll();
 				Main.v.cont.add(new PanelAdmin());
 				Main.v.pack();
+				
 			}
 		}
 
