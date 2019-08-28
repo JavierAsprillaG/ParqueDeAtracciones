@@ -34,4 +34,6 @@ public class PanelAdmin extends JPanel {
 		add(saludo, BorderLayout.CENTER);
 		
 	}
+	
+	
 }
