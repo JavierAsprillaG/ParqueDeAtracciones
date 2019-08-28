@@ -2,13 +2,14 @@ package Modelo.Personas;
 
 import java.util.HashMap;
 
+import Modelo.ErroresAplicacion.Exception_Contraseña_Invalida;
 import Modelo.ErroresAplicacion.Exception_Informacion_Administrador;
 import Modelo.ErroresAplicacion.Exception_Informacion_Usuario;
 import Modelo.Main.*;
 import Modelo.baseDatos.Datos;
 
 public class Usuario extends Persona{
-	protected String username;
+	protected static String username;
 	protected String email;
 	protected String contrasena;
 	
@@ -126,6 +127,17 @@ public class Usuario extends Persona{
             }
         }
         return false;       
+    }
+    public static void verificarcontrasena(String username, String contrasena) throws Exception_Contraseña_Invalida {
+        Usuario u = Usuario.getUsuarioPorUsername(username);        
+        if (u != null){
+        	System.out.println("#n");
+        	Main.usuario = u;  
+        }
+        else {
+        	System.out.println("#s");
+        	throw new Exception_Contraseña_Invalida();         	
+        }
     }
     
     public static String signOut(){
