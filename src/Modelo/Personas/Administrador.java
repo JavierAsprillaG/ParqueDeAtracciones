@@ -13,6 +13,7 @@ public class Administrador extends Empleado{
 	public Administrador(String nom, String ced, String tel,
     		String username, String email, String contrasena, int sue,String lug) {
 		super(nom,ced,tel,username, email, contrasena, sue, lug);
+		Datos.admins.put(username,this);
 	}
 	
 	public static String crearUsuario(String nombre, String cedula, String telefono,String tip,

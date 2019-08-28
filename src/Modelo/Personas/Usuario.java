@@ -20,7 +20,6 @@ public class Usuario extends Persona{
 		this.username = username;
 		this.email = email;
 		this.contrasena = contraseña;
-		Datos.usuarios.put(username, this);
 	}
 	public String getNombre() {
 		return nombre;
@@ -101,10 +100,6 @@ public class Usuario extends Persona{
 		if(Datos.usuarios.containsKey(username)) {return Datos.usuarios.get(username);}
 		return null;
     }
-	
-	public HashMap<String, Usuario> getUsuarios(){
-		return Datos.usuarios;
-	}
 	
     public static boolean login(String username, String contrasena){
         Usuario u = Usuario.getUsuarioPorUsername(username);

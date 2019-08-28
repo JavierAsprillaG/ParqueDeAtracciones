@@ -7,6 +7,7 @@ public class Operario extends Empleado{
 	public Operario(String nom, String ced, String tel,
     		String username, String email, String contrasena, int sue,String lug) {
 		super(nom,ced,tel,username, email, contrasena, sue, lug);
+		Datos.operarios.put(username,this);
 	}
 
 	public static String crearUsuario(String nombre, String cedula, String telefono,
@@ -18,7 +19,7 @@ public class Operario extends Empleado{
 		
 		String [] operations = {"1","2","3","4","5"};
 		if(true){
-			Datos.usuarios.put(username,op);
+			Datos.operarios.put(username,op);
 			return "Ha sido creado";
 		}else{
 			return "No ha sido creado...";
