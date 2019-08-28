@@ -102,15 +102,15 @@ public class Usuario extends Persona{
 		return Datos.usuarios;
 	}
 	
-    public static String login(String username, String contrasena){
+    public static boolean login(String username, String contrasena){
         Usuario u = Usuario.getUsuarioPorUsername(username);
         if (u != null){
             if(u.getUsername().equals(username) && u.getContrasena().equals(contrasena)){
             	Main.usuario = u;
-                return "Bienvenido "+u.getNombre();
+                return true;
             }
         }
-        return "Usuario no encontrado";
+        return false;
     }
     
     public static String signOut(){
