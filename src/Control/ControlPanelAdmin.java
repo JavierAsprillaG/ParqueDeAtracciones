@@ -21,6 +21,13 @@ public class ControlPanelAdmin extends ControlEstandar{
 			Main.v.cont.removeAll();
 			Main.v.cont.add(panel);
 			Main.v.pack();
+		}else if(selectedOpc.equals("Crear Atracciones")) {
+			JMenuItem crea = (JMenuItem)e.getSource();
+			PanelAdmin panel =new PanelAdmin();
+			panel.add(new PanelCrearInfraestructura());
+			Main.v.cont.removeAll();
+			Main.v.cont.add(panel);
+			Main.v.pack();
 		}
 		
 	}
