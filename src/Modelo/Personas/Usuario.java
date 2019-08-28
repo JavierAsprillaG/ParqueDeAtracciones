@@ -5,6 +5,7 @@ import java.util.HashMap;
 import Modelo.ErroresAplicacion.Exception_Contraseña_Invalida;
 import Modelo.ErroresAplicacion.Exception_Informacion_Administrador;
 import Modelo.ErroresAplicacion.Exception_Informacion_Usuario;
+import Modelo.ErroresAplicacion.Exception_Usuario_Invalido;
 import Modelo.Main.*;
 import Modelo.baseDatos.Datos;
 
@@ -124,17 +125,31 @@ public class Usuario extends Persona{
         return false;       
     }
     public static void verificarcontrasena(String username, String contrasena) throws Exception_Contraseña_Invalida {
-        Usuario u = Usuario.getUsuarioPorUsername(username);        
-        if (u != null){
-        	System.out.println("#n");
-        	Main.usuario = u;  
+        Usuario u = Usuario.getUsuarioPorUsername(username);
+        System.out.println(u);
+        if (u != null && u.getContrasena().equals("") ) {
+        	Main.usuario = u;
+        }
+        else if (u != null && u.getContrasena()!=("")){
+        	throw new Exception_Contraseña_Invalida(); 
         }
         else {
         	System.out.println("#s");
-        	throw new Exception_Contraseña_Invalida();         	
+        	Main.usuario = u;         	         	
         }
     }
-    
+    public static void verificarusuario(String username) throws Exception_Usuario_Invalido {
+        Usuario u = Usuario.getUsuarioPorUsername(username);
+        System.out.println("f");
+        if (u == null &&  ("")!=username ){
+        	System.out.println("#nno da");
+        	throw new Exception_Usuario_Invalido();  
+        }
+        else {
+        	System.out.println("#juan");
+        	Main.usuario = u;        	
+        }
+    }
     public static String signOut(){
     	Main.usuario = getUsuarioPorUsername("default");
         return "Adios";
