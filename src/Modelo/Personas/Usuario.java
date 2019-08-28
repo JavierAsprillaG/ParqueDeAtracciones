@@ -97,7 +97,11 @@ public class Usuario extends Persona{
 	}
 	
 	public static Usuario getUsuarioPorUsername(String username){
-        return Datos.usuarios.get(username);
+		if(Datos.admins.containsKey(username)) {return Datos.admins.get(username);}
+		if(Datos.operarios.containsKey(username)) {return Datos.operarios.get(username);}
+		if(Datos.vendedors.containsKey(username)) {return Datos.vendedors.get(username);}
+		if(Datos.usuarios.containsKey(username)) {return Datos.usuarios.get(username);}
+		return null;
     }
 	
 	public HashMap<String, Usuario> getUsuarios(){

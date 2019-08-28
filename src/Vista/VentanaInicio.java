@@ -9,7 +9,8 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 	public static Container cont;
 	JPanel p1,p2,p3,p4,p5,p6;
 	public static JLabel l1,l2,l3,l4;
-	public static JTextField t1,t2;
+	public static JTextField t1;
+	public static JPasswordField t2;
 	public static JButton bfoto,b2,b3,b4;
 	JTextArea textarea;
 	Border blackline, raisedetched, loweredetched,
@@ -22,7 +23,7 @@ public class VentanaInicio extends JFrame implements InterfazVista{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		cont = this.getContentPane();
 		cont.setLayout(new GridLayout(1,2));
-		t1 = new JTextField(); t2 = new JTextField();
+		t1 = new JTextField(); t2 = new JPasswordField();
 		t1.setEnabled(false); t2.setEnabled(false);
 		l1 = new JLabel("Bienvenido!",SwingConstants.CENTER);l2 = new JLabel("Ingrese su código de usuario y su clave!",SwingConstants.CENTER);
 		l3 = new JLabel("Usuario: ",SwingConstants.CENTER); l4 = new JLabel("Contraseña: ",SwingConstants.CENTER);

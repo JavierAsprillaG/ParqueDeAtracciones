@@ -1,0 +1,30 @@
+package Control;
+
+import java.awt.event.ActionEvent;
+
+import javax.swing.*;
+
+import Modelo.Main.Main;
+import Vista.*;
+public class ControlPanelAdmin extends ControlEstandar{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		String selectedOpc = e.getActionCommand();
+		if(selectedOpc.equals("Crear nuevo Usuario")) {
+			JMenuItem crea = (JMenuItem)e.getSource();
+			String[] c = {"Nombre: ","Cedula: ","Telefono: ","Usuario: ","Email: ","Contraseña: ",
+					"Sueldo: ","Lugar: "};
+			FieldPanel fp = new FieldPanel("Dictamen",c,"Ingrese aqui",null);
+			JMenuItem mm = (JMenuItem)e.getSource();
+			JPopupMenu p = (JPopupMenu)mm.getParent();
+			PanelAdmin panel =new PanelAdmin();
+			panel.add(fp);
+			Main.v.cont.removeAll();
+			Main.v.cont.add(panel);
+			Main.v.pack();
+		}
+		
+	}
+
+}
