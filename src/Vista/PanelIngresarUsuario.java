@@ -3,7 +3,7 @@ import javax. swing .*;
 import javax.swing.border.Border;
 import java.awt.*;
 import Vista.FieldPanel;
-public class PanelIngresarUsuario extends JFrame {
+public class PanelIngresarUsuario extends JPanel {
 	JPanel p1,p2,p3,p4;
 	JLabel l1,l2,l3;
 	JButton b1,b2;
