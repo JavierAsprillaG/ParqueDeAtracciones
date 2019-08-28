@@ -15,6 +15,7 @@ public class Main {
 	public static VentanaInicio v;
 	public static void main(String[] args) {
 		Datos.admins.put("jairillo", new Administrador("Jairo","10366","2312973","jairillo","jairo003@gmail.com","4321",1500000,"Oficina 3"));
+		Datos.admins.put("merche", new Administrador("Mercedes","85456","231587","merche","mercedesaris@gmail.com","777",1500000,"Oficina 3"));
 //		Main.iniciar();
 //		while(true) {
 //			MenuPpal m = new MenuPpal();

@@ -13,13 +13,11 @@ public class ControlPanelAdmin extends ControlEstandar{
 		String selectedOpc = e.getActionCommand();
 		if(selectedOpc.equals("Crear nuevo Usuario")) {
 			JMenuItem crea = (JMenuItem)e.getSource();
-			String[] c = {"Nombre: ","Cedula: ","Telefono: ","Usuario: ","Email: ","Contraseña: ",
-					"Sueldo: ","Lugar: "};
-			FieldPanel fp = new FieldPanel("Dictamen",c,"Ingrese aqui",null);
-			JMenuItem mm = (JMenuItem)e.getSource();
-			JPopupMenu p = (JPopupMenu)mm.getParent();
+//			String[] c = {"Nombre: ","Cedula: ","Telefono: ","Usuario: ","Email: ","Contraseña: ",
+//					"Sueldo: ","Lugar: "};
+//			FieldPanel fp = new FieldPanel("Dictamen",c,"Ingrese aqui",null);
 			PanelAdmin panel =new PanelAdmin();
-			panel.add(fp);
+			panel.add(new PanelIngresarUsuario());
 			Main.v.cont.removeAll();
 			Main.v.cont.add(panel);
 			Main.v.pack();
