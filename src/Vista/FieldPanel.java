@@ -39,7 +39,63 @@ public class FieldPanel extends JPanel {
 		for (int i=0;i<(cri.length);i++) {
 			JLabel p= new JLabel(cri[i]);
 			add(p);
-			if(vals.equals(null)) {
+			if(vals==null) {
+				JTextField e= new JTextField();
+				add(e);
+				if(boo==null) {
+					e.setEnabled(true);
+			}
+				else if(boo[i]==true) {
+					e.setEnabled(true);
+				}else {
+					e.setEnabled(false);
+				}
+			}
+			else {
+				JTextField e= new JTextField(vals[i]);
+				add(e);
+				if(boo==null) {
+					e.setEnabled(true);
+			}
+				else if(boo[i]==true) {
+					e.setEnabled(true);
+				}else {
+					e.setEnabled(false);
+				}
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	
+	public FieldPanel(String criterio,String[] c,String val,String[] v) {
+		crite=criterio;
+		valo=val;
+		cri=c;
+		vals=v;
+		this.setLayout(new GridLayout(cri.length+1,2,10,10));
+		JLabel l = new JLabel(crite);
+		JLabel x= new JLabel(valo);
+		add(l);
+		add(x);
+		raisedbevel = BorderFactory.createRaisedBevelBorder();
+		loweredbevel = BorderFactory.createLoweredBevelBorder();
+		empty = BorderFactory.createEmptyBorder(5,5,5,5);
+		compound = BorderFactory.createCompoundBorder(
+                raisedbevel, loweredbevel);
+		compound = BorderFactory.createCompoundBorder(
+                redline, compound);
+		compound = BorderFactory.createCompoundBorder(
+                empty, compound);
+		l.setBorder(compound);
+		x.setBorder(compound);
+		for (int i=0;i<(cri.length);i++) {
+			JLabel p= new JLabel(cri[i]);
+			add(p);
+			if(vals==null) {
 				JTextField e= new JTextField();
 				add(e);
 			}else {
@@ -49,7 +105,10 @@ public class FieldPanel extends JPanel {
 			
 			
 		}	
-	}public String getCriterio() {
+	}
+	
+	
+	public String getCriterio() {
 		return crite;
 		
 	}
