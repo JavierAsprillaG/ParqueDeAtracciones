@@ -1,6 +1,7 @@
 package Modelo.Personas;
 import java.util.HashMap;
 
+import Modelo.Producto;
 import Modelo.Registro;
 import Modelo.Infraestructuras.Tienda;
 import Modelo.baseDatos.Datos;
@@ -14,10 +15,9 @@ public class Vendedor extends Empleado{
 	public Vendedor(String nom, String ced, String tel,
     		String username, String email, String contrasena, int sue,String lug) {
 		super(nom,ced,tel,username, email, contrasena, sue, lug);
-		Datos.vendedors.put(username,this);
 	}
 	
-	public int solicitarproducto(Tienda a, int b){
+	public int solicitarproducto(Tienda a, Producto b){
 		return a.consultarInventario(b);
 	// se consulta si el producto solicitado b existe dentro de la tienda a.
 	}
@@ -47,8 +47,8 @@ public class Vendedor extends Empleado{
 	//se añaden ingresos ing al registro a
 	}
 	
-	public int vender(Tienda a, int k, int v, int pre) {
-		return ingresos += a.modificarProducto(k, v, pre);
+	public int vender(Tienda a, Producto k, int v) {
+		return ingresos += a.modificarProducto(k, v);
 	}
 	
 	public Cliente buscarCliente(Cliente a) {
