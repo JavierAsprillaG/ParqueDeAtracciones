@@ -128,26 +128,28 @@ public class Usuario extends Persona{
         Usuario u = Usuario.getUsuarioPorUsername(username);     
         if (u != null && u.getContrasena().equals("") ) {
         	Main.usuario = u;
-        	System.out.println("#s1");
+        }
+        else if (u != null && u.getContrasena().equals(contrasena) ) {
+        	Main.usuario = u;
         }
         else if (u != null && u.getContrasena()!=("")){
-        	System.out.println("#s2");
         	throw new Exception_Contraseña_Invalida(); 
         }
         else {
-        	System.out.println("#s3");
         	Main.usuario = u;         	         	
         }
     }
     public static void verificarusuario(String username) throws Exception_Usuario_Invalido {
         Usuario u = Usuario.getUsuarioPorUsername(username);
-        if (u == null &&  ("")!=username ){ 
-        	System.out.println("#n1");
+        System.out.println(username);
+        if (u == null &&  username != ("")){ 
         	throw new Exception_Usuario_Invalido();  
         }
-        else { 
+        else if(u == null  ){
         	Main.usuario = u;
-        	System.out.println("#n2");      	
+        }
+        else { 
+        	Main.usuario = u;     	
         }
     }
     public static void signOut(){

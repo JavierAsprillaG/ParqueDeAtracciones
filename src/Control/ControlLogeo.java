@@ -45,7 +45,6 @@ public class ControlLogeo extends ControlEstandar {
 		} else if (selectedOpc.equals("Administrador Complete y Nuevamente Clic")) {
 			String username = Main.v.t1.getText();
 			String passw = Main.v.t2.getText();
-			System.out.println("#Entre");
 			try {
 				Administrador.verificarloginadmin(username, passw);
 			} catch (Exception_Informacion_Administrador R) {
